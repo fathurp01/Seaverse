@@ -1,22 +1,31 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
+android/
+build/
 
-# Import cache (meskipun folder .import di-cache, tapi file .import penting)
-.import/
-
-# Godot export settings (jika kamu tidak ingin commit preset ekspor)
-export_presets.cfg
-
-# File terjemahan yang di-generate (binary)
+# Godot-specific files
 *.translation
+*.import
+
+# Exported files
+export.cfg
+export_presets.cfg
 
 # Mono / C# (jika pakai versi Godot dengan Mono)
 .mono/
-data_*/  
+data_*/
 mono_crash.*.json
 
-# Temporary / intermediate files
+# System/Editor files
+.DS_Store
+Thumbs.db
 *.tmp
-~*
+*.bak
+*.swp
+*~
+.vs/
+.vscode/
+
+# Logs
+*.log
 
