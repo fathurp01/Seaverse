@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ipk1t6vm5oa2"]
+
+[node name="DetailHewan" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0

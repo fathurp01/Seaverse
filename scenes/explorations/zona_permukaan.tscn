@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://byk6ed5wgr2fc"]
+
+[node name="ZonaPermukaan" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 1080.0

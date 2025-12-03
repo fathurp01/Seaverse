@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bykgdjv7n5m4c"]
+
+[node name="ZonaDasar" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
