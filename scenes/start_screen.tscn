@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://lcysepaqprij"]
+[gd_scene load_steps=3 format=3 uid="uid://lcysepaqprij"]
 
-[ext_resource type="Texture2D" uid="uid://d3uctlauq188q" path="res://assets/Bg_Laut.png" id="1_tx5wa"]
+[ext_resource type="Script" uid="uid://b6xfykqm3bbq0" path="res://scenes/start_screen.gd" id="1_tx5wa"]
+[ext_resource type="PackedScene" uid="uid://3gbahu6u5buy" path="res://scenes/animations/seaverse_animated_bg.tscn" id="2_bg_anim"]
 
 [node name="StartScreen" type="Control"]
 clip_contents = true
@@ -8,11 +9,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
+script = ExtResource("1_tx5wa")
 metadata/_edit_group_ = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1435.0
-offset_bottom = 842.0
-scale = Vector2(0.8952451, 0.8606432)
-texture = ExtResource("1_tx5wa")
+[node name="seaverse_animated_bg" parent="." instance=ExtResource("2_bg_anim")]
