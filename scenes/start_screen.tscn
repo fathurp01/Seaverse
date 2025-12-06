@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6xfykqm3bbq0" path="res://scenes/start_screen.gd" id="1_tx5wa"]
 [ext_resource type="PackedScene" uid="uid://3gbahu6u5buy" path="res://scenes/animations/seaverse_animated_bg.tscn" id="2_bg_anim"]
-[ext_resource type="Texture2D" uid="uid://cqyvwkva0w46q" path="res://assets/seaverse_icon.png" id="3_he1sj"]
+[ext_resource type="Texture2D" uid="uid://qe854mc1641r" path="res://assets/seaverse_icon.png" id="3_he1sj"]
 [ext_resource type="Texture2D" uid="uid://b2mmhptbsxkf7" path="res://assets/start_button.png" id="4_r2jwc"]
 
 [node name="StartScreen" type="Control"]

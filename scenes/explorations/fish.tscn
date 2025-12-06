@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://beenqdl3712x7"]
+
+[ext_resource type="Texture2D" uid="uid://d0ew8652yp8jq" path="res://assets/Zona-Permukaan/gurita.png" id="1_0p3hp"]
+[ext_resource type="Script" uid="uid://cncq6glqsvy8" path="res://scenes/explorations/fish.gd" id="1_ctjhm"]
+[ext_resource type="Texture2D" uid="uid://bnahcdh1xxnwh" path="res://assets/Zona-Permukaan/bintang-laut.png" id="3_ded2y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ctjhm"]
+radius = 89.08984
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ded2y"]
+bg_color = Color(1, 1, 1, 0.7882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Fish" type="Area2D"]
+script = ExtResource("1_ctjhm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(130.375, 151.125)
+scale = Vector2(0.4471963, 0.4593458)
+texture = ExtResource("1_0p3hp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(125, 143)
+shape = SubResource("CircleShape2D_ctjhm")
+
+[node name="InfoPopup" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="InfoPopup"]
+custom_minimum_size = Vector2(1000, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ded2y")
+
+[node name="FishIcon" type="TextureRect" parent="InfoPopup/Panel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 42.0
+offset_right = 448.0
+offset_bottom = 443.0
+texture = ExtResource("3_ded2y")
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InfoPopup/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 437.0
+offset_top = 152.0
+offset_right = -38.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 17
+
+[node name="FishNameLabel" type="Label" parent="InfoPopup/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "BINTANG LAUT"
+horizontal_alignment = 1
+
+[node name="FishDescLabel" type="Label" parent="InfoPopup/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 17
+text = "Hewan echinodermata laut yang memiliki bentuk bintang dan umumnya memiliki lima lengan."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="FishFactLabel" type="Label" parent="InfoPopup/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 17
+text = "Bintang laut dapat meregenerasi lengan yang hilang, dan pada beberapa spesies, satu lengan yang terpotong dapat berevolusi menjadi bintang laut yang benar-benar baru."
+horizontal_alignment = 1
+autowrap_mode = 2

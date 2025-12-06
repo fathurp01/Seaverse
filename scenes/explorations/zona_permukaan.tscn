@@ -1,8 +1,212 @@
-[gd_scene format=3 uid="uid://byk6ed5wgr2fc"]
+[gd_scene load_steps=23 format=3 uid="uid://byk6ed5wgr2fc"]
+
+[ext_resource type="Texture2D" uid="uid://cnfvgafqokqe8" path="res://assets/Zona-Permukaan/bg_atas.png" id="1_mrse6"]
+[ext_resource type="Script" uid="uid://cgr12y3f1nopy" path="res://scenes/explorations/submarine_permukaan.gd" id="1_pyjk8"]
+[ext_resource type="Texture2D" uid="uid://cn0jp2qw86e42" path="res://assets/Zona-Permukaan/submarin_permukaan.png" id="2_vg0fk"]
+[ext_resource type="Texture2D" uid="uid://d0ew8652yp8jq" path="res://assets/Zona-Permukaan/gurita.png" id="3_r3f5q"]
+[ext_resource type="Texture2D" uid="uid://cq2j2wdf58ytm" path="res://assets/Zona-Permukaan/kepiting.png" id="4_0q8s7"]
+[ext_resource type="PackedScene" uid="uid://beenqdl3712x7" path="res://scenes/explorations/fish.tscn" id="4_6u12y"]
+[ext_resource type="Texture2D" uid="uid://qe854mc1641r" path="res://assets/seaverse_icon.png" id="4_mrse6"]
+[ext_resource type="Texture2D" uid="uid://dmpcj5byhdbv6" path="res://assets/Zona-Permukaan/kuda-laut.png" id="5_76ep2"]
+[ext_resource type="Texture2D" uid="uid://bnahcdh1xxnwh" path="res://assets/Zona-Permukaan/bintang-laut.png" id="5_ybybm"]
+[ext_resource type="Texture2D" uid="uid://cw5d2retj6fes" path="res://assets/Zona-Permukaan/anemon.png" id="6_raom1"]
+[ext_resource type="Texture2D" uid="uid://c6v6c4ou86oty" path="res://assets/Zona-Permukaan/nemo.png" id="7_py88s"]
+[ext_resource type="Texture2D" uid="uid://cru6dijhebjsl" path="res://assets/Zona-Permukaan/mantaray.png" id="9_y4sbw"]
+[ext_resource type="Texture2D" uid="uid://mx4kntqk4ruh" path="res://assets/Zona-Permukaan/hiu.png" id="10_q6t4g"]
+[ext_resource type="Texture2D" uid="uid://7pwsgu50qws3" path="res://assets/Zona-Permukaan/lumba-lumba.png" id="11_x46vd"]
+[ext_resource type="Texture2D" uid="uid://b7mi30d1fvevl" path="res://assets/Zona-Permukaan/makarel.png" id="12_2gyar"]
+
+[sub_resource type="Gradient" id="Gradient_ybybm"]
+colors = PackedColorArray(0, 0, 0, 1, 0.06666667, 0.40784314, 0.5294118, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1tmkq"]
+gradient = SubResource("Gradient_ybybm")
+fill_from = Vector2(1, 0.9285714)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybybm"]
+size = Vector2(150, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyjk8"]
+size = Vector2(1292, 590)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg0fk"]
+size = Vector2(1280, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrse6"]
+size = Vector2(20, 3295)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u12y"]
+size = Vector2(8, 3284)
 
 [node name="ZonaPermukaan" type="Control"]
 clip_contents = true
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 1080.0
+anchor_top = 0.16900001
+anchor_bottom = 0.16900001
+offset_left = -634.0
+offset_top = -135.68001
+offset_right = 646.0
+offset_bottom = 3149.32
+
+[node name="StartCamera" type="Camera2D" parent="."]
+position = Vector2(636, 376)
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+position = Vector2(678.00006, 4217.5)
+scale = Vector2(22.8125, 100.89063)
+texture = SubResource("GradientTexture2D_1tmkq")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(697.99994, 527.12366)
+scale = Vector2(1.4140623, 1.0231956)
+texture = ExtResource("1_mrse6")
+
+[node name="Fish" parent="." instance=ExtResource("4_6u12y")]
+position = Vector2(214, 1526)
+fish_name = "Gurita"
+fish_description = "Gurita adalah hewan laut yang sangat pintar dan punya delapan lengan panjang yang disebut tentakel. Mereka tidak punya tulang di tubuhnya, membuat mereka sangat lentur dan mudah bersembunyi."
+fish_fact = "Fakta seru tentang Gurita: Gurita punya tiga jantung dan darah mereka berwarna biru! Mereka bisa menyamar dan mengubah warna kulit mereka dalam sekejap agar terlihat sama persis dengan karang atau batu di sekitarnya."
+fish_sprite = ExtResource("3_r3f5q")
+fish_icon = ExtResource("3_r3f5q")
+
+[node name="Fish2" parent="." instance=ExtResource("4_6u12y")]
+position = Vector2(787, 1549)
+fish_name = "Kepiting"
+fish_description = "Kepiting adalah hewan laut yang punya sepuluh kaki, dua di antaranya adalah capit besar. Mereka hidup dengan berjalan miring dan punya cangkang keras sebagai rumah dan pelindung mereka."
+fish_fact = "Fakta seru tentang Kepiting: Kepiting harus berganti baju! Saat tubuh mereka membesar, mereka akan melepaskan cangkang lama dan menumbuhkan cangkang baru yang lebih besar. Proses ini disebut ganti kulit."
+fish_sprite = ExtResource("4_0q8s7")
+fish_icon = ExtResource("4_0q8s7")
+
+[node name="Fish3" parent="." instance=ExtResource("4_6u12y")]
+position = Vector2(975, 1178)
+fish_name = "Kuda Laut"
+fish_description = "Kuda laut adalah ikan kecil yang berenang dengan posisi tegak, tidak seperti ikan lainnya. Mereka menggunakan ekor panjangnya untuk berpegangan pada rumput laut agar tidak terbawa arus."
+fish_fact = "Fakta seru tentang Kuda Laut: Kuda laut sangat istimewa karena yang hamil dan melahirkan adalah ayahnya, bukan ibunya. Ayah kuda laut membawa telur-telur di kantong perutnya sampai menetas."
+fish_sprite = ExtResource("5_76ep2")
+fish_icon = ExtResource("5_76ep2")
+
+[node name="Fish4" parent="." instance=ExtResource("4_6u12y")]
+position = Vector2(950, 787)
+fish_name = "Anemon"
+fish_description = "Anemon laut terlihat seperti bunga, tapi sebenarnya mereka adalah hewan. Mereka punya tentakel yang mengeluarkan sengatan untuk menangkap makanan. Mereka biasanya menempel di karang atau batu."
+fish_fact = "Fakta seru tentang Anemon: Anemon punya teman baik bernama ikan badut, seperti Nemo. Anemon melindungi ikan badut dari pemangsa, dan sebagai balasannya, ikan badut membersihkan anemon dari kotoran dan parasit."
+fish_sprite = ExtResource("6_raom1")
+fish_icon = ExtResource("6_raom1")
+
+[node name="Fish5" parent="." instance=ExtResource("4_6u12y")]
+position = Vector2(116, 691)
+fish_name = "Nemo (Ikan Badut)"
+fish_description = "Ikan badut adalah ikan kecil berwarna oranye, putih, dan hitam, yang terkenal karena hidup di antara tentakel anemon laut yang menyengat. Mereka berenang dengan gaya yang lucu."
+fish_fact = "Fakta seru tentang Ikan Badut: Ikan badut memiliki lapisan lendir istimewa yang melindunginya agar tidak tersengat oleh anemon. Semua ikan badut lahir sebagai jantan, dan pemimpin kelompoknya bisa berubah menjadi betina jika dibutuhkan."
+fish_sprite = ExtResource("7_py88s")
+fish_icon = ExtResource("7_py88s")
+
+[node name="Fish6" parent="." instance=ExtResource("4_6u12y")]
+position = Vector2(126, 1134)
+fish_name = "Bintang Laut"
+fish_description = "Bintang laut adalah hewan laut yang bentuknya seperti bintang dan bukan termasuk ikan. Mereka umumnya punya lima lengan dan bergerak menggunakan ribuan kaki tabung kecil di bagian bawah tubuhnya."
+fish_fact = "Fakta seru tentang Bintang Laut : Bintang laut punya kekuatan super! Jika salah satu lengannya putus, mereka bisa menumbuhkan lengan baru. Selain itu, mereka punya cara makan yang unik: mereka mengeluarkan perutnya dari mulut untuk mencerna makanan di luar tubuh, lalu menarik perutnya kembali masuk."
+fish_sprite = ExtResource("5_ybybm")
+fish_icon = ExtResource("5_ybybm")
+
+[node name="Fish7" parent="." instance=ExtResource("4_6u12y")]
+position = Vector2(282, 1916)
+fish_name = "Ikan Pari Manta"
+fish_description = "Pari manta adalah ikan pari terbesar di dunia. Mereka punya sirip lebar yang terlihat seperti sayap dan berenang dengan cara 'terbang' di dalam air. Mereka punya dua tanduk kecil di depan mulutnya."
+fish_fact = "Fakta seru tentang Ikan Pari Manta: Meskipun besar, manta tidak berbahaya dan tidak punya sengat. Mereka makan plankton, yaitu makhluk super kecil, dengan cara membuka lebar mulutnya sambil berenang. Mereka juga suka melompat keluar dari air!"
+fish_sprite = ExtResource("9_y4sbw")
+fish_icon = ExtResource("9_y4sbw")
+
+[node name="Fish8" parent="." instance=ExtResource("4_6u12y")]
+position = Vector2(194, 2595)
+fish_name = "Ikan Hiu"
+fish_description = "Hiu adalah jenis ikan besar yang terkenal sebagai predator hebat di lautan. Mereka memiliki kulit yang kasar seperti amplas dan banyak gigi tajam yang bisa tumbuh lagi."
+fish_fact = "Fakta seru tentang Ikan Hiu: Hiu tidak pernah tidur nyenyak, mereka harus terus bergerak agar air laut bisa melewati insang mereka dan mereka bisa bernapas. Beberapa jenis hiu punya ratusan gigi yang siap menggantikan gigi yang copot."
+fish_sprite = ExtResource("10_q6t4g")
+fish_icon = ExtResource("10_q6t4g")
+
+[node name="Fish9" parent="." instance=ExtResource("4_6u12y")]
+position = Vector2(804, 2214)
+fish_name = "Lumba-lumba"
+fish_description = "Lumba-lumba adalah mamalia laut yang sangat cerdas dan ramah. Mereka bernapas menggunakan paru-paru dan sering melompat ke udara saat berenang di permukaan laut."
+fish_fact = "Fakta seru tentang Lumba-lumba: Lumba-lumba berkomunikasi satu sama lain menggunakan suara siulan dan klik yang unik. Mereka tidur hanya dengan setengah bagian otak yang istirahat, sementara setengahnya lagi tetap bangun untuk bernapas."
+fish_sprite = ExtResource("11_x46vd")
+fish_icon = ExtResource("11_x46vd")
+
+[node name="Fish10" parent="." instance=ExtResource("4_6u12y")]
+position = Vector2(878, 2737)
+fish_name = "Ikan Makarel"
+fish_description = "Makarel adalah ikan kecil yang hidup bergerombol dalam jumlah sangat banyak di lautan. Mereka punya bentuk tubuh ramping dan bergerak cepat di dalam air."
+fish_fact = "Fakta seru tentang Ikan Makarel: Makarel dikenal sebagai ikan yang bermigrasi, artinya mereka berenang sangat jauh dari satu tempat ke tempat lain untuk mencari makanan atau tempat bertelur. Mereka menjadi makanan penting bagi ikan yang lebih besar."
+fish_sprite = ExtResource("12_2gyar")
+fish_icon = ExtResource("12_2gyar")
+
+[node name="Submarine" type="CharacterBody2D" parent="."]
+position = Vector2(0, 468)
+script = ExtResource("1_pyjk8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine"]
+position = Vector2(638, 200)
+scale = Vector2(0.25637755, 0.30186915)
+texture = ExtResource("2_vg0fk")
+
+[node name="DepthLabel" type="Label" parent="Submarine"]
+offset_left = 604.0
+offset_top = 282.0
+offset_right = 671.0
+offset_bottom = 313.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "0 M"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="DepthLine" type="Line2D" parent="Submarine"]
+visible = false
+position = Vector2(303.39993, -33)
+scale = Vector2(3.9199996, 1)
+points = PackedVector2Array(-76.37755, 388, 85.357, 388, 248.622, 388)
+width = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Submarine"]
+position = Vector2(628, 199)
+shape = SubResource("RectangleShape2D_ybybm")
+
+[node name="SubCamera" type="Camera2D" parent="Submarine"]
+position = Vector2(635, 201)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 486.0
+offset_top = 263.0
+offset_right = 783.0
+offset_bottom = 308.0
+theme_override_colors/font_color = Color(18.892002, 18.892002, 18.892002, 1)
+theme_override_font_sizes/font_size = 32
+text = "ZONA PERMUKAAN"
+
+[node name="Boundaries" type="StaticBody2D" parent="."]
+
+[node name="CollisionTop" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(636, 285)
+shape = SubResource("RectangleShape2D_pyjk8")
+
+[node name="CollisionBottom" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(640, 3278)
+shape = SubResource("RectangleShape2D_vg0fk")
+
+[node name="CollisionLeft" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(0, 1637.5)
+shape = SubResource("RectangleShape2D_mrse6")
+
+[node name="CollisionRight" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1278, 1641)
+shape = SubResource("RectangleShape2D_6u12y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(151, 61.000015)
+scale = Vector2(0.3308642, 0.34108517)
+texture = ExtResource("4_mrse6")
