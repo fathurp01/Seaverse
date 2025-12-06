@@ -60,4 +60,4 @@ func _on_button_explorasi_pressed() -> void:
 	tween.tween_property(button_explorasi, "scale", original_scale, 0.1)
 	
 	# Pindah ke scene zone_menu setelah animasi selesai
-	tween.tween_callback(func(): get_tree().change_scene_to_file("res://scenes/explorations/Zona_permukaan.tscn"))
+	tween.tween_callback(func(): get_tree().change_scene_to_file("res://scenes/explorations/zona_dasar.tscn"))
