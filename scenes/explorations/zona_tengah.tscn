@@ -1,8 +1,190 @@
-[gd_scene format=3 uid="uid://bfoi2dpaf6j6i"]
+[gd_scene load_steps=23 format=3 uid="uid://bfoi2dpaf6j6i"]
+
+[ext_resource type="Texture2D" uid="uid://jb0mkxudnhnq" path="res://assets/Zona-Tengah/bg_zona_tengah.png" id="1_06yii"]
+[ext_resource type="Script" uid="uid://dhhtouxrm3c6s" path="res://scenes/explorations/submarine_tengah.gd" id="2_1r1br"]
+[ext_resource type="PackedScene" uid="uid://beenqdl3712x7" path="res://scenes/explorations/fish.tscn" id="2_n8xjd"]
+[ext_resource type="Texture2D" uid="uid://byruc06cg0mqy" path="res://assets/Zona-Tengah/submarine_tengah.png" id="2_x7t0n"]
+[ext_resource type="Texture2D" uid="uid://qe854mc1641r" path="res://assets/seaverse_icon.png" id="3_1r1br"]
+[ext_resource type="Texture2D" uid="uid://dbu3xk57ym1ui" path="res://assets/Zona-Tengah/isopod.png" id="3_jpc3i"]
+[ext_resource type="Texture2D" uid="uid://chs17diedsskv" path="res://assets/Zona-Tengah/pelagic.png" id="4_ld6vx"]
+[ext_resource type="Texture2D" uid="uid://wwc6eek2nlyg" path="res://assets/Zona-Tengah/blue-shark.png" id="5_bpvsk"]
+[ext_resource type="Texture2D" uid="uid://r8rbpc3icvi0" path="res://assets/Zona-Tengah/tomopetris.png" id="6_g4tg0"]
+[ext_resource type="Texture2D" uid="uid://b43038vahx528" path="res://assets/Zona-Tengah/kepiting.png" id="7_tlol5"]
+[ext_resource type="Texture2D" uid="uid://b4p21j6nwbiy5" path="res://assets/Zona-Tengah/eel.png" id="8_bpvsk"]
+[ext_resource type="Texture2D" uid="uid://b2n3lbf6lor2d" path="res://assets/Zona-Tengah/viperfish.png" id="8_ru0tb"]
+[ext_resource type="Texture2D" uid="uid://cq7xga447ifcg" path="res://assets/Zona-Tengah/lanternifish.png" id="9_b6c8d"]
+[ext_resource type="Texture2D" uid="uid://cvblj00kyivgg" path="res://assets/Zona-Tengah/sabertooth.png" id="9_g4tg0"]
+[ext_resource type="Texture2D" uid="uid://bcm6shm3tit24" path="res://assets/Zona-Tengah/squid.png" id="10_c4xmk"]
+
+[sub_resource type="Gradient" id="Gradient_n8xjd"]
+colors = PackedColorArray(0, 0, 0, 1, 0.003921569, 0.06666667, 0.15294118, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_y11km"]
+gradient = SubResource("Gradient_n8xjd")
+fill_from = Vector2(1, 0.014018691)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rg5a"]
+size = Vector2(232, 113)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqpv0"]
+size = Vector2(1292, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf2e0"]
+size = Vector2(1280, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e5kmj"]
+size = Vector2(20, 3295)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bapfa"]
+size = Vector2(8, 3284)
 
 [node name="ZonaTengah" type="Control"]
 clip_contents = true
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_left = -634.0
+offset_top = -14.0
+offset_right = 646.0
+offset_bottom = 3271.0
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Background"]
+position = Vector2(678.00006, 4217.5)
+scale = Vector2(22.8125, 100.89063)
+texture = SubResource("GradientTexture2D_y11km")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(697.99994, 527.12366)
+scale = Vector2(1.4140623, 1.0231956)
+texture = ExtResource("1_06yii")
+
+[node name="Fish" parent="." instance=ExtResource("2_n8xjd")]
+position = Vector2(100, 719)
+fish_name = "Isopoda Raksasa"
+fish_description = "Hewan ini terlihat mirip seperti kutu kayu raksasa yang hidup di dasar laut. Mereka punya cangkang bersegmen dan tujuh pasang kaki. Mereka bisa tumbuh sebesar bola rugby."
+fish_fact = "Fakta seru tentang Isopoda Raksasa: Isopoda adalah pemakan bangkai. Mereka sangat tahan lapar dan bisa bertahan tanpa makanan selama bertahun-tahun sambil menunggu bangkai ikan jatuh dari atas lautan."
+fish_sprite = ExtResource("3_jpc3i")
+fish_icon = ExtResource("3_jpc3i")
+
+[node name="Fish2" parent="." instance=ExtResource("2_n8xjd")]
+position = Vector2(848, 819)
+fish_name = "Amfipoda Pelagik"
+fish_description = "Amfipoda adalah krustasea kecil yang hidup melayang di air terbuka (pelagik) dan punya tubuh transparan. Mereka sering ditemukan di sekitar ubur-ubur besar."
+fish_fact = "Fakta seru tentang Amfipoda Pelagik: Amfipoda seringkali tinggal di dalam 'rumah' yang mereka buat sendiri menggunakan zat yang dikeluarkan oleh ubur-ubur yang sudah mati. Ini membantu mereka bersembunyi dari pemangsa."
+fish_sprite = ExtResource("4_ld6vx")
+fish_icon = ExtResource("4_ld6vx")
+
+[node name="Fish3" parent="." instance=ExtResource("2_n8xjd")]
+position = Vector2(234, 1371)
+fish_name = "Hiu Biru"
+fish_description = "Hiu ramping dan elegan yang hidup di perairan terbuka dan sering terlihat berenang di dekat permukaan. Tubuh mereka berwarna biru cemerlang di bagian atas dan putih di bagian bawah."
+fish_fact = "Fakta seru tentang Hiu Biru: Hiu biru adalah perenang jarak jauh yang hebat. Mereka melakukan migrasi yang sangat panjang melintasi lautan untuk mencari makan dan pasangan, menempuh ribuan kilometer."
+fish_sprite = ExtResource("5_bpvsk")
+fish_icon = ExtResource("5_bpvsk")
+
+[node name="Fish4" parent="." instance=ExtResource("2_n8xjd")]
+position = Vector2(893, 1793)
+fish_name = "Tomopteris"
+fish_description = "Tomopteris adalah jenis cacing laut yang hidup melayang di air terbuka. Tubuh mereka transparan dan mereka punya banyak dayung kecil di samping untuk membantunya berenang."
+fish_fact = "Fakta seru tentang Tomopteris: Ketika merasa terancam, beberapa jenis Tomopteris mengeluarkan ledakan cahaya kuning atau biru yang sangat terang untuk mengejutkan atau mengalihkan perhatian pemangsa."
+fish_sprite = ExtResource("6_g4tg0")
+fish_icon = ExtResource("6_g4tg0")
+
+[node name="Fish5" parent="." instance=ExtResource("2_n8xjd")]
+position = Vector2(260, 2308)
+fish_name = "Kepiting Laut Dalam"
+fish_description = "Kepiting ini hidup di tempat paling gelap dan dingin di dasar laut. Seperti kepiting lain, mereka punya cangkang keras dan capit, tapi mereka seringkali berwarna merah atau pucat."
+fish_fact = "Fakta seru tentang Kepiting Laut Dalam: Karena sangat sulit mencari makan di laut dalam, kepiting ini punya pertumbuhan yang sangat lambat, dan beberapa jenis bisa hidup sangat lama karena suhu dingin."
+fish_sprite = ExtResource("7_tlol5")
+fish_icon = ExtResource("7_tlol5")
+
+[node name="Fish6" parent="." instance=ExtResource("2_n8xjd")]
+position = Vector2(847, 2952)
+fish_name = "Belut Pelahap"
+fish_description = "Belut ini punya mulut yang luar biasa besar, jauh lebih besar dari badannya sendiri. Mulutnya seperti kantong besar yang bisa terbuka lebar sekali untuk menelan mangsa yang lebih besar."
+fish_fact = "Fakta seru tentang Belut Pelahap: Belut pelahap punya mulut yang sangat elastis. Mereka menggunakan mulut besarnya sebagai jaring untuk menangkap apa saja yang berenang lewat di kegelapan laut dalam."
+fish_sprite = ExtResource("8_bpvsk")
+fish_icon = ExtResource("8_bpvsk")
+
+[node name="Fish7" parent="." instance=ExtResource("2_n8xjd")]
+position = Vector2(121, 2778)
+fish_name = "Ikan Gigi Pedang"
+fish_description = "Ikan kecil yang sangat kuat ini punya gigi yang sangat panjang, tajam, dan melengkung, mirip pedang. Mereka hidup di perairan yang sangat dalam dan gelap."
+fish_fact = "Fakta seru tentang Ikan Gigi Pedang: Gigi mereka sangat besar sampai-sampai mereka tidak bisa menutup mulut sepenuhnya. Mereka menggunakan gigi-gigi ini untuk menusuk dan menahan mangsa yang berenang sangat cepat di kegelapan."
+fish_sprite = ExtResource("9_g4tg0")
+fish_icon = ExtResource("9_g4tg0")
+
+[node name="Fish8" parent="." instance=ExtResource("2_n8xjd")]
+position = Vector2(903, 1279)
+fish_name = "Ikan Beludak"
+fish_description = "Ikan kecil dengan penampilan menakutkan ini punya taring panjang seperti jarum yang tidak bisa masuk ke dalam mulutnya. Mereka punya bintik-bintik cahaya di sepanjang tubuh."
+fish_fact = "Fakta seru tentang Ikan Beludak: Taringnya yang sangat panjang dan tajam memastikan bahwa mangsa apa pun yang mereka tangkap di kegelapan tidak akan bisa lolos. Mereka adalah salah satu predator paling menakutkan di laut dalam."
+fish_sprite = ExtResource("8_ru0tb")
+fish_icon = ExtResource("8_ru0tb")
+
+[node name="Fish9" parent="." instance=ExtResource("2_n8xjd")]
+position = Vector2(829, 2467)
+fish_name = "Ikan Lentera"
+fish_description = "Ikan kecil yang hidup di kedalaman, disebut ikan lentera karena tubuh mereka penuh dengan bintik-bintik bercahaya (fotofor) yang bisa mereka nyalakan dan matikan."
+fish_fact = "Fakta seru tentang Ikan Lentera: Setiap malam, jutaan ikan lentera berenang naik mendekati permukaan untuk mencari makan dan kemudian turun lagi sebelum matahari terbit. Pergerakan besar ini disebut migrasi vertikal."
+fish_sprite = ExtResource("9_b6c8d")
+fish_icon = ExtResource("9_b6c8d")
+
+[node name="Fish10" parent="." instance=ExtResource("2_n8xjd")]
+position = Vector2(86, 1850)
+fish_name = "Cumi-cumi Kaca"
+fish_description = "Cumi-cumi yang hidup di laut dalam ini memiliki tubuh yang hampir seluruhnya transparan atau bening seperti kaca, membuat mereka sangat sulit terlihat oleh pemangsa."
+fish_fact = "Fakta seru tentang Cumi-cumi Kaca: Mereka bisa membalikkan bola matanya ke dalam saat merasa terancam untuk menyembunyikan organ yang berwarna hitam di dalamnya, agar tidak terlihat di antara cahaya redup laut dalam."
+fish_sprite = ExtResource("10_c4xmk")
+fish_icon = ExtResource("10_c4xmk")
+
+[node name="Submarine" type="CharacterBody2D" parent="."]
+position = Vector2(0, 583)
+script = ExtResource("2_1r1br")
+
+[node name="Sprite2D" type="Sprite2D" parent="Submarine"]
+position = Vector2(636.00006, -220.99995)
+scale = Vector2(0.47810274, 0.46501857)
+texture = ExtResource("2_x7t0n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Submarine"]
+position = Vector2(635, -212)
+shape = SubResource("RectangleShape2D_3rg5a")
+
+[node name="Camera2D" type="Camera2D" parent="Submarine"]
+position = Vector2(632, -206)
+
+[node name="DepthLabel" type="Label" parent="Submarine"]
+offset_left = 604.0
+offset_top = -156.0
+offset_right = 671.0
+offset_bottom = -125.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "0 M"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Boundaries" type="StaticBody2D" parent="."]
+
+[node name="CollisionTop" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(636, 4.5)
+shape = SubResource("RectangleShape2D_eqpv0")
+
+[node name="CollisionBottom" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(640, 3278)
+shape = SubResource("RectangleShape2D_uf2e0")
+
+[node name="CollisionLeft" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1, 1638)
+shape = SubResource("RectangleShape2D_e5kmj")
+
+[node name="CollisionRight" type="CollisionShape2D" parent="Boundaries"]
+position = Vector2(1278, 1641)
+shape = SubResource("RectangleShape2D_bapfa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(151, 61.000015)
+scale = Vector2(0.3308642, 0.34108517)
+texture = ExtResource("3_1r1br")
