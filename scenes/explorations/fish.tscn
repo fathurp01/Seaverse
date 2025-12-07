@@ -27,7 +27,6 @@ position = Vector2(125, 143)
 shape = SubResource("CircleShape2D_ctjhm")
 
 [node name="InfoPopup" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel" type="Panel" parent="InfoPopup"]
 custom_minimum_size = Vector2(1000, 500)

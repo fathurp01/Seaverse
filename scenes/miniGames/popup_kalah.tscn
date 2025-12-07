@@ -1,0 +1,145 @@
+[gd_scene load_steps=14 format=3 uid="uid://btnbpasqi6uva"]
+
+[ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames/popup_menang.gd" id="1_jsypn"]
+[ext_resource type="Texture2D" uid="uid://bdnbptgj6lnww" path="res://scenes/miniGames/bgkalah.png" id="2_jsypn"]
+[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames/PassionOne-Regular.ttf" id="3_jmops"]
+[ext_resource type="Texture2D" uid="uid://b0c3leayy7tj0" path="res://scenes/miniGames/btn_coba_lagi.png" id="4_ecvaa"]
+[ext_resource type="Texture2D" uid="uid://bkefcnov01xmw" path="res://scenes/miniGames/btn_eklplorasi_ulang.png" id="5_jmops"]
+[ext_resource type="Texture2D" uid="uid://dtwkh4s4mqqdf" path="res://scenes/miniGames/tengkorak.png" id="6_7ir85"]
+[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames/Bungee-Regular.ttf" id="7_djkeq"]
+[ext_resource type="Script" uid="uid://bq3owagyaxw3m" path="res://scenes/miniGames/popup_kalah.gd" id="7_ecvaa"]
+[ext_resource type="Texture2D" uid="uid://bwu4q2stxkusc" path="res://scenes/miniGames/locK_tengah_lauh.png" id="8_olpkm"]
+
+[sub_resource type="Theme" id="Theme_0pxy3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4wyd"]
+texture = ExtResource("2_jsypn")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6blgj"]
+font = ExtResource("3_jmops")
+font_size = 61
+font_color = Color(0.90588236, 0.03529412, 0.14901961, 0.6156863)
+
+[sub_resource type="LabelSettings" id="LabelSettings_28vn4"]
+font = ExtResource("7_djkeq")
+font_size = 22
+font_color = Color(0.63529414, 0.6901961, 0.4117647, 1)
+
+[node name="Popupkalah" type="Control"]
+layout_mode = 3
+anchor_top = 0.004
+anchor_right = 1.005
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 0.119999886
+offset_right = 0.5999756
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jsypn")
+
+[node name="popup_kalah" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="popup_kalah"]
+anchors_preset = -1
+anchor_left = 0.245
+anchor_top = 0.067
+anchor_right = 0.77800006
+anchor_bottom = 0.91400003
+offset_left = -5.600006
+offset_top = -0.24000168
+offset_right = 0.15991211
+offset_bottom = 8.919983
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0pxy3")
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4wyd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popup_kalah"]
+anchors_preset = -1
+anchor_left = 0.287
+anchor_top = 0.194
+anchor_right = 0.74100006
+anchor_bottom = 0.87500006
+offset_left = -50.359985
+offset_top = -0.68000793
+offset_right = 45.519897
+offset_bottom = 22.999939
+
+[node name="Label" type="Label" parent="popup_kalah/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "KAMU GAGAL"
+label_settings = SubResource("LabelSettings_6blgj")
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="tengkorak" type="TextureRect" parent="popup_kalah"]
+anchors_preset = -1
+anchor_left = 0.38500002
+anchor_top = 0.31
+anchor_right = 0.643
+anchor_bottom = 0.569
+offset_left = 0.19998169
+offset_top = -0.19999695
+offset_right = -0.040039063
+offset_bottom = -0.6799927
+texture = ExtResource("6_7ir85")
+expand_mode = 1
+script = ExtResource("7_ecvaa")
+
+[node name="Label" type="Label" parent="popup_kalah"]
+anchors_preset = -1
+anchor_left = 0.46600002
+anchor_top = 0.546
+anchor_right = 0.555
+anchor_bottom = 0.596
+offset_left = 0.5199585
+offset_top = 3.880005
+offset_right = 0.5999756
+offset_bottom = 0.87997437
+text = "Hadiah :"
+label_settings = SubResource("LabelSettings_28vn4")
+
+[node name="zona" type="TextureRect" parent="popup_kalah"]
+anchors_preset = -1
+anchor_left = 0.40600002
+anchor_top = 0.59400004
+anchor_right = 0.61200005
+anchor_bottom = 0.68700004
+offset_left = 0.3199463
+offset_top = 7.319977
+offset_right = 0.6399536
+offset_bottom = 7.3599854
+texture = ExtResource("8_olpkm")
+expand_mode = 1
+
+[node name="btn_eksplorasi_ulang" type="TextureButton" parent="popup_kalah"]
+anchors_preset = -1
+anchor_left = 0.358
+anchor_top = 0.71900004
+anchor_right = 0.513
+anchor_bottom = 0.82400006
+offset_left = -0.24002075
+offset_top = 0.3199463
+offset_right = 0.35998535
+offset_bottom = -0.2800293
+texture_normal = ExtResource("5_jmops")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="btn_coba_lagi" type="TextureButton" parent="popup_kalah"]
+anchors_preset = -1
+anchor_left = 0.507
+anchor_top = 0.711
+anchor_right = 0.65000004
+anchor_bottom = 0.82600003
+offset_left = 0.039978027
+offset_top = 0.07998657
+offset_right = 8.999939
+offset_bottom = -1.7200317
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("4_ecvaa")
+ignore_texture_size = true
+stretch_mode = 0
