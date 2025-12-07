@@ -5,11 +5,18 @@ extends Area2D
 @export var fish_fact: String = "Dapat hidup hingga kedalaman 15 meter"
 @export var fish_sprite: Texture2D  # Untuk gambar sprite ikan
 @export var fish_icon: Texture2D    # Untuk gambar icon di popup
+@export var popup_sound: AudioStream  # Audio saat popup muncul
+@export var hide_sound: AudioStream   # Audio saat popup hilang (opsional)
+
+# Variable untuk animasi
+@export var fade_duration: float = 0.3  # Durasi fade dalam detik
 
 var info_popup = null
 var panel = null
 var sprite = null
 var icon_node = null
+var audio_player = null  # Node untuk memutar audio
+var tween: Tween  # Variable untuk menyimpan tween
 
 func _ready():
 	# Dapatkan nodes
@@ -17,6 +24,7 @@ func _ready():
 	panel = get_node_or_null("InfoPopup/Panel")
 	sprite = get_node_or_null("Sprite2D")
 	icon_node = get_node_or_null("InfoPopup/Panel/FishIcon")  # Node TextureRect untuk icon
+	audio_player = get_node_or_null("AudioStreamPlayer2D")  # Dapatkan audio player
 	
 	if info_popup == null:
 		print("ERROR: InfoPopup tidak ditemukan!")
@@ -35,6 +43,10 @@ func _ready():
 	
 	# Sembunyikan popup di awal
 	info_popup.visible = false
+	
+	# Set state awal panel untuk animasi
+	if panel:
+		panel.modulate.a = 0  # Transparan
 	
 	# Connect signals
 	body_entered.connect(_on_body_entered)
@@ -67,9 +79,60 @@ func _on_body_exited(body):
 		hide_info()
 
 func show_info():
-	if info_popup:
-		info_popup.visible = true
+	play_sound(popup_sound)  # Mainkan audio popup
+	fade_in()
 
 func hide_info():
-	if info_popup:
-		info_popup.visible = false
+	play_sound(hide_sound)  # Mainkan audio hide (opsional)
+	fade_out()
+
+# ==========================================
+# FUNGSI UNTUK MEMUTAR AUDIO
+# ==========================================
+func play_sound(sound: AudioStream):
+	if audio_player and sound:
+		audio_player.stream = sound
+		audio_player.play()
+
+# ==========================================
+# ANIMASI FADE IN
+# ==========================================
+func fade_in():
+	if info_popup and panel:
+		# Batalkan tween sebelumnya jika ada
+		if tween:
+			tween.kill()
+		
+		# Tampilkan popup
+		info_popup.visible = true
+		
+		# Set alpha awal ke 0 (transparan)
+		panel.modulate.a = 0
+		
+		# Buat tween baru
+		tween = create_tween()
+		
+		# Animasi fade in - alpha dari 0 ke 1
+		tween.tween_property(panel, "modulate:a", 1.0, fade_duration)\
+			.set_trans(Tween.TRANS_CUBIC)\
+			.set_ease(Tween.EASE_OUT)
+
+# ==========================================
+# ANIMASI FADE OUT
+# ==========================================
+func fade_out():
+	if info_popup and panel:
+		# Batalkan tween sebelumnya jika ada
+		if tween:
+			tween.kill()
+		
+		# Buat tween baru untuk fade out
+		tween = create_tween()
+		
+		# Animasi fade out - alpha dari 1 ke 0
+		tween.tween_property(panel, "modulate:a", 0.0, fade_duration)\
+			.set_trans(Tween.TRANS_CUBIC)\
+			.set_ease(Tween.EASE_IN)
+		
+		# Sembunyikan popup setelah animasi selesai
+		tween.tween_callback(func(): info_popup.visible = false)

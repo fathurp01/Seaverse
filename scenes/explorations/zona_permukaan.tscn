@@ -1,11 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://byk6ed5wgr2fc"]
+[gd_scene load_steps=29 format=3 uid="uid://byk6ed5wgr2fc"]
 
 [ext_resource type="Texture2D" uid="uid://cnfvgafqokqe8" path="res://assets/Zona-Permukaan/bg_atas.png" id="1_mrse6"]
 [ext_resource type="Script" uid="uid://cgr12y3f1nopy" path="res://scenes/explorations/submarine_permukaan.gd" id="1_pyjk8"]
-[ext_resource type="Texture2D" uid="uid://cn0jp2qw86e42" path="res://assets/Zona-Permukaan/submarin_permukaan.png" id="2_vg0fk"]
 [ext_resource type="Texture2D" uid="uid://d0ew8652yp8jq" path="res://assets/Zona-Permukaan/gurita.png" id="3_r3f5q"]
 [ext_resource type="Texture2D" uid="uid://cq2j2wdf58ytm" path="res://assets/Zona-Permukaan/kepiting.png" id="4_0q8s7"]
 [ext_resource type="PackedScene" uid="uid://beenqdl3712x7" path="res://scenes/explorations/fish.tscn" id="4_6u12y"]
+[ext_resource type="AudioStream" uid="uid://dpenpx3cnkpo0" path="res://assets/sounds/popup_info.wav" id="4_76ep2"]
 [ext_resource type="Texture2D" uid="uid://qe854mc1641r" path="res://assets/seaverse_icon.png" id="4_mrse6"]
 [ext_resource type="Texture2D" uid="uid://dmpcj5byhdbv6" path="res://assets/Zona-Permukaan/kuda-laut.png" id="5_76ep2"]
 [ext_resource type="Texture2D" uid="uid://bnahcdh1xxnwh" path="res://assets/Zona-Permukaan/bintang-laut.png" id="5_ybybm"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://mx4kntqk4ruh" path="res://assets/Zona-Permukaan/hiu.png" id="10_q6t4g"]
 [ext_resource type="Texture2D" uid="uid://7pwsgu50qws3" path="res://assets/Zona-Permukaan/lumba-lumba.png" id="11_x46vd"]
 [ext_resource type="Texture2D" uid="uid://b7mi30d1fvevl" path="res://assets/Zona-Permukaan/makarel.png" id="12_2gyar"]
+[ext_resource type="Script" uid="uid://banppdtq6thdv" path="res://scenes/explorations/sub_camera_permukaan.gd" id="13_0q8s7"]
+[ext_resource type="Texture2D" uid="uid://ijxgnl1120mi" path="res://assets/Zona-Permukaan/submarine_permukaan.png" id="14_r3f5q"]
 
 [sub_resource type="Gradient" id="Gradient_ybybm"]
 colors = PackedColorArray(0, 0, 0, 1, 0.06666667, 0.40784314, 0.5294118, 1)
@@ -23,8 +25,56 @@ colors = PackedColorArray(0, 0, 0, 1, 0.06666667, 0.40784314, 0.5294118, 1)
 gradient = SubResource("Gradient_ybybm")
 fill_from = Vector2(1, 0.9285714)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r3f5q"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -1, 0)
+direction = Vector3(1, -1, 0)
+spread = 20.0
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, -80, 0)
+scale_min = 0.5
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybybm"]
-size = Vector2(150, 146)
+size = Vector2(181, 146)
+
+[sub_resource type="Animation" id="Animation_r3f5q"]
+resource_name = "idle_float"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(634.00006, 214.125), Vector2(634, 204.125), Vector2(634.00006, 214.125)]
+}
+
+[sub_resource type="Animation" id="Animation_0q8s7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(634.00006, 214.125)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_76ep2"]
+_data = {
+&"RESET": SubResource("Animation_0q8s7"),
+&"idle_float": SubResource("Animation_r3f5q")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pyjk8"]
 size = Vector2(1292, 590)
@@ -59,7 +109,7 @@ scale = Vector2(22.8125, 100.89063)
 texture = SubResource("GradientTexture2D_1tmkq")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(697.99994, 527.12366)
+position = Vector2(691, 528)
 scale = Vector2(1.4140623, 1.0231956)
 texture = ExtResource("1_mrse6")
 
@@ -70,6 +120,7 @@ fish_description = "Gurita adalah hewan laut yang sangat pintar dan punya delapa
 fish_fact = "Fakta seru tentang Gurita: Gurita punya tiga jantung dan darah mereka berwarna biru! Mereka bisa menyamar dan mengubah warna kulit mereka dalam sekejap agar terlihat sama persis dengan karang atau batu di sekitarnya."
 fish_sprite = ExtResource("3_r3f5q")
 fish_icon = ExtResource("3_r3f5q")
+popup_sound = ExtResource("4_76ep2")
 
 [node name="Fish2" parent="." instance=ExtResource("4_6u12y")]
 position = Vector2(787, 1549)
@@ -78,6 +129,7 @@ fish_description = "Kepiting adalah hewan laut yang punya sepuluh kaki, dua di a
 fish_fact = "Fakta seru tentang Kepiting: Kepiting harus berganti baju! Saat tubuh mereka membesar, mereka akan melepaskan cangkang lama dan menumbuhkan cangkang baru yang lebih besar. Proses ini disebut ganti kulit."
 fish_sprite = ExtResource("4_0q8s7")
 fish_icon = ExtResource("4_0q8s7")
+popup_sound = ExtResource("4_76ep2")
 
 [node name="Fish3" parent="." instance=ExtResource("4_6u12y")]
 position = Vector2(975, 1178)
@@ -86,6 +138,7 @@ fish_description = "Kuda laut adalah ikan kecil yang berenang dengan posisi tega
 fish_fact = "Fakta seru tentang Kuda Laut: Kuda laut sangat istimewa karena yang hamil dan melahirkan adalah ayahnya, bukan ibunya. Ayah kuda laut membawa telur-telur di kantong perutnya sampai menetas."
 fish_sprite = ExtResource("5_76ep2")
 fish_icon = ExtResource("5_76ep2")
+popup_sound = ExtResource("4_76ep2")
 
 [node name="Fish4" parent="." instance=ExtResource("4_6u12y")]
 position = Vector2(950, 787)
@@ -94,6 +147,7 @@ fish_description = "Anemon laut terlihat seperti bunga, tapi sebenarnya mereka a
 fish_fact = "Fakta seru tentang Anemon: Anemon punya teman baik bernama ikan badut, seperti Nemo. Anemon melindungi ikan badut dari pemangsa, dan sebagai balasannya, ikan badut membersihkan anemon dari kotoran dan parasit."
 fish_sprite = ExtResource("6_raom1")
 fish_icon = ExtResource("6_raom1")
+popup_sound = ExtResource("4_76ep2")
 
 [node name="Fish5" parent="." instance=ExtResource("4_6u12y")]
 position = Vector2(116, 691)
@@ -102,6 +156,7 @@ fish_description = "Ikan badut adalah ikan kecil berwarna oranye, putih, dan hit
 fish_fact = "Fakta seru tentang Ikan Badut: Ikan badut memiliki lapisan lendir istimewa yang melindunginya agar tidak tersengat oleh anemon. Semua ikan badut lahir sebagai jantan, dan pemimpin kelompoknya bisa berubah menjadi betina jika dibutuhkan."
 fish_sprite = ExtResource("7_py88s")
 fish_icon = ExtResource("7_py88s")
+popup_sound = ExtResource("4_76ep2")
 
 [node name="Fish6" parent="." instance=ExtResource("4_6u12y")]
 position = Vector2(126, 1134)
@@ -110,6 +165,7 @@ fish_description = "Bintang laut adalah hewan laut yang bentuknya seperti bintan
 fish_fact = "Fakta seru tentang Bintang Laut : Bintang laut punya kekuatan super! Jika salah satu lengannya putus, mereka bisa menumbuhkan lengan baru. Selain itu, mereka punya cara makan yang unik: mereka mengeluarkan perutnya dari mulut untuk mencerna makanan di luar tubuh, lalu menarik perutnya kembali masuk."
 fish_sprite = ExtResource("5_ybybm")
 fish_icon = ExtResource("5_ybybm")
+popup_sound = ExtResource("4_76ep2")
 
 [node name="Fish7" parent="." instance=ExtResource("4_6u12y")]
 position = Vector2(282, 1916)
@@ -118,6 +174,7 @@ fish_description = "Pari manta adalah ikan pari terbesar di dunia. Mereka punya 
 fish_fact = "Fakta seru tentang Ikan Pari Manta: Meskipun besar, manta tidak berbahaya dan tidak punya sengat. Mereka makan plankton, yaitu makhluk super kecil, dengan cara membuka lebar mulutnya sambil berenang. Mereka juga suka melompat keluar dari air!"
 fish_sprite = ExtResource("9_y4sbw")
 fish_icon = ExtResource("9_y4sbw")
+popup_sound = ExtResource("4_76ep2")
 
 [node name="Fish8" parent="." instance=ExtResource("4_6u12y")]
 position = Vector2(194, 2595)
@@ -126,6 +183,7 @@ fish_description = "Hiu adalah jenis ikan besar yang terkenal sebagai predator h
 fish_fact = "Fakta seru tentang Ikan Hiu: Hiu tidak pernah tidur nyenyak, mereka harus terus bergerak agar air laut bisa melewati insang mereka dan mereka bisa bernapas. Beberapa jenis hiu punya ratusan gigi yang siap menggantikan gigi yang copot."
 fish_sprite = ExtResource("10_q6t4g")
 fish_icon = ExtResource("10_q6t4g")
+popup_sound = ExtResource("4_76ep2")
 
 [node name="Fish9" parent="." instance=ExtResource("4_6u12y")]
 position = Vector2(804, 2214)
@@ -134,6 +192,7 @@ fish_description = "Lumba-lumba adalah mamalia laut yang sangat cerdas dan ramah
 fish_fact = "Fakta seru tentang Lumba-lumba: Lumba-lumba berkomunikasi satu sama lain menggunakan suara siulan dan klik yang unik. Mereka tidur hanya dengan setengah bagian otak yang istirahat, sementara setengahnya lagi tetap bangun untuk bernapas."
 fish_sprite = ExtResource("11_x46vd")
 fish_icon = ExtResource("11_x46vd")
+popup_sound = ExtResource("4_76ep2")
 
 [node name="Fish10" parent="." instance=ExtResource("4_6u12y")]
 position = Vector2(878, 2737)
@@ -142,15 +201,29 @@ fish_description = "Makarel adalah ikan kecil yang hidup bergerombol dalam jumla
 fish_fact = "Fakta seru tentang Ikan Makarel: Makarel dikenal sebagai ikan yang bermigrasi, artinya mereka berenang sangat jauh dari satu tempat ke tempat lain untuk mencari makanan atau tempat bertelur. Mereka menjadi makanan penting bagi ikan yang lebih besar."
 fish_sprite = ExtResource("12_2gyar")
 fish_icon = ExtResource("12_2gyar")
+popup_sound = ExtResource("4_76ep2")
+
+[node name="SubCamera" type="Camera2D" parent="."]
+position = Vector2(635, 669)
+script = ExtResource("13_0q8s7")
 
 [node name="Submarine" type="CharacterBody2D" parent="."]
-position = Vector2(0, 468)
+position = Vector2(0, 493)
 script = ExtResource("1_pyjk8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Submarine"]
-position = Vector2(638, 200)
-scale = Vector2(0.25637755, 0.30186915)
-texture = ExtResource("2_vg0fk")
+position = Vector2(634.00006, 214.125)
+scale = Vector2(0.4048243, 0.3509346)
+texture = ExtResource("14_r3f5q")
+
+[node name="Bubbles" type="GPUParticles2D" parent="Submarine/Sprite2D"]
+z_index = 10
+position = Vector2(-4.183, 32.527)
+scale = Vector2(2.1, 2.1)
+amount = 20
+lifetime = 1.5
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_r3f5q")
 
 [node name="DepthLabel" type="Label" parent="Submarine"]
 offset_left = 604.0
@@ -171,11 +244,14 @@ points = PackedVector2Array(-76.37755, 388, 85.357, 388, 248.622, 388)
 width = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Submarine"]
-position = Vector2(628, 199)
+position = Vector2(634.5, 213)
 shape = SubResource("RectangleShape2D_ybybm")
 
-[node name="SubCamera" type="Camera2D" parent="Submarine"]
-position = Vector2(635, 201)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Submarine"]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_76ep2")
+}
 
 [node name="Label" type="Label" parent="."]
 visible = false

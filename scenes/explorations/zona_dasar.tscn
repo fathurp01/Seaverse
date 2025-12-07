@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bykgdjv7n5m4c"]
+[gd_scene load_steps=28 format=3 uid="uid://bykgdjv7n5m4c"]
 
 [ext_resource type="Texture2D" uid="uid://bpfdhq6ew4uy1" path="res://assets/Zona-Dasar/Bg_satu.png" id="1_b34rw"]
 [ext_resource type="Texture2D" uid="uid://dmq4wqje8t3on" path="res://assets/Zona-Dasar/Bg_dua.png" id="2_8sav5"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://beenqdl3712x7" path="res://scenes/explorations/fish.tscn" id="6_16ldu"]
 [ext_resource type="Texture2D" uid="uid://c23da1qtin3o3" path="res://assets/Zona-Dasar/Blob Fish.png" id="7_16ldu"]
 [ext_resource type="Texture2D" uid="uid://3f7m2ty4xbwj" path="res://assets/Zona-Dasar/Tripod Fish.png" id="8_vsg5l"]
+[ext_resource type="AudioStream" uid="uid://dpenpx3cnkpo0" path="res://assets/sounds/popup_info.wav" id="8_yr86c"]
 [ext_resource type="Texture2D" uid="uid://hu2wxkkbsgsl" path="res://assets/Zona-Dasar/Deep Sea Crab.png" id="9_yr86c"]
 [ext_resource type="Texture2D" uid="uid://d26o2yghneh8d" path="res://assets/Zona-Dasar/Sixgil Shark.png" id="11_gytvp"]
 [ext_resource type="Texture2D" uid="uid://7nasdebdwxnf" path="res://assets/Zona-Dasar/Snipe Ell.png" id="11_pt4q5"]
@@ -17,21 +18,98 @@
 [ext_resource type="Texture2D" uid="uid://budfbyvvdsoky" path="res://assets/Zona-Dasar/Giant Amphipod.png" id="15_vsg5l"]
 [ext_resource type="Texture2D" uid="uid://cll5aqnxxnwvw" path="res://assets/Zona-Dasar/Snailfish.png" id="16_16ldu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ot5n2"]
-size = Vector2(277, 173.5)
-
 [sub_resource type="GDScript" id="GDScript_yee8m"]
 script/source = "extends Camera2D
 
-@export var target_path: NodePath
-@onready var target = get_node(target_path)
+var submarine = null
+var locked_x = 0.0
+var camera_offset_y = 0.0  # Offset untuk center vertikal
 
-var follow_speed := 5.0  # semakin besar semakin cepat mengikuti
+func _ready():
+	# Set camera enabled & current
+	enabled = true
+	make_current()
+	
+	# Cari submarine dulu
+	await get_tree().process_frame
+	submarine = get_tree().get_first_node_in_group(\"player\")
+	
+	if submarine:
+		# Lock X ke posisi submarine
+		locked_x = submarine.global_position.x
+		
+		# Set offset Y agar submarine di tengah layar
+		# Gunakan viewport height / 2 sebagai offset
+		var viewport_height = get_viewport_rect().size.y
+		camera_offset_y = 0  # Atau bisa diatur sesuai kebutuhan
+		
+		# Set posisi awal kamera
+		global_position = Vector2(locked_x, submarine.global_position.y + camera_offset_y)
+		
+		print(\"✅ Camera locked to submarine X:\", locked_x)
+		print(\"   Viewport height:\", viewport_height)
+	else:
+		print(\"❌ ERROR: Submarine not found!\")
 
 func _process(delta):
-	if target:
-		global_position = global_position.lerp(target.global_position, delta * follow_speed)
+	if submarine:
+		# Offset untuk posisi kamera
+		var offset_x = 650   # Geser kanan (+) atau kiri (-)
+		var offset_y = 400 # Geser atas (-) atau bawah (+)
+		
+		# Lock X dengan offset, follow Y dengan offset
+		global_position = Vector2(locked_x + offset_x, submarine.global_position.y + offset_y)
 "
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_16ldu"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -1, 0)
+direction = Vector3(1, -1, 0)
+spread = 20.0
+initial_velocity_min = 30.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, -80, 0)
+scale_min = 0.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ot5n2"]
+size = Vector2(277, 173.5)
+
+[sub_resource type="Animation" id="Animation_yr86c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(651, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_vsg5l"]
+resource_name = "idle_float"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(651, 360), Vector2(651, 350), Vector2(651, 360)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gytvp"]
+_data = {
+&"RESET": SubResource("Animation_yr86c"),
+&"idle_float": SubResource("Animation_vsg5l")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw6x3"]
 size = Vector2(1305, 13)
@@ -54,9 +132,6 @@ offset_top = 3.0
 offset_right = 651.0
 offset_bottom = 3271.0
 
-[node name="StartCamera" type="Camera2D" parent="."]
-position = Vector2(653, 358)
-
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
@@ -69,13 +144,31 @@ position = Vector2(646.62506, 2472.75)
 scale = Vector2(1.2526854, 0.991862)
 texture = ExtResource("2_8sav5")
 
+[node name="SubCam" type="Camera2D" parent="."]
+position = Vector2(648, 553)
+position_smoothing_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+script = SubResource("GDScript_yee8m")
+
 [node name="Submarine_dasar" type="CharacterBody2D" parent="."]
 script = ExtResource("4_yee8m")
 
 [node name="Sprite2D" type="Sprite2D" parent="Submarine_dasar"]
-position = Vector2(651, 364)
+position = Vector2(651, 360)
 scale = Vector2(0.626, 0.66499996)
 texture = ExtResource("5_au1i2")
+
+[node name="Bubbles" type="GPUParticles2D" parent="Submarine_dasar/Sprite2D"]
+z_index = 10
+position = Vector2(-4.183, 32.527)
+scale = Vector2(2.1, 2.1)
+amount = 20
+lifetime = 1.5
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_16ldu")
 
 [node name="DepthLabel_dasar" type="Label" parent="Submarine_dasar"]
 offset_left = 623.0
@@ -88,13 +181,10 @@ text = "1000 M"
 position = Vector2(653, 350.75)
 shape = SubResource("RectangleShape2D_ot5n2")
 
-[node name="SubCam" type="Camera2D" parent="Submarine_dasar"]
-position = Vector2(647, 368)
-drag_left_margin = 0.0
-drag_top_margin = 0.0
-drag_right_margin = 0.0
-drag_bottom_margin = 0.0
-script = SubResource("GDScript_yee8m")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Submarine_dasar"]
+libraries = {
+&"": SubResource("AnimationLibrary_gytvp")
+}
 
 [node name="Boundaries" type="StaticBody2D" parent="."]
 
@@ -126,6 +216,7 @@ fish_description = "Blobfish hidup di kedalaman sekitar 600–1.200 meter, tubuh
 fish_fact = "Fakta seru Setelah diangkat ke permukaan (dekompresi), tubuhnya berubah drastis — kulit dan daging mengembang dan melempem, sehingga penampilan “jelek” yang sering viral sebenarnya akibat perubahan tekanan, bukan kondisi alami di laut dalam."
 fish_sprite = ExtResource("7_16ldu")
 fish_icon = ExtResource("7_16ldu")
+popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish2" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(787, 1549)
@@ -134,6 +225,7 @@ fish_description = "Tripod fish hidup di dataran laut dalam (batial–abysal), s
 fish_fact = "Fakta seru Alih-alih berenang bebas, mereka “berdiri” di dasar laut dengan sirip — strategi hemat energi — dan menangkap makanan yang lewat dengan gerakan minimal. Adaptasi ini memungkinkan hidup di habitat dengan makanan sangat jarang dan kondisi ekstrem."
 fish_sprite = ExtResource("8_vsg5l")
 fish_icon = ExtResource("8_vsg5l")
+popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish3" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(975, 1178)
@@ -142,6 +234,7 @@ fish_description = "Deep-sea crab adalah kepiting yang hidup di dasar laut atau 
 fish_fact = "Fakta Seru Karena banyak spesies, sifat dan adaptasinya sangat bervariasi — ada yang bergerak perlahan di dasar, ada yang bisa menahan tekanan ekstrem; bentuk cangkang dan ukuran kaki disesuaikan untuk berjalan di dasar lunak atau berbatu; mereka sering menjadi bagian penting dari ekosistem laut dalam sebagai detritivora atau scavenger."
 fish_sprite = ExtResource("9_yr86c")
 fish_icon = ExtResource("9_yr86c")
+popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish4" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(950, 787)
@@ -150,6 +243,7 @@ fish_description = "Snipe eel adalah ikan laut dalam yang hidup pada kedalaman 1
 fish_fact = "Fakta Seru Meskipun panjangnya bisa mencapai 2 meter, snipe eel sangat ringan dan ekornya berubah menjadi helaian halus saat dewasa. Ia memiliki jumlah ruas tulang belakang yang sangat banyak sehingga dapat membengkok ekstrem. Snipe eel hampir tidak pernah terlihat hidup-hidup karena jarang naik ke permukaan, membuatnya menjadi salah satu makhluk laut dalam paling misterius."
 fish_sprite = ExtResource("11_pt4q5")
 fish_icon = ExtResource("11_pt4q5")
+popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish5" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(116, 691)
@@ -158,6 +252,7 @@ fish_description = "Sixgill shark adalah hiu laut dalam dengan enam insang (buka
 fish_fact = "Fakta Seru Struktur insang dan tubuhnya memberi adaptasi untuk hidup di air dingin dan tekanan tinggi; karena habitat dalam dan penyebaran global, mereka sulit dipelajari, sehingga banyak informasi mengenai perilaku dan biologi mereka masih terbatas, membuat mereka salah satu predator laut dalam yang paling misterius."
 fish_sprite = ExtResource("11_gytvp")
 fish_icon = ExtResource("11_gytvp")
+popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish6" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(126, 1134)
@@ -166,6 +261,7 @@ fish_description = "Rattail adalah ikan dasar laut dalam dengan kepala besar dan
 fish_fact = "Fakta seru Indra penciuman rattail sangat tajam, membuatnya mampu menemukan bangkai atau mangsa kecil di dasar laut gelap total. Mereka termasuk ikan laut dalam yang paling banyak ditemukan di dunia. Beberapa spesies dapat hidup dalam suhu hampir mendekati titik beku tanpa kehilangan fungsi tubuh."
 fish_sprite = ExtResource("12_arqsu")
 fish_icon = ExtResource("12_arqsu")
+popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish7" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(282, 1916)
@@ -174,6 +270,7 @@ fish_description = "Abyssal medusa adalah ubur-ubur laut dalam yang hidup di zon
 fish_fact = "Fakta Seru Banyak spesies abyssal medusa mampu menghasilkan cahaya bioluminesensi untuk menarik mangsa atau membingungkan predator. Mereka sering terlihat seperti “lampu hidup” di kegelapan laut dalam. Kemunculan mereka jarang terekam kamera sehingga sebagian besar spesiesnya masih misterius."
 fish_sprite = ExtResource("13_pt4q5")
 fish_icon = ExtResource("13_pt4q5")
+popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish8" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(194, 2595)
@@ -182,6 +279,7 @@ fish_description = "Dumbo octopus adalah gurita laut dalam yang ditemukan pada k
 fish_fact = "Fakta seru Ia adalah gurita terdalam yang pernah ditemukan hidup, bahkan ada yang terekam di >7.000 meter. Dumbo octopus tidak memangsa secara agresif dan hanya menelan mangsa bulat-bulat. Bentuknya yang lucu membuatnya dijuluki “makhluk tersopan di laut dalam."
 fish_sprite = ExtResource("14_16ldu")
 fish_icon = ExtResource("14_16ldu")
+popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish9" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(804, 2214)
@@ -190,6 +288,7 @@ fish_description = "Giant amphipod adalah krustasea laut dalam berukuran besar y
 fish_fact = "Fakta seru Meskipun kebanyakan amphipod kecil, spesies ini bisa tumbuh hingga 30 cm—raksasa untuk kelasnya. Tubuhnya transparan agar tersamarkan di lingkungan tanpa cahaya. Ketahanan mereka terhadap tekanan ekstrem membuatnya menjadi salah satu hewan paling kuat di zona hadal."
 fish_sprite = ExtResource("15_vsg5l")
 fish_icon = ExtResource("15_vsg5l")
+popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish10" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(878, 2737)
@@ -198,3 +297,4 @@ fish_description = "Snailfish hadal hidup antara 6.000–8.200 meter di palung l
 fish_fact = "Fakta seru Snailfish adalah ikan terdalam yang pernah direkam hidup—lebih dalam daripada kapal selam manusia. Enzim dan struktur selnya mencegah tubuhnya hancur di tekanan ekstrem. Meski hidup di kedalaman menakutkan, mereka justru menjadi predator puncak di zona hadal."
 fish_sprite = ExtResource("16_16ldu")
 fish_icon = ExtResource("16_16ldu")
+popup_sound = ExtResource("8_yr86c")
