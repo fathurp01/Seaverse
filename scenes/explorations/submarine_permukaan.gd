@@ -4,10 +4,11 @@ var moved := false
 var depth := 0
 
 # Cari camera di scene, bukan sebagai child
-@onready var sub_cam = get_node("/root/ZonaPermukaan/SubCamera")  # ← Sesuaikan path
+@onready var sub_cam = get_node("/root/ZonaPermukaan/SubCamera")
 @onready var sprite = $Sprite2D
 @onready var bubbles = $Bubbles
 @onready var anim_player = $AnimationPlayer
+@onready var background_music = get_node("/root/ZonaPermukaan/BackgroundMusic")
 
 var surface_y := 470
 
@@ -36,6 +37,11 @@ func _ready():
 	
 	if bubbles:
 		bubbles.emitting = false
+	
+	# Play audio dengan volume tetap
+	if background_music:
+		background_music.volume_db = 0.0
+		background_music.play()
 
 func _physics_process(delta):
 	var input = Vector2.ZERO
@@ -58,6 +64,10 @@ func _physics_process(delta):
 func _process(delta):
 	depth = int((global_position.y - surface_y) / 10)
 	update_depth_label()
+	
+	# Force volume tetap setiap frame
+	if background_music:
+		background_music.volume_db = 0.0
 
 func calculate_pressure_effect():
 	var depth_meters = max(0, depth)
