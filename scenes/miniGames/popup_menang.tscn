@@ -1,25 +1,25 @@
-[gd_scene load_steps=13 format=3 uid="uid://ohgvfaggsxh5"]
+[gd_scene load_steps=13 format=3 uid="uid://cfgs2mbx055el"]
 
-[ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames/popup_menang.gd" id="1_32ihj"]
-[ext_resource type="Texture2D" uid="uid://bilrymmgf53uu" path="res://scenes/miniGames/bgpopup.png" id="2_r4qyv"]
-[ext_resource type="Texture2D" uid="uid://bba7x46641u37" path="res://scenes/miniGames/btn2.png" id="3_f4wyd"]
-[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames/PassionOne-Regular.ttf" id="3_jki64"]
-[ext_resource type="Texture2D" uid="uid://wntln4io540a" path="res://scenes/miniGames/btn1.png" id="4_y4a5n"]
-[ext_resource type="Texture2D" uid="uid://xv1n1hglcelj" path="res://scenes/miniGames/harta.png" id="6_uytcs"]
-[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames/Bungee-Regular.ttf" id="7_buwfd"]
-[ext_resource type="Texture2D" uid="uid://dlploby36cqd7" path="res://scenes/miniGames/zona_tengah.png" id="8_pbtsn"]
+[ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames-ZonaTengah/popup_menang.gd" id="1_jki64"]
+[ext_resource type="Texture2D" uid="uid://bilrymmgf53uu" path="res://scenes/miniGames-ZonaTengah/bgpopup.png" id="2_y4a5n"]
+[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames-ZonaTengah/PassionOne-Regular.ttf" id="3_uytcs"]
+[ext_resource type="Texture2D" uid="uid://ck0vcu3cnv1kj" path="res://scenes/miniGames-ZonaTengah/btn1.png" id="4_buwfd"]
+[ext_resource type="Texture2D" uid="uid://ci0c507d1t6bl" path="res://scenes/miniGames-ZonaTengah/btn2.png" id="5_pbtsn"]
+[ext_resource type="Texture2D" uid="uid://qhr30m3umd50" path="res://scenes/miniGames-ZonaTengah/harta.png" id="6_6blgj"]
+[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames-ZonaTengah/Bungee-Regular.ttf" id="7_28vn4"]
+[ext_resource type="Texture2D" uid="uid://dsm3mu42gdggt" path="res://scenes/miniGames-ZonaTengah/zona_tengah.png" id="8_dqbo7"]
 
 [sub_resource type="Theme" id="Theme_0pxy3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4wyd"]
-texture = ExtResource("2_r4qyv")
+texture = ExtResource("2_y4a5n")
 
 [sub_resource type="LabelSettings" id="LabelSettings_6blgj"]
-font = ExtResource("3_jki64")
+font = ExtResource("3_uytcs")
 font_size = 61
 
 [sub_resource type="LabelSettings" id="LabelSettings_28vn4"]
-font = ExtResource("7_buwfd")
+font = ExtResource("7_28vn4")
 font_size = 22
 font_color = Color(0.34847164, 0.55815613, 0.55815613, 1)
 
@@ -33,7 +33,7 @@ offset_right = 0.5999756
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_32ihj")
+script = ExtResource("1_jki64")
 
 [node name="popup_menang" type="CanvasLayer" parent="."]
 
@@ -83,7 +83,7 @@ offset_right = -0.080078125
 offset_bottom = 13.159973
 size_flags_horizontal = 4
 size_flags_vertical = 8
-texture_normal = ExtResource("4_y4a5n")
+texture_normal = ExtResource("4_buwfd")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -97,7 +97,7 @@ offset_left = -0.08001709
 offset_top = -3.0517578e-05
 offset_right = -0.32006836
 offset_bottom = -0.23999023
-texture_normal = ExtResource("3_f4wyd")
+texture_normal = ExtResource("5_pbtsn")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -111,7 +111,7 @@ offset_left = 0.5199585
 offset_top = -0.27999878
 offset_right = -0.5600586
 offset_bottom = 0.3199768
-texture = ExtResource("6_uytcs")
+texture = ExtResource("6_6blgj")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="popup_menang"]
@@ -136,5 +136,5 @@ offset_left = 0.3199463
 offset_top = 0.3199768
 offset_right = 0.6399536
 offset_bottom = 0.35998535
-texture = ExtResource("8_pbtsn")
+texture = ExtResource("8_dqbo7")
 expand_mode = 1

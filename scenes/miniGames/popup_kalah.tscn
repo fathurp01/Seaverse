@@ -1,27 +1,27 @@
-[gd_scene load_steps=14 format=3 uid="uid://btnbpasqi6uva"]
+[gd_scene load_steps=14 format=3 uid="uid://blsadlclye2h7"]
 
-[ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames/popup_menang.gd" id="1_jsypn"]
-[ext_resource type="Texture2D" uid="uid://bdnbptgj6lnww" path="res://scenes/miniGames/bgkalah.png" id="2_jsypn"]
-[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames/PassionOne-Regular.ttf" id="3_jmops"]
-[ext_resource type="Texture2D" uid="uid://b0c3leayy7tj0" path="res://scenes/miniGames/btn_coba_lagi.png" id="4_ecvaa"]
-[ext_resource type="Texture2D" uid="uid://bkefcnov01xmw" path="res://scenes/miniGames/btn_eklplorasi_ulang.png" id="5_jmops"]
-[ext_resource type="Texture2D" uid="uid://dtwkh4s4mqqdf" path="res://scenes/miniGames/tengkorak.png" id="6_7ir85"]
-[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames/Bungee-Regular.ttf" id="7_djkeq"]
-[ext_resource type="Script" uid="uid://bq3owagyaxw3m" path="res://scenes/miniGames/popup_kalah.gd" id="7_ecvaa"]
-[ext_resource type="Texture2D" uid="uid://bwu4q2stxkusc" path="res://scenes/miniGames/locK_tengah_lauh.png" id="8_olpkm"]
+[ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames-ZonaTengah/popup_menang.gd" id="1_ecvaa"]
+[ext_resource type="Texture2D" uid="uid://dmpbvnbmeujjl" path="res://scenes/miniGames-ZonaTengah/bgkalah.png" id="2_jmops"]
+[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames-ZonaTengah/PassionOne-Regular.ttf" id="3_7ir85"]
+[ext_resource type="Texture2D" uid="uid://c57is2ln5reh6" path="res://scenes/miniGames-ZonaTengah/tengkorak.png" id="4_olpkm"]
+[ext_resource type="Script" uid="uid://bq3owagyaxw3m" path="res://scenes/miniGames-ZonaTengah/popup_kalah.gd" id="5_4wx8n"]
+[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames-ZonaTengah/Bungee-Regular.ttf" id="6_djkeq"]
+[ext_resource type="Texture2D" uid="uid://ep87dtjvgd6x" path="res://scenes/miniGames-ZonaTengah/locK_tengah_lauh.png" id="7_1hkcf"]
+[ext_resource type="Texture2D" uid="uid://duinynarcsk25" path="res://scenes/miniGames-ZonaTengah/btn_eklplorasi_ulang.png" id="8_omomo"]
+[ext_resource type="Texture2D" uid="uid://cxhaghcnpym8w" path="res://scenes/miniGames-ZonaTengah/btn_coba_lagi.png" id="9_i8rcv"]
 
 [sub_resource type="Theme" id="Theme_0pxy3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4wyd"]
-texture = ExtResource("2_jsypn")
+texture = ExtResource("2_jmops")
 
 [sub_resource type="LabelSettings" id="LabelSettings_6blgj"]
-font = ExtResource("3_jmops")
+font = ExtResource("3_7ir85")
 font_size = 61
 font_color = Color(0.90588236, 0.03529412, 0.14901961, 0.6156863)
 
 [sub_resource type="LabelSettings" id="LabelSettings_28vn4"]
-font = ExtResource("7_djkeq")
+font = ExtResource("6_djkeq")
 font_size = 22
 font_color = Color(0.63529414, 0.6901961, 0.4117647, 1)
 
@@ -36,7 +36,7 @@ offset_right = 0.5999756
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jsypn")
+script = ExtResource("1_ecvaa")
 
 [node name="popup_kalah" type="CanvasLayer" parent="."]
 
@@ -84,9 +84,9 @@ offset_left = 0.19998169
 offset_top = -0.19999695
 offset_right = -0.040039063
 offset_bottom = -0.6799927
-texture = ExtResource("6_7ir85")
+texture = ExtResource("4_olpkm")
 expand_mode = 1
-script = ExtResource("7_ecvaa")
+script = ExtResource("5_4wx8n")
 
 [node name="Label" type="Label" parent="popup_kalah"]
 anchors_preset = -1
@@ -111,7 +111,7 @@ offset_left = 0.3199463
 offset_top = 7.319977
 offset_right = 0.6399536
 offset_bottom = 7.3599854
-texture = ExtResource("8_olpkm")
+texture = ExtResource("7_1hkcf")
 expand_mode = 1
 
 [node name="btn_eksplorasi_ulang" type="TextureButton" parent="popup_kalah"]
@@ -124,7 +124,7 @@ offset_left = -0.24002075
 offset_top = 0.3199463
 offset_right = 0.35998535
 offset_bottom = -0.2800293
-texture_normal = ExtResource("5_jmops")
+texture_normal = ExtResource("8_omomo")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -140,6 +140,6 @@ offset_right = 8.999939
 offset_bottom = -1.7200317
 size_flags_horizontal = 4
 size_flags_vertical = 8
-texture_normal = ExtResource("4_ecvaa")
+texture_normal = ExtResource("9_i8rcv")
 ignore_texture_size = true
 stretch_mode = 0
