@@ -1,7 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://bykgdjv7n5m4c"]
+[gd_scene load_steps=29 format=3 uid="uid://bykgdjv7n5m4c"]
 
-[ext_resource type="Texture2D" uid="uid://dmq4wqje8t3on" path="res://assets/Zona-Dasar/Bg_satu.png" id="2_8sav5"]
-[ext_resource type="Texture2D" uid="uid://cb8g4gepktnbl" path="res://assets/Zona-Dasar/Bg_dua.png" id="2_vsg5l"]
+[ext_resource type="Texture2D" uid="uid://dmq4wqje8t3on" path="res://assets/Zona-Dasar/Bg_dua.png" id="2_vsg5l"]
 [ext_resource type="Texture2D" uid="uid://qe854mc1641r" path="res://assets/seaverse_icon.png" id="3_8sav5"]
 [ext_resource type="Script" uid="uid://bn0813afw7vfm" path="res://scenes/explorations/submarine_dasar.gd" id="4_yee8m"]
 [ext_resource type="Texture2D" uid="uid://b14ah7pkbj7ay" path="res://assets/Zona-Dasar/kapal.png" id="5_au1i2"]
@@ -139,7 +138,7 @@ offset_bottom = 3271.0
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
 position = Vector2(650.99994, 859)
 scale = Vector2(1.2597655, 1.1119792)
-texture = ExtResource("2_8sav5")
+texture = ExtResource("2_vsg5l")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Background"]
 position = Vector2(646.62506, 2472.75)

@@ -1,6 +1,6 @@
 extends Area2D
 
-@export_file("*.tscn") var next_zone_path: String = "res://scenes/miniGames/mini_game.tscn"
+@export_file("*.tscn") var next_zone_path: String = "res://scenes/miniGames-ZonaTengah/mini_game_tengah.tscn"
 
 # === PENGATURAN NOTIFIKASI ===
 enum NotificationPosition {

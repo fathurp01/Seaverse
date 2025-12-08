@@ -4,16 +4,16 @@ extends Control
 # DATA SOAL
 # --------------------------------------------------------
 var soal = [
-	{"img": "res://assets/Zona-Permukaan/anemon.png", "jawaban": "ANEMON"},
-	{"img": "res://assets/Zona-Permukaan/bintang-laut.png", "jawaban": "BINTANGLAUT"},
-	{"img": "res://assets/Zona-Permukaan/gurita.png", "jawaban": "GURITA"},
-	{"img": "res://assets/Zona-Permukaan/hiu.png", "jawaban": "HIU"},
-	{"img": "res://assets/Zona-Permukaan/kepiting.png", "jawaban": "KEPITING"},
-	{"img": "res://assets/Zona-Permukaan/kuda-laut.png", "jawaban": "KUDALAUT"},
-	{"img": "res://assets/Zona-Permukaan/lumba-lumba.png", "jawaban": "LUMBALUMBA"},
-	{"img": "res://assets/Zona-Permukaan/makarel.png", "jawaban": "MAKAREL"},
-	{"img": "res://assets/Zona-Permukaan/mantaray.png", "jawaban": "MANTARAY"},
-	{"img": "res://assets/Zona-Permukaan/nemo.png", "jawaban": "NEMO"}
+	{"img": "res://assets/Zona-Dasar/Blob Fish.png", "jawaban": "IKANBLOB"},
+	{"img": "res://assets/Zona-Dasar/Deep Sea Crab.png", "jawaban": "KEPITINGLAUTDALAM"},
+	{"img": "res://assets/Zona-Dasar/Dumbo Octopus.png", "jawaban": "GURITADUMBO"},
+	{"img": "res://assets/Zona-Dasar/Giant Amphipod.png", "jawaban": "AMFIPODARAKSASA"},
+	{"img": "res://assets/Zona-Dasar/Medusa Jellyfish.png", "jawaban": "UBURUBURMEDUSA"},
+	{"img": "res://assets/Zona-Dasar/Rattail Fish.png", "jawaban": "IKANGRENADIER"},
+	{"img": "res://assets/Zona-Dasar/Sixgil Shark.png", "jawaban": "HIUENAMINSANG"},
+	{"img": "res://assets/Zona-Dasar/Snailfish.png", "jawaban": "IKANSIPUTHADAL"},
+	{"img": "res://assets/Zona-Dasar/Snipe Ell.png", "jawaban": "BELUTSNIPE"},
+	{"img": "res://assets/Zona-Dasar/Tripod Fish.png", "jawaban": "IKANTRIPOD"}
 ]
 
 # --------------------------------------------------------
@@ -41,8 +41,8 @@ var jumlah_benar := 0
 var target_soal := 7
 var jumlah_salah := 0
 var max_salah := 2
-var popup_menang_scene = preload("res://scenes/miniGames/popup_menang.tscn")
-var popup_kalah_scene = preload("res://scenes/miniGames/popup_kalah.tscn")
+var popup_menang_scene = preload("res://scenes/miniGames-ZonaDasar/popup_menang.tscn")
+var popup_kalah_scene = preload("res://scenes/miniGames-ZonaDasar/popup_kalah.tscn")
 
 var huruf_button_map := {}
 var blur_overlay: ColorRect = null
@@ -296,6 +296,10 @@ func periksa_jawaban():
 		
 		if jumlah_benar >= target_soal:
 			await get_tree().create_timer(0.8).timeout
+			GlobalProgress.zona_permukaan_completed = true
+			GlobalProgress.zona_tengah_completed = true
+			GlobalProgress.zona_dasar_completed = true
+			GlobalProgress.save()
 			tampilkan_popup_menang()
 			return
 		

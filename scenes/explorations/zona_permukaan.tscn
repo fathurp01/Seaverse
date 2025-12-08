@@ -1,12 +1,12 @@
 [gd_scene load_steps=31 format=3 uid="uid://byk6ed5wgr2fc"]
 
 [ext_resource type="Texture2D" uid="uid://cnfvgafqokqe8" path="res://assets/Zona-Permukaan/bg_atas.png" id="1_mrse6"]
-[ext_resource type="Script" path="res://scenes/explorations/submarine_permukaan.gd" id="1_pyjk8"]
+[ext_resource type="Script" uid="uid://cgr12y3f1nopy" path="res://scenes/explorations/submarine_permukaan.gd" id="1_pyjk8"]
 [ext_resource type="Texture2D" uid="uid://d0ew8652yp8jq" path="res://assets/Zona-Permukaan/gurita.png" id="3_r3f5q"]
 [ext_resource type="Texture2D" uid="uid://cq2j2wdf58ytm" path="res://assets/Zona-Permukaan/kepiting.png" id="4_0q8s7"]
-[ext_resource type="PackedScene" path="res://scenes/explorations/fish.tscn" id="4_6u12y"]
+[ext_resource type="PackedScene" uid="uid://beenqdl3712x7" path="res://scenes/explorations/fish.tscn" id="4_6u12y"]
 [ext_resource type="AudioStream" uid="uid://dpenpx3cnkpo0" path="res://assets/sounds/popup_info.wav" id="4_76ep2"]
-[ext_resource type="Texture2D" uid="uid://cqyvwkva0w46q" path="res://assets/seaverse_icon.png" id="4_mrse6"]
+[ext_resource type="Texture2D" uid="uid://qe854mc1641r" path="res://assets/seaverse_icon.png" id="4_mrse6"]
 [ext_resource type="Texture2D" uid="uid://dmpcj5byhdbv6" path="res://assets/Zona-Permukaan/kuda-laut.png" id="5_76ep2"]
 [ext_resource type="Texture2D" uid="uid://bnahcdh1xxnwh" path="res://assets/Zona-Permukaan/bintang-laut.png" id="5_ybybm"]
 [ext_resource type="Texture2D" uid="uid://cw5d2retj6fes" path="res://assets/Zona-Permukaan/anemon.png" id="6_raom1"]
@@ -18,7 +18,7 @@
 [ext_resource type="Script" uid="uid://banppdtq6thdv" path="res://scenes/explorations/sub_camera_permukaan.gd" id="13_0q8s7"]
 [ext_resource type="Texture2D" uid="uid://ijxgnl1120mi" path="res://assets/Zona-Permukaan/submarine_permukaan.png" id="14_r3f5q"]
 [ext_resource type="AudioStream" uid="uid://ch1d88oeaqw50" path="res://assets/sounds/Exploration_Music_Permukaan.mp3" id="18_py88s"]
-[ext_resource type="PackedScene" path="res://scenes/explorations/whirlpool.tscn" id="19_py88s"]
+[ext_resource type="PackedScene" uid="uid://chjm748nnlkm2" path="res://scenes/explorations/whirlpool.tscn" id="19_py88s"]
 
 [sub_resource type="Gradient" id="Gradient_ybybm"]
 colors = PackedColorArray(0, 0, 0, 1, 0.06666667, 0.40784314, 0.5294118, 1)
