@@ -291,7 +291,7 @@ texture = ExtResource("4_mrse6")
 
 [node name="Whirlpool" parent="." instance=ExtResource("19_py88s")]
 position = Vector2(636, 3164)
-notification_position = 0
+notification_position = 1
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_py88s")
