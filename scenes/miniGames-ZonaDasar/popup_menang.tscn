@@ -1,0 +1,140 @@
+[gd_scene load_steps=13 format=3 uid="uid://gm002h6xt055"]
+
+[ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames-ZonaTengah/popup_menang.gd" id="1_c8q4h"]
+[ext_resource type="Texture2D" uid="uid://bilrymmgf53uu" path="res://scenes/miniGames-ZonaTengah/bgpopup.png" id="2_c4l2m"]
+[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames-ZonaTengah/PassionOne-Regular.ttf" id="3_ns4mm"]
+[ext_resource type="Texture2D" uid="uid://ck0vcu3cnv1kj" path="res://scenes/miniGames-ZonaTengah/btn1.png" id="4_xp81k"]
+[ext_resource type="Texture2D" uid="uid://ci0c507d1t6bl" path="res://scenes/miniGames-ZonaTengah/btn2.png" id="5_6fmew"]
+[ext_resource type="Texture2D" uid="uid://qhr30m3umd50" path="res://scenes/miniGames-ZonaTengah/harta.png" id="6_b2mjc"]
+[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames-ZonaTengah/Bungee-Regular.ttf" id="7_ybsa1"]
+[ext_resource type="Texture2D" uid="uid://dsm3mu42gdggt" path="res://scenes/miniGames-ZonaTengah/zona_tengah.png" id="8_22q7k"]
+
+[sub_resource type="Theme" id="Theme_0pxy3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4wyd"]
+texture = ExtResource("2_c4l2m")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6blgj"]
+font = ExtResource("3_ns4mm")
+font_size = 61
+
+[sub_resource type="LabelSettings" id="LabelSettings_28vn4"]
+font = ExtResource("7_ybsa1")
+font_size = 22
+font_color = Color(0.34847164, 0.55815613, 0.55815613, 1)
+
+[node name="PopupMenang" type="Control"]
+layout_mode = 3
+anchor_right = 1.005
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 3.0
+offset_right = 0.5999756
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c8q4h")
+
+[node name="popup_menang" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="popup_menang"]
+anchors_preset = -1
+anchor_left = 0.245
+anchor_top = 0.067
+anchor_right = 0.77800006
+anchor_bottom = 0.91400003
+offset_left = -5.600006
+offset_top = -0.24000168
+offset_right = 0.15991211
+offset_bottom = 8.919983
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0pxy3")
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4wyd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popup_menang"]
+anchors_preset = -1
+anchor_left = 0.287
+anchor_top = 0.194
+anchor_right = 0.74100006
+anchor_bottom = 0.87500006
+offset_left = -50.359985
+offset_top = -0.68000793
+offset_right = 45.519897
+offset_bottom = 22.999939
+
+[node name="Label" type="Label" parent="popup_menang/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "KAMU BERHASIL"
+label_settings = SubResource("LabelSettings_6blgj")
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="btn_lanjut" type="TextureButton" parent="popup_menang"]
+anchors_preset = -1
+anchor_left = 0.48400003
+anchor_top = 0.65400004
+anchor_right = 0.68600005
+anchor_bottom = 0.87200004
+offset_left = 0.47998047
+offset_top = 0.1199646
+offset_right = -0.080078125
+offset_bottom = 13.159973
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture_normal = ExtResource("4_xp81k")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="btn_kembali" type="TextureButton" parent="popup_menang"]
+anchors_preset = -1
+anchor_left = 0.33600003
+anchor_top = 0.65000004
+anchor_right = 0.544
+anchor_bottom = 0.892
+offset_left = -0.08001709
+offset_top = -3.0517578e-05
+offset_right = -0.32006836
+offset_bottom = -0.23999023
+texture_normal = ExtResource("5_6fmew")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="harta" type="TextureRect" parent="popup_menang"]
+anchors_preset = -1
+anchor_left = 0.441
+anchor_top = 0.324
+anchor_right = 0.577
+anchor_bottom = 0.544
+offset_left = 0.5199585
+offset_top = -0.27999878
+offset_right = -0.5600586
+offset_bottom = 0.3199768
+texture = ExtResource("6_b2mjc")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="popup_menang"]
+anchors_preset = -1
+anchor_left = 0.42400002
+anchor_top = 0.55
+anchor_right = 0.59800005
+anchor_bottom = 0.596
+offset_left = 0.27996826
+offset_right = 0.5599365
+offset_bottom = -0.120025635
+text = "Hadiah Terbuka :"
+label_settings = SubResource("LabelSettings_28vn4")
+
+[node name="zona" type="TextureRect" parent="popup_menang"]
+anchors_preset = -1
+anchor_left = 0.40600002
+anchor_top = 0.59400004
+anchor_right = 0.61200005
+anchor_bottom = 0.68700004
+offset_left = 0.3199463
+offset_top = 0.3199768
+offset_right = 0.6399536
+offset_bottom = 0.35998535
+texture = ExtResource("8_22q7k")
+expand_mode = 1

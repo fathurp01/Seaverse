@@ -1,0 +1,165 @@
+[gd_scene load_steps=15 format=3 uid="uid://1wiku8otqgry"]
+
+[ext_resource type="Script" uid="uid://bg31b3ffiit3o" path="res://scenes/miniGames-ZonaTengah/mini_game_tengah.gd" id="1_u0h2k"]
+[ext_resource type="Texture2D" uid="uid://doc8jqpierxk1" path="res://scenes/miniGames-ZonaTengah/gamebg.jpg" id="2_wwfg1"]
+[ext_resource type="Texture2D" uid="uid://wil51igo14qx" path="res://scenes/miniGames-ZonaTengah/kotak.png" id="3_vvsmq"]
+[ext_resource type="Texture2D" uid="uid://bvcsuhic4g8t5" path="res://scenes/miniGames-ZonaTengah/jawaban.png" id="4_vv8b1"]
+[ext_resource type="Texture2D" uid="uid://gv7jwgs752hf" path="res://scenes/miniGames-ZonaTengah/submit.png" id="5_d6tex"]
+[ext_resource type="AudioStream" uid="uid://c76ebunjhhqed" path="res://scenes/miniGames-ZonaTengah/Sbenar.mp3" id="6_deed3"]
+[ext_resource type="AudioStream" uid="uid://c8o0mx32qmy5c" path="res://scenes/miniGames-ZonaTengah/victory.mp3" id="7_3f63q"]
+[ext_resource type="AudioStream" uid="uid://yn5r0nrbugca" path="res://scenes/miniGames-ZonaTengah/salah.mp3" id="8_w1kop"]
+[ext_resource type="AudioStream" uid="uid://c2wupwdxfb5dt" path="res://scenes/miniGames-ZonaTengah/kalah.mp3" id="9_sq37m"]
+[ext_resource type="Texture2D" uid="uid://c42f8v41gaj6w" path="res://scenes/miniGames-ZonaTengah/btn_mute.png" id="10_gy8ka"]
+[ext_resource type="Texture2D" uid="uid://g1bj4lxjdt5n" path="res://scenes/miniGames-ZonaTengah/btn_music.png" id="11_iqulw"]
+[ext_resource type="AudioStream" uid="uid://n0vkmh4yx4bd" path="res://scenes/miniGames-ZonaTengah/musiccc.mp3" id="12_stcip"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lnvvh"]
+texture = ExtResource("3_vvsmq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3wh1t"]
+texture = ExtResource("4_vv8b1")
+
+[node name="MiniGame" type="Control" groups=["mini_game"]]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u0h2k")
+
+[node name="bg2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.008
+offset_right = 2.0
+offset_bottom = 0.23999023
+texture = ExtResource("2_wwfg1")
+
+[node name="kotak_gambar" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.259
+anchor_top = 0.033
+anchor_right = 0.72900003
+anchor_bottom = 0.646
+offset_left = -1.5200195
+offset_top = -10.76
+offset_right = -2.1200562
+offset_bottom = -0.120025635
+theme_override_styles/panel = SubResource("StyleBoxTexture_lnvvh")
+
+[node name="pertanyaan" type="TextureRect" parent="kotak_gambar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16100001
+anchor_top = 0.27600002
+anchor_right = 0.82500005
+anchor_bottom = 0.74500006
+offset_left = 193.23
+offset_top = 87.35999
+offset_right = -185.25003
+offset_bottom = -95.55002
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="kotak_jawaban" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.231
+anchor_top = 0.58900005
+anchor_right = 0.75900006
+anchor_bottom = 0.81500006
+offset_left = 0.32000732
+offset_top = -0.08004761
+offset_right = -0.52008057
+offset_bottom = 0.19995117
+theme_override_styles/panel = SubResource("StyleBoxTexture_3wh1t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="kotak_jawaban"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.3249817
+offset_right = 1.3249817
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="huruf_pool" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15400001
+anchor_top = 0.81100005
+anchor_right = 0.80200005
+anchor_bottom = 0.99700004
+offset_left = -0.120025635
+offset_top = 0.079956055
+offset_right = -24.560059
+offset_bottom = 0.15997314
+columns = 13
+
+[node name="TextureButton" type="TextureButton" parent="." groups=["mini_game"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.744
+anchor_top = 0.61
+anchor_right = 0.84800005
+anchor_bottom = 0.781
+offset_left = -0.32000732
+offset_top = -0.2000122
+offset_right = -0.44006348
+offset_bottom = -0.32000732
+texture_normal = ExtResource("5_d6tex")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SFXBenar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_deed3")
+
+[node name="BGMVictory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3f63q")
+
+[node name="SFXSalah" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_w1kop")
+
+[node name="BGMGameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_sq37m")
+
+[node name="btn_mute" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.88600004
+anchor_top = 0.012
+anchor_right = 0.98600006
+anchor_bottom = 0.15
+offset_left = -0.080078125
+offset_top = 0.35999966
+offset_right = -0.080078125
+offset_bottom = -2.0000076
+texture_normal = ExtResource("10_gy8ka")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="btn_music" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.786
+anchor_top = 0.014
+anchor_right = 0.892
+anchor_bottom = 0.14400001
+offset_left = -0.08001709
+offset_top = -0.07999992
+offset_right = 0.23999023
+offset_bottom = 0.31999207
+texture_normal = ExtResource("11_iqulw")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="BGMGameplay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_stcip")

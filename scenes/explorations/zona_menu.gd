@@ -24,8 +24,9 @@ func _ready():
 	_create_glow_border(zona_tengah, "glow_tengah")
 	_create_glow_border(zona_dasar, "glow_dasar")
 	
-	# Set initial state untuk setiap zona
-	_update_zona_states()
+	GlobalProgress.load()
+	check_and_unlock_zones()
+
 
 func _process(_delta):
 	# Tombol ESC untuk kembali ke start screen
@@ -171,16 +172,16 @@ func unlock_zona_dasar():
 
 # Fungsi untuk check progress (nanti bisa dipanggil dari global/autoload)
 func check_and_unlock_zones():
-	"""
-	Fungsi ini bisa dipanggil untuk check progress player
-	Nanti bisa integrate dengan save system atau global state
-	"""
-	# Contoh: cek apakah zona permukaan sudah selesai
-	# if GlobalProgress.zona_permukaan_completed:
-	#     unlock_zona_tengah()
-	# if GlobalProgress.zona_tengah_completed:
-	#     unlock_zona_dasar()
-	pass
+	# Unlock zona tengah kalau zona permukaan selesai
+	if GlobalProgress.zona_permukaan_completed:
+		zona_tengah_unlocked = true
+	
+	# Unlock zona dasar kalau zona tengah selesai
+	if GlobalProgress.zona_tengah_completed:
+		zona_dasar_unlocked = true
+	
+	_update_zona_states()
+
 
 func go_back():
 	"""Kembali ke start screen"""
