@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://c5o3jf0wt1avl"]
-
-[node name="UI_HUD" type="Control"]
-clip_contents = true
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
