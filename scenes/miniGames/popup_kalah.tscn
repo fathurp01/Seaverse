@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://blsadlclye2h7"]
 
 [ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames-ZonaTengah/popup_menang.gd" id="1_ecvaa"]
-[ext_resource type="Texture2D" uid="uid://dmpbvnbmeujjl" path="res://scenes/miniGames-ZonaTengah/bgkalah.png" id="2_jmops"]
-[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames-ZonaTengah/PassionOne-Regular.ttf" id="3_7ir85"]
-[ext_resource type="Texture2D" uid="uid://c57is2ln5reh6" path="res://scenes/miniGames-ZonaTengah/tengkorak.png" id="4_olpkm"]
+[ext_resource type="Texture2D" uid="uid://dmpbvnbmeujjl" path="res://scenes/miniGames/bgkalah.png" id="2_jmops"]
+[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames/PassionOne-Regular.ttf" id="3_7ir85"]
+[ext_resource type="Texture2D" uid="uid://c57is2ln5reh6" path="res://scenes/miniGames/tengkorak.png" id="4_olpkm"]
 [ext_resource type="Script" uid="uid://bq3owagyaxw3m" path="res://scenes/miniGames-ZonaTengah/popup_kalah.gd" id="5_4wx8n"]
-[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames-ZonaTengah/Bungee-Regular.ttf" id="6_djkeq"]
-[ext_resource type="Texture2D" uid="uid://ep87dtjvgd6x" path="res://scenes/miniGames-ZonaTengah/locK_tengah_lauh.png" id="7_1hkcf"]
-[ext_resource type="Texture2D" uid="uid://duinynarcsk25" path="res://scenes/miniGames-ZonaTengah/btn_eklplorasi_ulang.png" id="8_omomo"]
-[ext_resource type="Texture2D" uid="uid://cxhaghcnpym8w" path="res://scenes/miniGames-ZonaTengah/btn_coba_lagi.png" id="9_i8rcv"]
+[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames/Bungee-Regular.ttf" id="6_djkeq"]
+[ext_resource type="Texture2D" uid="uid://ep87dtjvgd6x" path="res://scenes/miniGames/locK_tengah_lauh.png" id="7_1hkcf"]
+[ext_resource type="Texture2D" uid="uid://duinynarcsk25" path="res://scenes/miniGames/btn_eklplorasi_ulang.png" id="8_omomo"]
+[ext_resource type="Texture2D" uid="uid://cxhaghcnpym8w" path="res://scenes/miniGames/btn_coba_lagi.png" id="9_i8rcv"]
 
 [sub_resource type="Theme" id="Theme_0pxy3"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://nw6w2msa4gbw" path="res://scenes/explorations/zona_menu.gd" id="1_h7mkn"]
 [ext_resource type="Texture2D" uid="uid://dk38g1dqe7ygs" path="res://assets/Zona_Menu_BG.png" id="2_ch8r1"]
-[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames-ZonaTengah/Bungee-Regular.ttf" id="3_font"]
+[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames/Bungee-Regular.ttf" id="3_font"]
 [ext_resource type="Texture2D" uid="uid://b7jrt0x11iwqu" path="res://assets/padlock.png" id="5_cacdr"]
 
 [node name="ZoneMenu" type="Control"]

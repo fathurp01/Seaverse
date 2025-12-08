@@ -175,7 +175,7 @@ func _on_eksplorasi_ulang_pressed():
 	await hide_popup()
 	await get_tree().create_timer(0.1).timeout
 
-	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/explorations/zone_menu.tscn")
 
 
 # ==========================================================

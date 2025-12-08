@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=3 uid="uid://dxwo82bx4ngl"]
 
 [ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames-ZonaTengah/popup_menang.gd" id="1_3hwmo"]
-[ext_resource type="Texture2D" uid="uid://dmpbvnbmeujjl" path="res://scenes/miniGames-ZonaTengah/bgkalah.png" id="2_5ct6g"]
-[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames-ZonaTengah/PassionOne-Regular.ttf" id="3_hxltd"]
-[ext_resource type="Texture2D" uid="uid://c57is2ln5reh6" path="res://scenes/miniGames-ZonaTengah/tengkorak.png" id="4_hdgdp"]
+[ext_resource type="Texture2D" uid="uid://dmpbvnbmeujjl" path="res://scenes/miniGames/bgkalah.png" id="2_5ct6g"]
+[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames/PassionOne-Regular.ttf" id="3_hxltd"]
+[ext_resource type="Texture2D" uid="uid://c57is2ln5reh6" path="res://scenes/miniGames/tengkorak.png" id="4_hdgdp"]
 [ext_resource type="Script" uid="uid://bq3owagyaxw3m" path="res://scenes/miniGames-ZonaTengah/popup_kalah.gd" id="5_adccy"]
-[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames-ZonaTengah/Bungee-Regular.ttf" id="6_u1y7q"]
-[ext_resource type="Texture2D" uid="uid://ep87dtjvgd6x" path="res://scenes/miniGames-ZonaTengah/locK_tengah_lauh.png" id="7_1ukcw"]
-[ext_resource type="Texture2D" uid="uid://duinynarcsk25" path="res://scenes/miniGames-ZonaTengah/btn_eklplorasi_ulang.png" id="8_5831q"]
-[ext_resource type="Texture2D" uid="uid://cxhaghcnpym8w" path="res://scenes/miniGames-ZonaTengah/btn_coba_lagi.png" id="9_2hmlo"]
+[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames/Bungee-Regular.ttf" id="6_u1y7q"]
+[ext_resource type="Texture2D" uid="uid://cl32cd2ouypbu" path="res://scenes/miniGames-ZonaDasar/gagal_zona.jpeg" id="7_3hwmo"]
+[ext_resource type="Texture2D" uid="uid://duinynarcsk25" path="res://scenes/miniGames/btn_eklplorasi_ulang.png" id="8_5831q"]
+[ext_resource type="Texture2D" uid="uid://cxhaghcnpym8w" path="res://scenes/miniGames/btn_coba_lagi.png" id="9_2hmlo"]
 
 [sub_resource type="Theme" id="Theme_0pxy3"]
 
@@ -90,15 +90,15 @@ script = ExtResource("5_adccy")
 
 [node name="Label" type="Label" parent="popup_kalah"]
 anchors_preset = -1
-anchor_left = 0.46600002
+anchor_left = 0.407
 anchor_top = 0.546
-anchor_right = 0.555
-anchor_bottom = 0.596
-offset_left = 0.5199585
-offset_top = 3.880005
-offset_right = 0.5999756
-offset_bottom = 0.87997437
-text = "Hadiah :"
+anchor_right = 0.61700004
+anchor_bottom = 0.60400003
+offset_left = 0.039978027
+offset_top = 8.880005
+offset_right = 0.2399292
+offset_bottom = 0.1199646
+text = "Akhir petualangan :"
 label_settings = SubResource("LabelSettings_28vn4")
 
 [node name="zona" type="TextureRect" parent="popup_kalah"]
@@ -111,7 +111,7 @@ offset_left = 0.3199463
 offset_top = 7.319977
 offset_right = 0.6399536
 offset_bottom = 7.3599854
-texture = ExtResource("7_1ukcw")
+texture = ExtResource("7_3hwmo")
 expand_mode = 1
 
 [node name="btn_eksplorasi_ulang" type="TextureButton" parent="popup_kalah"]
