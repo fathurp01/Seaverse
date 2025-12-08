@@ -11,12 +11,15 @@ var zona_tengah_unlocked = false
 var zona_dasar_unlocked = false
 
 func _ready():
+	# Pastikan musik opening tetap berjalan
+	MusicManager.play_opening_music()
+	
 	# Set initial state untuk setiap zona
 	_update_zona_states()
 
 func _process(delta):
 	# Tombol ESC untuk kembali ke start screen
-	if Input.is_action_just_pressed("back"):
+	if Input.is_action_just_pressed("ui_cancel"):
 		go_back()
 
 func _update_zona_states():
@@ -52,6 +55,8 @@ func _on_zona_permukaan_mouse_exited():
 func _on_zona_permukaan_pressed():
 	if zona_permukaan_unlocked:
 		print("Navigating to Zona Permukaan...")
+		# Stop musik opening saat masuk eksplorasi
+		MusicManager.stop_music()
 		# Nanti ganti scene ke zona_permukaan.tscn
 		get_tree().change_scene_to_file("res://scenes/explorations/zona_permukaan.tscn")
 
@@ -65,6 +70,8 @@ func _on_zona_tengah_mouse_exited():
 func _on_zona_tengah_pressed():
 	if zona_tengah_unlocked:
 		print("Navigating to Zona Tengah...")
+		# Stop musik opening saat masuk eksplorasi
+		MusicManager.stop_music()
 		# Nanti ganti scene ke zona_tengah.tscn
 		get_tree().change_scene_to_file("res://scenes/explorations/zona_tengah.tscn")
 
@@ -78,6 +85,8 @@ func _on_zona_dasar_mouse_exited():
 func _on_zona_dasar_pressed():
 	if zona_dasar_unlocked:
 		print("Navigating to Zona Dasar...")
+		# Stop musik opening saat masuk eksplorasi
+		MusicManager.stop_music()
 		# Nanti ganti scene ke zona_dasar.tscn
 		get_tree().change_scene_to_file("res://scenes/explorations/zona_dasar.tscn")
 
