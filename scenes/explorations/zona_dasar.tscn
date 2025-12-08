@@ -26,6 +26,10 @@ var submarine = null
 var locked_x = 0.0
 var camera_offset_y = 0.0  # Offset untuk center vertikal
 
+# Limit kamera atas dan bawah (dalam pixel) - bisa diatur sesuai kebutuhan
+var camera_limit_top = 370.0    # Batas atas kamera
+var camera_limit_bottom = 2875.0  # Batas bawah kamera
+
 func _ready():
 	# Set camera enabled & current
 	enabled = true
@@ -48,6 +52,8 @@ func _ready():
 		global_position = Vector2(locked_x, submarine.global_position.y + camera_offset_y)
 		
 		print(\"✅ Camera locked to submarine X:\", locked_x)
+		print(\"   Camera limit top:\", camera_limit_top)
+		print(\"   Camera limit bottom:\", camera_limit_bottom)
 		print(\"   Viewport height:\", viewport_height)
 	else:
 		print(\"❌ ERROR: Submarine not found!\")
@@ -58,8 +64,14 @@ func _process(delta):
 		var offset_x = 650   # Geser kanan (+) atau kiri (-)
 		var offset_y = 400 # Geser atas (-) atau bawah (+)
 		
-		# Lock X dengan offset, follow Y dengan offset
-		global_position = Vector2(locked_x + offset_x, submarine.global_position.y + offset_y)
+		# Hitung posisi target kamera
+		var target_y = submarine.global_position.y + offset_y
+		
+		# Batasi posisi Y kamera agar tidak melewati limit atas dan bawah
+		target_y = clamp(target_y, camera_limit_top, camera_limit_bottom)
+		
+		# Lock X dengan offset, follow Y dengan offset dan limit
+		global_position = Vector2(locked_x + offset_x, target_y)
 "
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_16ldu"]

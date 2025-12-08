@@ -8,7 +8,7 @@ var locked_x = 0.0
 @export var camera_offset_y: float = 0.0
 
 # Limit kamera atas dan bawah (dalam pixel)
-@export var camera_limit_top: float = 350.0  # Atur nilai ini sesuai kebutuhan
+@export var camera_limit_top: float = 355.0  # Atur nilai ini sesuai kebutuhan
 @export var camera_limit_bottom: float = 2900.0  # Atur nilai ini sesuai kebutuhan
 
 func _ready():
