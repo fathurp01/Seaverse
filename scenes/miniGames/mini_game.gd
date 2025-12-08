@@ -297,6 +297,8 @@ func periksa_jawaban():
 		if jumlah_benar >= target_soal:
 			await get_tree().create_timer(0.8).timeout
 			tampilkan_popup_menang()
+			GlobalProgress.zona_permukaan_completed = true
+			GlobalProgress.save()
 			return
 		
 		await get_tree().create_timer(0.8).timeout

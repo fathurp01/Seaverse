@@ -227,7 +227,6 @@ func _on_kembali_pressed():
 	_animate_button_press(btn_kembali)
 	
 	await hide_popup()
-	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
 
 func _on_lanjut_pressed():
@@ -238,10 +237,9 @@ func _on_lanjut_pressed():
 	_animate_button_press(btn_lanjut)
 	
 	await hide_popup()
-	await get_tree().create_timer(0.1).timeout
-	get_tree().change_scene_to_file("res://scenes/miniGames/mini_game.tscn")
+	get_tree().change_scene_to_file("res://scenes/explorations/zone_menu.tscn")
 
-func _animate_button_press(button: Button):
+func _animate_button_press(button: Control):
 	"""Animasi feedback saat tombol ditekan"""
 	if not button:
 		return

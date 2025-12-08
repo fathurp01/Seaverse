@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://b3xl4cy3sii45"]
 
-[ext_resource type="Script" uid="uid://djb4dxoh8xsqa" path="res://whirlpool_2.gd" id="1_n45iq"]
+[ext_resource type="Script" uid="uid://djb4dxoh8xsqa" path="res://scenes/explorations/whirlpool_2.gd" id="1_n45iq"]
 [ext_resource type="Texture2D" uid="uid://cymg84j6tqrmi" path="res://assets/whirlpool3.png" id="2_n45iq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k8xri"]

@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://cfgs2mbx055el"]
 
-[ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames-ZonaTengah/popup_menang.gd" id="1_jki64"]
+[ext_resource type="Script" uid="uid://bpj1jk1p5d5qi" path="res://scenes/miniGames/popup_menang.gd" id="1_jki64"]
 [ext_resource type="Texture2D" uid="uid://bilrymmgf53uu" path="res://scenes/miniGames-ZonaTengah/bgpopup.png" id="2_y4a5n"]
 [ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames-ZonaTengah/PassionOne-Regular.ttf" id="3_uytcs"]
-[ext_resource type="Texture2D" uid="uid://ck0vcu3cnv1kj" path="res://scenes/miniGames-ZonaTengah/btn1.png" id="4_buwfd"]
+[ext_resource type="Texture2D" uid="uid://daiuvxtssw03b" path="res://scenes/miniGames/btn1.png" id="4_jki64"]
 [ext_resource type="Texture2D" uid="uid://ci0c507d1t6bl" path="res://scenes/miniGames-ZonaTengah/btn2.png" id="5_pbtsn"]
 [ext_resource type="Texture2D" uid="uid://qhr30m3umd50" path="res://scenes/miniGames-ZonaTengah/harta.png" id="6_6blgj"]
 [ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames-ZonaTengah/Bungee-Regular.ttf" id="7_28vn4"]
-[ext_resource type="Texture2D" uid="uid://dsm3mu42gdggt" path="res://scenes/miniGames-ZonaTengah/zona_tengah.png" id="8_dqbo7"]
+[ext_resource type="Texture2D" uid="uid://caytrcy6q0p56" path="res://scenes/miniGames/zona_tengah.png" id="8_jki64"]
 
 [sub_resource type="Theme" id="Theme_0pxy3"]
 
@@ -77,13 +77,13 @@ anchor_left = 0.48400003
 anchor_top = 0.65400004
 anchor_right = 0.68600005
 anchor_bottom = 0.87200004
-offset_left = 0.47998047
-offset_top = 0.1199646
-offset_right = -0.080078125
-offset_bottom = 13.159973
+offset_left = -2.5200195
+offset_top = 3.1199646
+offset_right = -5.080078
+offset_bottom = 6.159973
 size_flags_horizontal = 4
 size_flags_vertical = 8
-texture_normal = ExtResource("4_buwfd")
+texture_normal = ExtResource("4_jki64")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -136,5 +136,5 @@ offset_left = 0.3199463
 offset_top = 0.3199768
 offset_right = 0.6399536
 offset_bottom = 0.35998535
-texture = ExtResource("8_dqbo7")
+texture = ExtResource("8_jki64")
 expand_mode = 1

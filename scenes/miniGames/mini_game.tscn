@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cflujqjhi4gjb"]
 
-[ext_resource type="Script" uid="uid://bg31b3ffiit3o" path="res://scenes/miniGames-ZonaTengah/mini_game.gd" id="1_au5sl"]
+[ext_resource type="Script" uid="uid://dehw7h3n3igsl" path="res://scenes/miniGames/mini_game.gd" id="1_au5sl"]
 [ext_resource type="Texture2D" uid="uid://doc8jqpierxk1" path="res://scenes/miniGames-ZonaTengah/gamebg.jpg" id="2_r4tqb"]
 [ext_resource type="Texture2D" uid="uid://wil51igo14qx" path="res://scenes/miniGames-ZonaTengah/kotak.png" id="3_l4l7n"]
 [ext_resource type="Texture2D" uid="uid://bvcsuhic4g8t5" path="res://scenes/miniGames-ZonaTengah/jawaban.png" id="4_ixtp8"]
