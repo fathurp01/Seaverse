@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bykgdjv7n5m4c"]
+[gd_scene load_steps=30 format=3 uid="uid://bykgdjv7n5m4c"]
 
 [ext_resource type="Texture2D" uid="uid://bpfdhq6ew4uy1" path="res://assets/Zona-Dasar/Bg_satu.png" id="1_b34rw"]
 [ext_resource type="Texture2D" uid="uid://dmq4wqje8t3on" path="res://assets/Zona-Dasar/Bg_dua.png" id="2_8sav5"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://0txfhngbbytl" path="res://assets/Zona-Dasar/Dumbo Octopus.png" id="14_16ldu"]
 [ext_resource type="Texture2D" uid="uid://budfbyvvdsoky" path="res://assets/Zona-Dasar/Giant Amphipod.png" id="15_vsg5l"]
 [ext_resource type="Texture2D" uid="uid://cll5aqnxxnwvw" path="res://assets/Zona-Dasar/Snailfish.png" id="16_16ldu"]
+[ext_resource type="PackedScene" uid="uid://ctw0rumo3pl5p" path="res://scenes/explorations/whirlpool_3.tscn" id="18_yr86c"]
+[ext_resource type="AudioStream" uid="uid://ciw0qjqfi66gh" path="res://assets/sounds/Exploration_Music_Dasar.mp3" id="19_gytvp"]
 
 [sub_resource type="GDScript" id="GDScript_yee8m"]
 script/source = "extends Camera2D
@@ -298,3 +300,10 @@ fish_fact = "Fakta seru Snailfish adalah ikan terdalam yang pernah direkam hidup
 fish_sprite = ExtResource("16_16ldu")
 fish_icon = ExtResource("16_16ldu")
 popup_sound = ExtResource("8_yr86c")
+
+[node name="whirlpool_3" parent="." instance=ExtResource("18_yr86c")]
+position = Vector2(649, 3105)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_gytvp")
+autoplay = true

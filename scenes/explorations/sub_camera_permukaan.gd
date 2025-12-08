@@ -33,7 +33,7 @@ func _ready():
 func _process(delta):
 	if submarine:
 		# Offset untuk posisi kamera
-		var offset_x = 650   # Geser kanan (+) atau kiri (-)
+		var offset_x = 640   # Geser kanan (+) atau kiri (-)
 		var offset_y = 220 # Geser atas (-) atau bawah (+)
 		
 		# Lock X dengan offset, follow Y dengan offset
