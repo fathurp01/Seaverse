@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://bykgdjv7n5m4c"]
 
-[ext_resource type="Texture2D" uid="uid://bpfdhq6ew4uy1" path="res://assets/Zona-Dasar/Bg_satu.png" id="1_b34rw"]
-[ext_resource type="Texture2D" uid="uid://dmq4wqje8t3on" path="res://assets/Zona-Dasar/Bg_dua.png" id="2_8sav5"]
+[ext_resource type="Texture2D" uid="uid://dmq4wqje8t3on" path="res://assets/Zona-Dasar/Bg_satu.png" id="2_8sav5"]
+[ext_resource type="Texture2D" uid="uid://cb8g4gepktnbl" path="res://assets/Zona-Dasar/Bg_dua.png" id="2_vsg5l"]
 [ext_resource type="Texture2D" uid="uid://qe854mc1641r" path="res://assets/seaverse_icon.png" id="3_8sav5"]
 [ext_resource type="Script" uid="uid://bn0813afw7vfm" path="res://scenes/explorations/submarine_dasar.gd" id="4_yee8m"]
 [ext_resource type="Texture2D" uid="uid://b14ah7pkbj7ay" path="res://assets/Zona-Dasar/kapal.png" id="5_au1i2"]
@@ -114,7 +114,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw6x3"]
-size = Vector2(1305, 13)
+size = Vector2(1296, 114)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yee8m"]
 size = Vector2(1286, 10)
@@ -137,14 +137,14 @@ offset_bottom = 3271.0
 [node name="Background" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-position = Vector2(648.25, 855)
-scale = Vector2(0.8421225, 0.5576172)
-texture = ExtResource("1_b34rw")
+position = Vector2(650.99994, 859)
+scale = Vector2(1.2597655, 1.1119792)
+texture = ExtResource("2_8sav5")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Background"]
 position = Vector2(646.62506, 2472.75)
 scale = Vector2(1.2526854, 0.991862)
-texture = ExtResource("2_8sav5")
+texture = ExtResource("2_vsg5l")
 
 [node name="SubCam" type="Camera2D" parent="."]
 position = Vector2(648, 553)
@@ -191,7 +191,7 @@ libraries = {
 [node name="Boundaries" type="StaticBody2D" parent="."]
 
 [node name="Batas_atas" type="CollisionShape2D" parent="Boundaries"]
-position = Vector2(642.5, -2.5)
+position = Vector2(647, 48)
 shape = SubResource("RectangleShape2D_fw6x3")
 
 [node name="Batas_bawah" type="CollisionShape2D" parent="Boundaries"]
@@ -213,8 +213,8 @@ texture = ExtResource("3_8sav5")
 
 [node name="Fish" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(214, 1526)
-fish_name = "Blobfish (Psychrolutes marcidus)"
-fish_description = "Blobfish hidup di kedalaman sekitar 600–1.200 meter, tubuhnya lunak dan gelatinous, dengan daging berdaya apung tinggi yang membuatnya “mengambang” di dekat dasar laut tanpa banyak buang energi untuk berenang."
+fish_name = "Ikan blob"
+fish_description = "Ikan blob atau Blobfish hidup di kedalaman sekitar 600–1.200 meter, tubuhnya lunak dan gelatinous, dengan daging berdaya apung tinggi yang membuatnya “mengambang” di dekat dasar laut tanpa banyak buang energi untuk berenang."
 fish_fact = "Fakta seru Setelah diangkat ke permukaan (dekompresi), tubuhnya berubah drastis — kulit dan daging mengembang dan melempem, sehingga penampilan “jelek” yang sering viral sebenarnya akibat perubahan tekanan, bukan kondisi alami di laut dalam."
 fish_sprite = ExtResource("7_16ldu")
 fish_icon = ExtResource("7_16ldu")
@@ -222,8 +222,8 @@ popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish2" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(787, 1549)
-fish_name = "Tripod fish (famili Ipnopidae)"
-fish_description = "Tripod fish hidup di dataran laut dalam (batial–abysal), sering di kedalaman 3.000–4.800 meter; mereka punya sirip panjang yang digunakan seperti “kaki” untuk berdiri di dasar laut dan menunggu makanan lewat."
+fish_name = "Ikan tripod"
+fish_description = "Ikan tripod atau Tripod fish hidup di dataran laut dalam (batial–abysal), sering di kedalaman 3.000–4.800 meter; mereka punya sirip panjang yang digunakan seperti “kaki” untuk berdiri di dasar laut dan menunggu makanan lewat."
 fish_fact = "Fakta seru Alih-alih berenang bebas, mereka “berdiri” di dasar laut dengan sirip — strategi hemat energi — dan menangkap makanan yang lewat dengan gerakan minimal. Adaptasi ini memungkinkan hidup di habitat dengan makanan sangat jarang dan kondisi ekstrem."
 fish_sprite = ExtResource("8_vsg5l")
 fish_icon = ExtResource("8_vsg5l")
@@ -231,8 +231,8 @@ popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish3" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(975, 1178)
-fish_name = "Deep-sea crab"
-fish_description = "Deep-sea crab adalah kepiting yang hidup di dasar laut atau zona laut dalam — banyak spesies tinggal di celah–celah dasar laut, dataran luas atau gunung laut (seamount), beradaptasi terhadap tekanan tinggi, suhu rendah, dan minim cahaya."
+fish_name = "Kepiting laut dalam"
+fish_description = "Kepiting laut dalam atau Deep-sea crab adalah kepiting yang hidup di dasar laut atau zona laut dalam — banyak spesies tinggal di celah–celah dasar laut, dataran luas atau gunung laut (seamount), beradaptasi terhadap tekanan tinggi, suhu rendah, dan minim cahaya."
 fish_fact = "Fakta Seru Karena banyak spesies, sifat dan adaptasinya sangat bervariasi — ada yang bergerak perlahan di dasar, ada yang bisa menahan tekanan ekstrem; bentuk cangkang dan ukuran kaki disesuaikan untuk berjalan di dasar lunak atau berbatu; mereka sering menjadi bagian penting dari ekosistem laut dalam sebagai detritivora atau scavenger."
 fish_sprite = ExtResource("9_yr86c")
 fish_icon = ExtResource("9_yr86c")
@@ -240,8 +240,8 @@ popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish4" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(950, 787)
-fish_name = "Snipe Ell (Nemichthyidae)"
-fish_description = "Snipe eel adalah ikan laut dalam yang hidup pada kedalaman 1.000 meter lebih, memiliki tubuh sangat panjang, ramping, dan bergerak seperti pita di zona gelap laut dalam. Rahangnya yang melengkung menyerupai paruh burung membantunya menangkap mangsa kecil seperti krill dan plankton."
+fish_name = "Belut snipe"
+fish_description = "Belut snipe atau Snipe eel adalah ikan laut dalam yang hidup pada kedalaman 1.000 meter lebih, memiliki tubuh sangat panjang, ramping, dan bergerak seperti pita di zona gelap laut dalam. Rahangnya yang melengkung menyerupai paruh burung membantunya menangkap mangsa kecil seperti krill dan plankton."
 fish_fact = "Fakta Seru Meskipun panjangnya bisa mencapai 2 meter, snipe eel sangat ringan dan ekornya berubah menjadi helaian halus saat dewasa. Ia memiliki jumlah ruas tulang belakang yang sangat banyak sehingga dapat membengkok ekstrem. Snipe eel hampir tidak pernah terlihat hidup-hidup karena jarang naik ke permukaan, membuatnya menjadi salah satu makhluk laut dalam paling misterius."
 fish_sprite = ExtResource("11_pt4q5")
 fish_icon = ExtResource("11_pt4q5")
@@ -249,8 +249,8 @@ popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish5" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(116, 691)
-fish_name = "Sixgill shark (Hexanchus vitulus)"
-fish_description = "Sixgill shark adalah hiu laut dalam dengan enam insang (bukan lima seperti kebanyakan hiu), hidup di kedalaman mulai sekitar 1.000 meter ke bawah — sering berada di tepi lereng kontinen atau laut dalam global."
+fish_name = "Hiu enam insang kerdil"
+fish_description = "Hiu enam insang kerdil atau Sixgill shark adalah hiu laut dalam dengan enam insang (bukan lima seperti kebanyakan hiu), hidup di kedalaman mulai sekitar 1.000 meter ke bawah — sering berada di tepi lereng kontinen atau laut dalam global."
 fish_fact = "Fakta Seru Struktur insang dan tubuhnya memberi adaptasi untuk hidup di air dingin dan tekanan tinggi; karena habitat dalam dan penyebaran global, mereka sulit dipelajari, sehingga banyak informasi mengenai perilaku dan biologi mereka masih terbatas, membuat mereka salah satu predator laut dalam yang paling misterius."
 fish_sprite = ExtResource("11_gytvp")
 fish_icon = ExtResource("11_gytvp")
@@ -258,8 +258,8 @@ popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish6" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(126, 1134)
-fish_name = "Rattail fish"
-fish_description = "Rattail adalah ikan dasar laut dalam dengan kepala besar dan tubuh mengecil tajam ke ekor, biasanya hidup pada kedalaman 1.000 - 2.000 meter. Mereka bergerak perlahan tetapi efisien, menghemat energi di zona bathyal yang minim makanan. Tubuhnya disesuaikan untuk mendeteksi bau dan getaran kecil dari jarak jauh."
+fish_name = "Ikan grenadier"
+fish_description = "Ikan grenadier atau Rattail adalah ikan dasar laut dalam dengan kepala besar dan tubuh mengecil tajam ke ekor, biasanya hidup pada kedalaman 1.000 - 2.000 meter. Mereka bergerak perlahan tetapi efisien, menghemat energi di zona bathyal yang minim makanan. Tubuhnya disesuaikan untuk mendeteksi bau dan getaran kecil dari jarak jauh."
 fish_fact = "Fakta seru Indra penciuman rattail sangat tajam, membuatnya mampu menemukan bangkai atau mangsa kecil di dasar laut gelap total. Mereka termasuk ikan laut dalam yang paling banyak ditemukan di dunia. Beberapa spesies dapat hidup dalam suhu hampir mendekati titik beku tanpa kehilangan fungsi tubuh."
 fish_sprite = ExtResource("12_arqsu")
 fish_icon = ExtResource("12_arqsu")
@@ -267,8 +267,8 @@ popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish7" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(282, 1916)
-fish_name = "Medusa jellyfish abyssal"
-fish_description = "Abyssal medusa adalah ubur-ubur laut dalam yang hidup di zona 3.000–6.000 meter, dengan tubuh transparan dan tentakel panjang menyerupai pita. Mereka melayang pasif mengikuti arus karena energi di kedalaman sangat terbatas. Bentuknya yang sederhana memungkinkan bertahan di tekanan ekstrem tanpa struktur keras."
+fish_name = "Ubur-ubur medusa laut dalam"
+fish_description = "Ubur-ubur medusa laut dalam atau Abyssal medusa adalah ubur-ubur laut dalam yang hidup di zona 3.000–6.000 meter, dengan tubuh transparan dan tentakel panjang menyerupai pita. Mereka melayang pasif mengikuti arus karena energi di kedalaman sangat terbatas. Bentuknya yang sederhana memungkinkan bertahan di tekanan ekstrem tanpa struktur keras."
 fish_fact = "Fakta Seru Banyak spesies abyssal medusa mampu menghasilkan cahaya bioluminesensi untuk menarik mangsa atau membingungkan predator. Mereka sering terlihat seperti “lampu hidup” di kegelapan laut dalam. Kemunculan mereka jarang terekam kamera sehingga sebagian besar spesiesnya masih misterius."
 fish_sprite = ExtResource("13_pt4q5")
 fish_icon = ExtResource("13_pt4q5")
@@ -276,8 +276,8 @@ popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish8" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(194, 2595)
-fish_name = "Dumbo Octopus (Grimpoteuthis)"
-fish_description = "Dumbo octopus adalah gurita laut dalam yang ditemukan pada kedalaman 1.000–7.000 meter. Julukannya berasal dari sirip seperti telinga Dumbo yang digunakan untuk berenang lembut di kegelapan abyssal. Tubuhnya lunak, kecil, dan tidak memiliki kantung tinta karena tidak dibutuhkan di laut dalam."
+fish_name = "Gurita dumbo"
+fish_description = "Gurita dumbo atau Dumbo octopus adalah gurita laut dalam yang ditemukan pada kedalaman 1.000–7.000 meter. Julukannya berasal dari sirip seperti telinga Dumbo yang digunakan untuk berenang lembut di kegelapan abyssal. Tubuhnya lunak, kecil, dan tidak memiliki kantung tinta karena tidak dibutuhkan di laut dalam."
 fish_fact = "Fakta seru Ia adalah gurita terdalam yang pernah ditemukan hidup, bahkan ada yang terekam di >7.000 meter. Dumbo octopus tidak memangsa secara agresif dan hanya menelan mangsa bulat-bulat. Bentuknya yang lucu membuatnya dijuluki “makhluk tersopan di laut dalam."
 fish_sprite = ExtResource("14_16ldu")
 fish_icon = ExtResource("14_16ldu")
@@ -285,8 +285,8 @@ popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish9" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(804, 2214)
-fish_name = "Giant Amphipod"
-fish_description = "Giant amphipod adalah krustasea laut dalam berukuran besar yang hidup di kedalaman 4.000–7.000 meter. Mereka memiliki tubuh bening dengan antena panjang dan bergerak cepat di dasar laut gelap. Hewan ini memakan detritus dan bangkai yang jatuh dari permukaan laut."
+fish_name = "Amfipoda raksasa"
+fish_description = "Amfipoda raksasa atau Giant amphipod adalah krustasea laut dalam berukuran besar yang hidup di kedalaman 4.000–7.000 meter. Mereka memiliki tubuh bening dengan antena panjang dan bergerak cepat di dasar laut gelap. Hewan ini memakan detritus dan bangkai yang jatuh dari permukaan laut."
 fish_fact = "Fakta seru Meskipun kebanyakan amphipod kecil, spesies ini bisa tumbuh hingga 30 cm—raksasa untuk kelasnya. Tubuhnya transparan agar tersamarkan di lingkungan tanpa cahaya. Ketahanan mereka terhadap tekanan ekstrem membuatnya menjadi salah satu hewan paling kuat di zona hadal."
 fish_sprite = ExtResource("15_vsg5l")
 fish_icon = ExtResource("15_vsg5l")
@@ -294,8 +294,8 @@ popup_sound = ExtResource("8_yr86c")
 
 [node name="Fish10" parent="." instance=ExtResource("6_16ldu")]
 position = Vector2(878, 2737)
-fish_name = "Snailfish (Hadal Snailfish)"
-fish_description = "Snailfish hadal hidup antara 6.000–8.200 meter di palung laut terdalam, termasuk Mariana Trench. Tubuhnya lunak, hampir seperti jelly, tanpa sisik dan tanpa kantung renang. Mereka bergerak perlahan tetapi sangat efisien di tekanan ratusan kali lebih kuat dari permukaan."
+fish_name = "Ikan siput hadal"
+fish_description = "Ikan siput hadal atau Snailfish hadal hidup antara 6.000–8.200 meter di palung laut terdalam, termasuk Mariana Trench. Tubuhnya lunak, hampir seperti jelly, tanpa sisik dan tanpa kantung renang. Mereka bergerak perlahan tetapi sangat efisien di tekanan ratusan kali lebih kuat dari permukaan."
 fish_fact = "Fakta seru Snailfish adalah ikan terdalam yang pernah direkam hidup—lebih dalam daripada kapal selam manusia. Enzim dan struktur selnya mencegah tubuhnya hancur di tekanan ekstrem. Meski hidup di kedalaman menakutkan, mereka justru menjadi predator puncak di zona hadal."
 fish_sprite = ExtResource("16_16ldu")
 fish_icon = ExtResource("16_16ldu")
