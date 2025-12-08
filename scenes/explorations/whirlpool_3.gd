@@ -1,6 +1,6 @@
 extends Area2D
 
-@export_file("*.tscn") var next_zone_path: String = "res://scenes/miniGames/mini_game.tscn"
+@export_file("*.tscn") var next_zone_path: String = "res://scenes/miniGames-ZonaDasar/mini_game_dasar.tscn"
 @export var notification_text: String = "🌀 WHIRLPOOL MUNCUL!"
 @export var notification_font_size: int = 32
 @export var notification_color: Color = Color(0, 1, 1, 1)
