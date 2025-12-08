@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://chjm748nnlkm2"]
+
+[ext_resource type="Script" uid="uid://cejhboh52oo7c" path="res://scenes/explorations/whirlpool.gd" id="1_mwpp0"]
+[ext_resource type="Texture2D" uid="uid://c786aneikha8c" path="res://assets/whirlpool.png" id="2_atsn0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mwpp0"]
+radius = 83.09633
+
+[sub_resource type="Animation" id="Animation_40fl2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_5y6vo"]
+resource_name = "spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.10995574]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mnsg3"]
+_data = {
+&"RESET": SubResource("Animation_40fl2"),
+&"spin": SubResource("Animation_5y6vo")
+}
+
+[node name="Whirlpool" type="Area2D"]
+script = ExtResource("1_mwpp0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.34158885, 0.3415888)
+texture = ExtResource("2_atsn0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mwpp0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mnsg3")
+}

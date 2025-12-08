@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr78ieexhdsxe"]
+[gd_scene load_steps=5 format=3 uid="uid://dr78ieexhdsxe"]
 
 [ext_resource type="Script" uid="uid://nw6w2msa4gbw" path="res://scenes/explorations/zona_menu.gd" id="1_h7mkn"]
 [ext_resource type="Texture2D" uid="uid://dk38g1dqe7ygs" path="res://assets/Zona_Menu_BG.png" id="2_ch8r1"]
+[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames/Bungee-Regular.ttf" id="3_font"]
 [ext_resource type="Texture2D" uid="uid://b7jrt0x11iwqu" path="res://assets/padlock.png" id="5_cacdr"]
 
 [node name="ZoneMenu" type="Control"]
@@ -45,12 +46,11 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -637.0
-offset_top = 1.0000076
-offset_right = -37.0
-offset_bottom = 151.0
+offset_left = -640.0
+offset_right = -40.0
+offset_bottom = 150.0
 grow_horizontal = 2
-scale = Vector2(2.1284714, 1.1417344)
+scale = Vector2(2.133165, 1.1539541)
 metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="ZonasContainer/ZonaPermukaan"]
@@ -63,7 +63,7 @@ grow_vertical = 2
 flat = true
 
 [node name="Label" type="Label" parent="ZonasContainer/ZonaPermukaan"]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0.15, 0.15, 0.15, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -77,11 +77,13 @@ offset_bottom = -56.827682
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.6318818, 1.3186175)
+theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 32
 text = "ZONA PERMUKAAN"
 horizontal_alignment = 1
 
 [node name="LockIcon" type="Sprite2D" parent="ZonasContainer/ZonaPermukaan"]
+visible = false
 position = Vector2(299.27582, 76.19985)
 scale = Vector2(0.03805105, 0.05089042)
 texture = ExtResource("5_cacdr")
@@ -95,12 +97,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -640.0
-offset_top = -188.0
+offset_top = -187.0
 offset_right = -40.0
-offset_bottom = -38.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.1340764, 2.1215837)
+scale = Vector2(2.1340764, 2.1169176)
 metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="ZonasContainer/ZonaTengah"]
@@ -114,25 +116,27 @@ disabled = true
 flat = true
 
 [node name="Label" type="Label" parent="ZonasContainer/ZonaTengah"]
-modulate = Color(0.23753911, 0.23753914, 0.23753911, 1)
+modulate = Color(0.55, 0.25, 0.2, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -101.3192
-offset_top = -91.5531
-offset_right = 215.68079
-offset_bottom = -46.5531
+offset_left = -112.56526
+offset_top = -88.11757
+offset_right = 220.43475
+offset_bottom = -43.11757
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.6692478, 0.705996)
+theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 32
 text = "ZONA TENGAH LAUT"
 horizontal_alignment = 1
 
 [node name="LockIcon" type="Sprite2D" parent="ZonasContainer/ZonaTengah"]
+visible = false
 position = Vector2(299.89554, 77.30075)
 scale = Vector2(0.03805105, 0.03163318)
 texture = ExtResource("5_cacdr")
@@ -145,13 +149,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -637.0
-offset_top = -230.0
-offset_right = -37.0
+offset_left = -640.0
+offset_top = -230.00003
+offset_right = -40.0
 offset_bottom = -80.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(2.1266105, 1.5383098)
+scale = Vector2(2.1337004, 1.5312992)
 metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="ZonasContainer/ZonaDasar"]
@@ -165,25 +169,27 @@ disabled = true
 flat = true
 
 [node name="Label" type="Label" parent="ZonasContainer/ZonaDasar"]
-modulate = Color(0.70796657, 0.7079665, 0.7079665, 1)
+modulate = Color(0.9, 0.9, 0.9, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -83.2231
-offset_top = -99.29501
-offset_right = 216.77692
-offset_bottom = -54.295013
+offset_left = -85.574265
+offset_top = -102.545334
+offset_right = 214.42572
+offset_bottom = -57.545334
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.58689684, 0.87501717)
+theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 32
 text = "ZONA DASAR LAUT"
 horizontal_alignment = 1
 
 [node name="LockIcon" type="Sprite2D" parent="ZonasContainer/ZonaDasar"]
+visible = false
 position = Vector2(299.5377, 71.50705)
 scale = Vector2(0.03805105, 0.05089042)
 texture = ExtResource("5_cacdr")

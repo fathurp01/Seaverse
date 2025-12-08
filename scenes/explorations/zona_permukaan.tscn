@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://byk6ed5wgr2fc"]
+[gd_scene load_steps=31 format=3 uid="uid://byk6ed5wgr2fc"]
 
 [ext_resource type="Texture2D" uid="uid://cnfvgafqokqe8" path="res://assets/Zona-Permukaan/bg_atas.png" id="1_mrse6"]
 [ext_resource type="Script" uid="uid://cgr12y3f1nopy" path="res://scenes/explorations/submarine_permukaan.gd" id="1_pyjk8"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://b7mi30d1fvevl" path="res://assets/Zona-Permukaan/makarel.png" id="12_2gyar"]
 [ext_resource type="Script" uid="uid://banppdtq6thdv" path="res://scenes/explorations/sub_camera_permukaan.gd" id="13_0q8s7"]
 [ext_resource type="Texture2D" uid="uid://ijxgnl1120mi" path="res://assets/Zona-Permukaan/submarine_permukaan.png" id="14_r3f5q"]
+[ext_resource type="AudioStream" uid="uid://ch1d88oeaqw50" path="res://assets/sounds/Exploration_Music_Permukaan.mp3" id="18_py88s"]
+[ext_resource type="PackedScene" uid="uid://chjm748nnlkm2" path="res://scenes/explorations/whirlpool.tscn" id="19_py88s"]
 
 [sub_resource type="Gradient" id="Gradient_ybybm"]
 colors = PackedColorArray(0, 0, 0, 1, 0.06666667, 0.40784314, 0.5294118, 1)
@@ -38,6 +40,21 @@ scale_min = 0.5
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ybybm"]
 size = Vector2(181, 146)
 
+[sub_resource type="Animation" id="Animation_0q8s7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(634.00006, 214.125)]
+}
+
 [sub_resource type="Animation" id="Animation_r3f5q"]
 resource_name = "idle_float"
 length = 2.0
@@ -53,21 +70,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(634.00006, 214.125), Vector2(634, 204.125), Vector2(634.00006, 214.125)]
-}
-
-[sub_resource type="Animation" id="Animation_0q8s7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(634.00006, 214.125)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_76ep2"]
@@ -286,3 +288,10 @@ shape = SubResource("RectangleShape2D_6u12y")
 position = Vector2(151, 61.000015)
 scale = Vector2(0.3308642, 0.34108517)
 texture = ExtResource("4_mrse6")
+
+[node name="Whirlpool" parent="." instance=ExtResource("19_py88s")]
+position = Vector2(636, 3164)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_py88s")
+autoplay = true

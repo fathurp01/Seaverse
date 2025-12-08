@@ -7,6 +7,7 @@ var depth := 0
 @onready var anim_player = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var bubbles = $Bubbles
+@onready var background_music = get_node("/root/ZonaTengah/BackgroundMusic")
 
 var surface_y := -2000
 
@@ -37,6 +38,11 @@ func _ready():
 	
 	if bubbles:
 		bubbles.emitting = false
+	
+	# Play audio dengan volume tetap
+	if background_music:
+		background_music.volume_db = 0.0
+		background_music.play()
 
 func _physics_process(delta):
 	var input = Vector2.ZERO
@@ -55,6 +61,10 @@ func _physics_process(delta):
 func _process(delta):
 	depth = int((global_position.y - surface_y) / 10)
 	update_depth_label()
+	
+	# Force volume tetap setiap frame
+	if background_music:
+		background_music.volume_db = 0.0
 
 func calculate_pressure_effect():
 	var depth_meters = max(0, depth)

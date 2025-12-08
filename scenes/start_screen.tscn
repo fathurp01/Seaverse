@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://lcysepaqprij"]
+[gd_scene load_steps=7 format=3 uid="uid://lcysepaqprij"]
 
 [ext_resource type="Script" uid="uid://b6xfykqm3bbq0" path="res://scenes/start_screen.gd" id="1_tx5wa"]
 [ext_resource type="PackedScene" uid="uid://3gbahu6u5buy" path="res://scenes/animations/seaverse_animated_bg.tscn" id="2_bg_anim"]
 [ext_resource type="Texture2D" uid="uid://qe854mc1641r" path="res://assets/seaverse_icon.png" id="3_he1sj"]
 [ext_resource type="Texture2D" uid="uid://b2mmhptbsxkf7" path="res://assets/start_button.png" id="4_r2jwc"]
+[ext_resource type="Texture2D" uid="uid://c42f8v41gaj6w" path="res://scenes/miniGames/btn_mute.png" id="5_5pab1"]
+[ext_resource type="Texture2D" uid="uid://g1bj4lxjdt5n" path="res://scenes/miniGames/btn_music.png" id="6_o30b1"]
 
 [node name="StartScreen" type="Control"]
 clip_contents = true
@@ -39,3 +41,31 @@ grow_vertical = 2
 scale = Vector2(0.16098903, 0.12022969)
 pivot_offset = Vector2(768, 512)
 texture_normal = ExtResource("4_r2jwc")
+
+[node name="btn_mute" type="TextureButton" parent="seaverse_animated_bg"]
+anchors_preset = -1
+anchor_left = 0.88600004
+anchor_top = 0.012
+anchor_right = 0.98600006
+anchor_bottom = 0.15
+offset_left = -0.080078125
+offset_top = 0.35999966
+offset_right = -0.080078125
+offset_bottom = -2.0000076
+texture_normal = ExtResource("5_5pab1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="btn_music" type="TextureButton" parent="seaverse_animated_bg"]
+anchors_preset = -1
+anchor_left = 0.786
+anchor_top = 0.014
+anchor_right = 0.892
+anchor_bottom = 0.14400001
+offset_left = -0.08001709
+offset_top = -0.07999992
+offset_right = 0.23999023
+offset_bottom = 0.31999207
+texture_normal = ExtResource("6_o30b1")
+ignore_texture_size = true
+stretch_mode = 0
