@@ -1,23 +1,23 @@
 [gd_scene load_steps=15 format=3 uid="uid://1wiku8otqgry"]
 
-[ext_resource type="Script" uid="uid://bg31b3ffiit3o" path="res://scenes/miniGames-ZonaTengah/mini_game_tengah.gd" id="1_u0h2k"]
-[ext_resource type="Texture2D" uid="uid://doc8jqpierxk1" path="res://scenes/miniGames-ZonaTengah/gamebg.jpg" id="2_wwfg1"]
-[ext_resource type="Texture2D" uid="uid://wil51igo14qx" path="res://scenes/miniGames-ZonaTengah/kotak.png" id="3_vvsmq"]
-[ext_resource type="Texture2D" uid="uid://bvcsuhic4g8t5" path="res://scenes/miniGames-ZonaTengah/jawaban.png" id="4_vv8b1"]
-[ext_resource type="Texture2D" uid="uid://gv7jwgs752hf" path="res://scenes/miniGames-ZonaTengah/submit.png" id="5_d6tex"]
-[ext_resource type="AudioStream" uid="uid://c76ebunjhhqed" path="res://scenes/miniGames-ZonaTengah/Sbenar.mp3" id="6_deed3"]
-[ext_resource type="AudioStream" uid="uid://c8o0mx32qmy5c" path="res://scenes/miniGames-ZonaTengah/victory.mp3" id="7_3f63q"]
-[ext_resource type="AudioStream" uid="uid://yn5r0nrbugca" path="res://scenes/miniGames-ZonaTengah/salah.mp3" id="8_w1kop"]
-[ext_resource type="AudioStream" uid="uid://c2wupwdxfb5dt" path="res://scenes/miniGames-ZonaTengah/kalah.mp3" id="9_sq37m"]
-[ext_resource type="Texture2D" uid="uid://c42f8v41gaj6w" path="res://scenes/miniGames-ZonaTengah/btn_mute.png" id="10_gy8ka"]
-[ext_resource type="Texture2D" uid="uid://g1bj4lxjdt5n" path="res://scenes/miniGames-ZonaTengah/btn_music.png" id="11_iqulw"]
-[ext_resource type="AudioStream" uid="uid://n0vkmh4yx4bd" path="res://scenes/miniGames-ZonaTengah/musiccc.mp3" id="12_stcip"]
+[ext_resource type="Script" uid="uid://b3h0bnn00awnn" path="res://scenes/miniGames-ZonaDasar/mini_game_dasar.gd" id="1_pwr2y"]
+[ext_resource type="Texture2D" uid="uid://doc8jqpierxk1" path="res://scenes/miniGames-ZonaTengah/gamebg.jpg" id="2_4ybjm"]
+[ext_resource type="Texture2D" uid="uid://wil51igo14qx" path="res://scenes/miniGames-ZonaTengah/kotak.png" id="3_syefr"]
+[ext_resource type="Texture2D" uid="uid://bvcsuhic4g8t5" path="res://scenes/miniGames-ZonaTengah/jawaban.png" id="4_3pe7t"]
+[ext_resource type="Texture2D" uid="uid://gv7jwgs752hf" path="res://scenes/miniGames-ZonaTengah/submit.png" id="5_6ofj6"]
+[ext_resource type="AudioStream" uid="uid://c76ebunjhhqed" path="res://scenes/miniGames-ZonaTengah/Sbenar.mp3" id="6_07b0s"]
+[ext_resource type="AudioStream" uid="uid://c8o0mx32qmy5c" path="res://scenes/miniGames-ZonaTengah/victory.mp3" id="7_b30tn"]
+[ext_resource type="AudioStream" uid="uid://yn5r0nrbugca" path="res://scenes/miniGames-ZonaTengah/salah.mp3" id="8_l8y20"]
+[ext_resource type="AudioStream" uid="uid://c2wupwdxfb5dt" path="res://scenes/miniGames-ZonaTengah/kalah.mp3" id="9_q8si8"]
+[ext_resource type="Texture2D" uid="uid://c42f8v41gaj6w" path="res://scenes/miniGames-ZonaTengah/btn_mute.png" id="10_lwh6v"]
+[ext_resource type="Texture2D" uid="uid://g1bj4lxjdt5n" path="res://scenes/miniGames-ZonaTengah/btn_music.png" id="11_cjgxl"]
+[ext_resource type="AudioStream" uid="uid://n0vkmh4yx4bd" path="res://scenes/miniGames-ZonaTengah/musiccc.mp3" id="12_kef5k"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lnvvh"]
-texture = ExtResource("3_vvsmq")
+texture = ExtResource("3_syefr")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3wh1t"]
-texture = ExtResource("4_vv8b1")
+texture = ExtResource("4_3pe7t")
 
 [node name="MiniGame" type="Control" groups=["mini_game"]]
 clip_contents = true
@@ -27,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_u0h2k")
+script = ExtResource("1_pwr2y")
 
 [node name="bg2" type="TextureRect" parent="."]
 layout_mode = 1
@@ -36,7 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.008
 offset_right = 2.0
 offset_bottom = 0.23999023
-texture = ExtResource("2_wwfg1")
+texture = ExtResource("2_4ybjm")
 
 [node name="kotak_gambar" type="Panel" parent="."]
 layout_mode = 1
@@ -115,21 +115,21 @@ offset_left = -0.32000732
 offset_top = -0.2000122
 offset_right = -0.44006348
 offset_bottom = -0.32000732
-texture_normal = ExtResource("5_d6tex")
+texture_normal = ExtResource("5_6ofj6")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="SFXBenar" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_deed3")
+stream = ExtResource("6_07b0s")
 
 [node name="BGMVictory" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_3f63q")
+stream = ExtResource("7_b30tn")
 
 [node name="SFXSalah" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_w1kop")
+stream = ExtResource("8_l8y20")
 
 [node name="BGMGameOver" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_sq37m")
+stream = ExtResource("9_q8si8")
 
 [node name="btn_mute" type="TextureButton" parent="."]
 layout_mode = 1
@@ -142,7 +142,7 @@ offset_left = -0.080078125
 offset_top = 0.35999966
 offset_right = -0.080078125
 offset_bottom = -2.0000076
-texture_normal = ExtResource("10_gy8ka")
+texture_normal = ExtResource("10_lwh6v")
 ignore_texture_size = true
 stretch_mode = 0
 
@@ -157,9 +157,9 @@ offset_left = -0.08001709
 offset_top = -0.07999992
 offset_right = 0.23999023
 offset_bottom = 0.31999207
-texture_normal = ExtResource("11_iqulw")
+texture_normal = ExtResource("11_cjgxl")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="BGMGameplay" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_stcip")
+stream = ExtResource("12_kef5k")
