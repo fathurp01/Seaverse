@@ -302,6 +302,7 @@ popup_sound = ExtResource("8_yr86c")
 
 [node name="whirlpool_3" parent="." instance=ExtResource("18_yr86c")]
 position = Vector2(649, 3105)
+notification_position = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_gytvp")
