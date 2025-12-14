@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://gm002h6xt055"]
+[gd_scene load_steps=10 format=3 uid="uid://gm002h6xt055"]
 
 [ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames-ZonaTengah/popup_menang.gd" id="1_c8q4h"]
 [ext_resource type="Texture2D" uid="uid://fmqnqdg6fwpi" path="res://scenes/miniGames-ZonaDasar/popupending.png" id="2_t17qp"]
-[ext_resource type="Texture2D" uid="uid://ck0vcu3cnv1kj" path="res://scenes/miniGames/btn1.png" id="4_xp81k"]
-[ext_resource type="Texture2D" uid="uid://ci0c507d1t6bl" path="res://scenes/miniGames/btn2.png" id="5_6fmew"]
+[ext_resource type="Texture2D" path="res://scenes/miniGames-ZonaDasar/btn_selesai.png" id="3_mt6pu"]
 [ext_resource type="Texture2D" uid="uid://b0tvhs3g4k81c" path="res://scenes/miniGames-ZonaDasar/medal.png" id="6_c8q4h"]
 [ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames/Bungee-Regular.ttf" id="7_ybsa1"]
-[ext_resource type="Texture2D" uid="uid://dkphy1ioxxskg" path="res://scenes/miniGames-ZonaDasar/popup_dasar_2.png" id="8_c4l2m"]
+[ext_resource type="Texture2D" uid="uid://hoywrctuadld" path="res://scenes/miniGames-ZonaDasar/popup_dasar_2.png" id="8_c4l2m"]
 
 [sub_resource type="Theme" id="Theme_0pxy3"]
 
@@ -47,36 +46,6 @@ grow_vertical = 2
 theme = SubResource("Theme_0pxy3")
 theme_override_styles/panel = SubResource("StyleBoxTexture_f4wyd")
 
-[node name="btn_lanjut" type="TextureButton" parent="popup_menang"]
-anchors_preset = -1
-anchor_left = 0.48400003
-anchor_top = 0.65400004
-anchor_right = 0.68600005
-anchor_bottom = 0.87200004
-offset_left = -2.5200195
-offset_top = 1.1199646
-offset_right = -0.080078125
-offset_bottom = 13.159973
-size_flags_horizontal = 4
-size_flags_vertical = 8
-texture_normal = ExtResource("4_xp81k")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="btn_kembali" type="TextureButton" parent="popup_menang"]
-anchors_preset = -1
-anchor_left = 0.33600003
-anchor_top = 0.65000004
-anchor_right = 0.544
-anchor_bottom = 0.892
-offset_left = -0.08001709
-offset_top = -3.0517578e-05
-offset_right = -0.32006836
-offset_bottom = -0.23999023
-texture_normal = ExtResource("5_6fmew")
-ignore_texture_size = true
-stretch_mode = 0
-
 [node name="harta" type="TextureRect" parent="popup_menang"]
 anchors_preset = -1
 anchor_left = 0.42200002
@@ -102,6 +71,15 @@ offset_right = -0.6000366
 offset_bottom = 1.3599854
 text = "GELAR BARUMU!!"
 label_settings = SubResource("LabelSettings_28vn4")
+
+[node name="btn_selesai" type="TextureButton" parent="popup_menang"]
+offset_left = 537.0
+offset_top = 474.0
+offset_right = 780.0
+offset_bottom = 620.0
+texture_normal = ExtResource("3_mt6pu")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="zona" type="TextureRect" parent="popup_menang"]
 anchors_preset = -1
