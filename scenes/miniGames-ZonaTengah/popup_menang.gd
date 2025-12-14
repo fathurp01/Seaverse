@@ -6,7 +6,8 @@ signal popup_closed
 @onready var popup_container = $popup_menang
 @onready var panel = $Panel
 @onready var vbox_container = $popup_menang/VBoxContainer
-@onready var btn_selesai = $popup_menang/btn_selesai # Node tombol baru
+@onready var btn_kembali = $popup_menang/btn_kembali
+@onready var btn_lanjut = $popup_menang/btn_lanjut
 @onready var harta = $popup_menang/harta
 @onready var label_berhasil = $popup_menang/VBoxContainer/Label
 @onready var label_hadiah = $popup_menang/Label
@@ -15,18 +16,19 @@ signal popup_closed
 # Dictionary untuk gambar zona (sesuaikan dengan path gambar Anda)
 var zona_images = {
 	"zona_tengah": "res://scenes/miniGames/zona_tengah.png",
-	"zona_dasar": "res://scenes/miniGames-ZonaDasar/popup_dasar_2.png"
+	"zona_dasar": "res://scenes/miniGames/zona_dasar.png"
 }
 
 # Variabel untuk menyimpan zona yang dipilih
 var current_zona = "zona_dasar"  # Default zona
 
 func _ready():
-	# Koneksi tombol selesai
-	if btn_selesai:
-		btn_selesai.pressed.connect(_on_selesai_pressed)
-	else:
-		print("⚠️ Warning: Node 'btn_selesai' tidak ditemukan di path $popup_menang/btn_selesai")
+	# Koneksi tombol
+	if btn_kembali:
+		btn_kembali.pressed.connect(_on_kembali_pressed)
+	
+	if btn_lanjut:
+		btn_lanjut.pressed.connect(_on_lanjut_pressed)
 	
 	# Set gambar zona sesuai dengan zona yang didapat
 	set_zona_image(current_zona)
@@ -217,16 +219,25 @@ func hide_popup():
 	emit_signal("popup_closed")
 	queue_free()
 
-func _on_selesai_pressed():
-	"""Handler tombol selesai (menggantikan lanjut/kembali)"""
-	print("✅ Selesai ditekan - Pindah ke Seaverse")
+func _on_kembali_pressed():
+	"""Handler tombol kembali dengan animasi"""
+	print("🔙 Kembali ditekan")
 	
 	# Animasi tombol ditekan
-	_animate_button_press(btn_selesai)
+	_animate_button_press(btn_kembali)
 	
 	await hide_popup()
-	# Ganti scene ke seaverse_animated_bg.tscn
 	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+
+func _on_lanjut_pressed():
+	"""Handler tombol lanjut dengan animasi"""
+	print("▶️ Lanjut ditekan")
+	
+	# Animasi tombol ditekan
+	_animate_button_press(btn_lanjut)
+	
+	await hide_popup()
+	get_tree().change_scene_to_file("res://scenes/explorations/zone_menu.tscn")
 
 func _animate_button_press(button: Control):
 	"""Animasi feedback saat tombol ditekan"""
