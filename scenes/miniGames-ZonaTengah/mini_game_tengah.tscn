@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy066l7my0vj1"]
+[gd_scene load_steps=16 format=3 uid="uid://cy066l7my0vj1"]
 
 [ext_resource type="Script" uid="uid://bg31b3ffiit3o" path="res://scenes/miniGames-ZonaTengah/mini_game_tengah.gd" id="1_wfhio"]
 [ext_resource type="Texture2D" uid="uid://doc8jqpierxk1" path="res://scenes/miniGames/gamebg.jpg" id="2_1ml3j"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c42f8v41gaj6w" path="res://scenes/miniGames/btn_mute.png" id="10_8btjv"]
 [ext_resource type="Texture2D" uid="uid://g1bj4lxjdt5n" path="res://scenes/miniGames/btn_music.png" id="11_uedpl"]
 [ext_resource type="AudioStream" uid="uid://n0vkmh4yx4bd" path="res://scenes/miniGames/musiccc.mp3" id="12_huxf6"]
+[ext_resource type="Texture2D" uid="uid://1e0bb0sns40o" path="res://scenes/miniGames/hati1.png" id="13_1ml3j"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lnvvh"]
 texture = ExtResource("3_gerq0")
@@ -163,3 +164,13 @@ stretch_mode = 0
 
 [node name="BGMGameplay" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_huxf6")
+
+[node name="hati1" type="Sprite2D" parent="."]
+position = Vector2(78, 63)
+scale = Vector2(0.28399533, 0.29088783)
+texture = ExtResource("13_1ml3j")
+
+[node name="hati2" type="Sprite2D" parent="."]
+position = Vector2(212, 63)
+scale = Vector2(0.284, 0.284)
+texture = ExtResource("13_1ml3j")

@@ -34,6 +34,11 @@ var soal = [
 @onready var btn_music = $btn_music  # Button untuk unmute
 # ====================================================
 
+# ========== TAMBAHAN UNTUK SISTEM NYAWA (SPRITE2D) ==========
+@onready var hati1 = $hati1  # Sprite2D untuk hati pertama
+@onready var hati2 = $hati2  # Sprite2D untuk hati kedua
+# ==========================================================
+
 var index_soal := 0
 var kata_jawaban := ""
 
@@ -58,6 +63,9 @@ func _ready():
 	# Connect button submit
 	if submit_button:
 		submit_button.connect("pressed", Callable(self, "_on_submit_pressed"))
+		# Connect animasi button press dan release
+		submit_button.connect("button_down", Callable(self, "_on_submit_button_down"))
+		submit_button.connect("button_up", Callable(self, "_on_submit_button_up"))
 	
 	# ========== CONNECT BUTTON MUTE & MUSIC ==========
 	if btn_mute:
@@ -68,6 +76,10 @@ func _ready():
 	# Setup awal tampilan button
 	setup_music_buttons()
 	# ================================================
+	
+	# ========== SETUP NYAWA AWAL ==========
+	setup_nyawa()
+	# =====================================
 	
 	# ========== PLAY BACKGROUND MUSIC ==========
 	if bgm_gameplay:
@@ -95,6 +107,53 @@ func setup_music_buttons():
 		if btn_music:
 			btn_music.disabled = true
 			btn_music.modulate = Color(0.5, 0.5, 0.5, 0.6)  # Buat lebih redup
+
+# ========== SETUP NYAWA (SPRITE2D) ==========
+func setup_nyawa():
+	"""Setup tampilan awal nyawa (semua hati terlihat) menggunakan Sprite2D"""
+	if hati1:
+		hati1.visible = true
+		hati1.modulate = Color(1, 1, 1, 1)  # Warna normal
+		
+	if hati2:
+		hati2.visible = true
+		hati2.modulate = Color(1, 1, 1, 1)  # Warna normal
+		
+	print("✅ Nyawa di-setup: 2 hati (Sprite2D)")
+
+# ========== HILANGKAN SATU NYAWA ==========
+func hilangkan_nyawa(nomor_kesalahan: int):
+	"""Hilangkan hati berdasarkan nomor kesalahan dengan animasi (Sprite2D)"""
+	var hati_target = null
+	
+	# Tentukan hati mana yang akan dihilangkan (dari kanan ke kiri)
+	if nomor_kesalahan == 1:
+		hati_target = hati2  # Kesalahan pertama: hati paling kanan hilang
+	elif nomor_kesalahan == 2:
+		hati_target = hati1  # Kesalahan kedua: hati paling kiri hilang
+	
+	if hati_target:
+		# Animasi shake + fade out + scale down
+		var tween = create_tween()
+		tween.set_parallel(true)
+		
+		# Shake effect (getar kecil)
+		var original_pos = hati_target.position
+		tween.tween_property(hati_target, "position:x", original_pos.x + 10, 0.05)
+		tween.chain().tween_property(hati_target, "position:x", original_pos.x - 10, 0.05)
+		tween.chain().tween_property(hati_target, "position:x", original_pos.x, 0.05)
+		
+		# Fade out
+		tween.tween_property(hati_target, "modulate:a", 0.0, 0.3).set_delay(0.15)
+		
+		# Scale down (mengecil sambil menghilang)
+		var current_scale = hati_target.scale
+		tween.tween_property(hati_target, "scale", Vector2(0, 0), 0.3).set_delay(0.15)
+		
+		await tween.finished
+		hati_target.visible = false
+		print("❤️ Hati ke-", nomor_kesalahan, " hilang!")
+# ==========================================
 
 # ========== HANDLER BUTTON MUTE ==========
 func _on_btn_mute_pressed():
@@ -281,6 +340,36 @@ func _on_submit_pressed():
 	
 	periksa_jawaban()
 
+# ========== ANIMASI BUTTON SUBMIT ==========
+func _on_submit_button_down():
+	"""Animasi saat button ditekan (scale down + rotate sedikit)"""
+	if submit_button:
+		var tween = create_tween()
+		tween.set_parallel(true)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.set_trans(Tween.TRANS_BACK)
+		
+		# Scale down (mengecil sedikit)
+		tween.tween_property(submit_button, "scale", Vector2(0.9, 0.9), 0.1)
+		
+		# Rotate sedikit (opsional, hapus jika tidak suka)
+		tween.tween_property(submit_button, "rotation", deg_to_rad(-2), 0.1)
+
+func _on_submit_button_up():
+	"""Animasi saat button dilepas (kembali ke ukuran normal)"""
+	if submit_button:
+		var tween = create_tween()
+		tween.set_parallel(true)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.set_trans(Tween.TRANS_ELASTIC)
+		
+		# Scale kembali normal dengan efek bounce
+		tween.tween_property(submit_button, "scale", Vector2(1.0, 1.0), 0.3)
+		
+		# Rotation kembali normal
+		tween.tween_property(submit_button, "rotation", 0.0, 0.3)
+# ==========================================
+
 # --------------------------------------------------------
 func periksa_jawaban():
 	var hasil := ""
@@ -311,12 +400,19 @@ func periksa_jawaban():
 		jumlah_salah += 1
 		print("SALAH! Kesalahan ke-", jumlah_salah, " dari ", max_salah)
 		
+		# Play SFX salah setiap kali salah menjawab
 		if sfx_salah and not is_music_muted:
 			sfx_salah.play()
 		
+		# ========== HILANGKAN NYAWA ==========
+		hilangkan_nyawa(jumlah_salah)
+		await get_tree().create_timer(0.5).timeout
+		# ====================================
+		
 		if jumlah_salah >= max_salah:
 			print("GAME OVER! Terlalu banyak kesalahan")
-			await get_tree().create_timer(0.8).timeout
+			# Tunggu sebentar sebelum tampilkan popup (SFX salah sudah diputar di atas)
+			await get_tree().create_timer(0.5).timeout
 			tampilkan_popup_kalah()
 		else:
 			print("Coba lagi! Sisa kesempatan: ", max_salah - jumlah_salah)
@@ -404,11 +500,8 @@ func tampilkan_popup_kalah():
 		bgm_gameplay.stop()
 	# ===========================================
 	
-	if sfx_salah and not is_music_muted:
-		sfx_salah.play()
-	
-	await get_tree().create_timer(0.3).timeout
-	
+	# SFX salah sudah diputar di periksa_jawaban(), jadi tidak perlu diputar lagi di sini
+	# Langsung play BGM game over
 	if bgm_gameover and not is_music_muted:
 		bgm_gameover.play()
 	
@@ -458,6 +551,7 @@ func _on_popup_kalah_closed():
 	if blur_overlay:
 		blur_overlay.queue_free()
 		blur_overlay = null
+
 # =========================================================
 #                RESET GAME UNTUK COBA LAGI
 # =========================================================
@@ -506,6 +600,10 @@ func reset_game():
 	if bgm_gameplay and not is_music_muted:
 		bgm_gameplay.play()
 		print("✅ Background music dimainkan")
+
+	# ========== RESET NYAWA ==========
+	setup_nyawa()
+	# ================================
 
 	# Shuffle soal agar tidak sama
 	soal.shuffle()
