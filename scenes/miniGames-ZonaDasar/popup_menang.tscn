@@ -1,22 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://gm002h6xt055"]
+[gd_scene load_steps=11 format=3 uid="uid://gm002h6xt055"]
 
 [ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames-ZonaTengah/popup_menang.gd" id="1_c8q4h"]
-[ext_resource type="Texture2D" uid="uid://bilrymmgf53uu" path="res://scenes/miniGames/bgpopup.png" id="2_c4l2m"]
-[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames/PassionOne-Regular.ttf" id="3_ns4mm"]
+[ext_resource type="Texture2D" uid="uid://fmqnqdg6fwpi" path="res://scenes/miniGames-ZonaDasar/popupending.png" id="2_t17qp"]
 [ext_resource type="Texture2D" uid="uid://ck0vcu3cnv1kj" path="res://scenes/miniGames/btn1.png" id="4_xp81k"]
 [ext_resource type="Texture2D" uid="uid://ci0c507d1t6bl" path="res://scenes/miniGames/btn2.png" id="5_6fmew"]
-[ext_resource type="Texture2D" uid="uid://qhr30m3umd50" path="res://scenes/miniGames/harta.png" id="6_b2mjc"]
+[ext_resource type="Texture2D" uid="uid://b0tvhs3g4k81c" path="res://scenes/miniGames-ZonaDasar/medal.png" id="6_c8q4h"]
 [ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames/Bungee-Regular.ttf" id="7_ybsa1"]
-[ext_resource type="Texture2D" uid="uid://c1awndlqy01tx" path="res://scenes/miniGames-ZonaDasar/zona_semua.jpeg" id="8_c8q4h"]
+[ext_resource type="Texture2D" uid="uid://dkphy1ioxxskg" path="res://scenes/miniGames-ZonaDasar/popup_dasar_2.png" id="8_c4l2m"]
 
 [sub_resource type="Theme" id="Theme_0pxy3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4wyd"]
-texture = ExtResource("2_c4l2m")
-
-[sub_resource type="LabelSettings" id="LabelSettings_6blgj"]
-font = ExtResource("3_ns4mm")
-font_size = 61
+texture = ExtResource("2_t17qp")
 
 [sub_resource type="LabelSettings" id="LabelSettings_28vn4"]
 font = ExtResource("7_ybsa1")
@@ -52,33 +47,14 @@ grow_vertical = 2
 theme = SubResource("Theme_0pxy3")
 theme_override_styles/panel = SubResource("StyleBoxTexture_f4wyd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="popup_menang"]
-anchors_preset = -1
-anchor_left = 0.287
-anchor_top = 0.194
-anchor_right = 0.74100006
-anchor_bottom = 0.87500006
-offset_left = -50.359985
-offset_top = -0.68000793
-offset_right = 45.519897
-offset_bottom = 22.999939
-
-[node name="Label" type="Label" parent="popup_menang/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "KAMU BERHASIL"
-label_settings = SubResource("LabelSettings_6blgj")
-horizontal_alignment = 1
-vertical_alignment = 3
-
 [node name="btn_lanjut" type="TextureButton" parent="popup_menang"]
 anchors_preset = -1
 anchor_left = 0.48400003
 anchor_top = 0.65400004
 anchor_right = 0.68600005
 anchor_bottom = 0.87200004
-offset_left = 0.47998047
-offset_top = 0.1199646
+offset_left = -2.5200195
+offset_top = 1.1199646
 offset_right = -0.080078125
 offset_bottom = 13.159973
 size_flags_horizontal = 4
@@ -103,39 +79,39 @@ stretch_mode = 0
 
 [node name="harta" type="TextureRect" parent="popup_menang"]
 anchors_preset = -1
-anchor_left = 0.441
-anchor_top = 0.324
-anchor_right = 0.577
-anchor_bottom = 0.544
-offset_left = 0.5199585
-offset_top = -0.27999878
-offset_right = -0.5600586
-offset_bottom = 0.3199768
-texture = ExtResource("6_b2mjc")
+anchor_left = 0.42200002
+anchor_top = 0.32200003
+anchor_right = 0.609
+anchor_bottom = 0.63100004
+offset_left = -0.16003418
+offset_top = -9.840027
+offset_right = -4.5200195
+offset_bottom = -20.320038
+texture = ExtResource("6_c8q4h")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="popup_menang"]
 anchors_preset = -1
-anchor_left = 0.46500003
-anchor_top = 0.551
-anchor_right = 0.63900006
-anchor_bottom = 0.596
-offset_left = -0.20007324
-offset_top = 0.27999878
-offset_right = 0.079956055
-offset_bottom = 0.87997437
-text = "Selamat :"
+anchor_left = 0.437
+anchor_top = 0.54700005
+anchor_right = 0.595
+anchor_bottom = 0.587
+offset_left = 0.64001465
+offset_top = 0.15997314
+offset_right = -0.6000366
+offset_bottom = 1.3599854
+text = "GELAR BARUMU!!"
 label_settings = SubResource("LabelSettings_28vn4")
 
 [node name="zona" type="TextureRect" parent="popup_menang"]
 anchors_preset = -1
-anchor_left = 0.40600002
-anchor_top = 0.59400004
-anchor_right = 0.61200005
-anchor_bottom = 0.68700004
-offset_left = 0.3199463
-offset_top = 0.3199768
-offset_right = 0.6399536
-offset_bottom = 0.35998535
-texture = ExtResource("8_c8q4h")
+anchor_left = 0.41900003
+anchor_top = 0.58900005
+anchor_right = 0.61600006
+anchor_bottom = 0.694
+offset_left = -0.32006836
+offset_top = -0.08004761
+offset_right = -0.48010254
+offset_bottom = 0.32000732
+texture = ExtResource("8_c4l2m")
 expand_mode = 1
