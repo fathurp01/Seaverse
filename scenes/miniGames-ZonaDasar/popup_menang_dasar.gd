@@ -10,16 +10,15 @@ signal popup_closed
 @onready var harta = $popup_menang/harta
 @onready var label_berhasil = $popup_menang/VBoxContainer/Label
 @onready var label_hadiah = $popup_menang/Label
-@onready var zona = $popup_menang/zona
+@onready var zona = $popup_menang/zona_selesai
 
 # Dictionary untuk gambar zona (sesuaikan dengan path gambar Anda)
 var zona_images = {
-	"zona_tengah": "res://scenes/miniGames/zona_tengah.png",
-	"zona_dasar": "res://scenes/miniGames-ZonaDasar/popup_dasar_2.png"
+	"zona_selesai": "res://scenes/miniGames-ZonaDasar/popup_dasar_2.png"
 }
 
 # Variabel untuk menyimpan zona yang dipilih
-var current_zona = "zona_tengah"  # Default zona
+var current_zona = "zona_selesai"  # Default zona
 
 func _ready():
 	# Koneksi tombol selesai
@@ -225,7 +224,6 @@ func _on_selesai_pressed():
 	_animate_button_press(btn_selesai)
 	
 	await hide_popup()
-	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
 
 func _animate_button_press(button: Control):

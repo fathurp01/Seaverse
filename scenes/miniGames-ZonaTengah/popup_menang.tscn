@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://ohgvfaggsxh5"]
 
 [ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames-ZonaTengah/popup_menang.gd" id="1_rxdwn"]
-[ext_resource type="Texture2D" uid="uid://bilrymmgf53uu" path="res://scenes/miniGames/bgpopup.png" id="2_63mcu"]
-[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames/PassionOne-Regular.ttf" id="3_yyb4m"]
-[ext_resource type="Texture2D" uid="uid://ck0vcu3cnv1kj" path="res://scenes/miniGames/btn1.png" id="4_8dtl6"]
-[ext_resource type="Texture2D" uid="uid://ci0c507d1t6bl" path="res://scenes/miniGames/btn2.png" id="5_x8sal"]
-[ext_resource type="Texture2D" uid="uid://qhr30m3umd50" path="res://scenes/miniGames/harta.png" id="6_yd2pe"]
-[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames/Bungee-Regular.ttf" id="7_3mp0l"]
-[ext_resource type="Texture2D" uid="uid://mxkb125f71b8" path="res://scenes/miniGames/zona_dasar.png" id="8_rxdwn"]
+[ext_resource type="Texture2D" uid="uid://bilrymmgf53uu" path="res://scenes/miniGames-ZonaTengah/bgpopup.png" id="2_63mcu"]
+[ext_resource type="FontFile" uid="uid://b05j3g244ixud" path="res://scenes/miniGames-ZonaTengah/PassionOne-Regular.ttf" id="3_yyb4m"]
+[ext_resource type="Texture2D" uid="uid://ck0vcu3cnv1kj" path="res://scenes/miniGames-ZonaTengah/btn1.png" id="4_8dtl6"]
+[ext_resource type="Texture2D" uid="uid://ci0c507d1t6bl" path="res://scenes/miniGames-ZonaTengah/btn2.png" id="5_x8sal"]
+[ext_resource type="Texture2D" uid="uid://qhr30m3umd50" path="res://scenes/miniGames-ZonaTengah/harta.png" id="6_yd2pe"]
+[ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames-ZonaTengah/Bungee-Regular.ttf" id="7_3mp0l"]
+[ext_resource type="Texture2D" uid="uid://mxkb125f71b8" path="res://scenes/miniGames-ZonaTengah/zona_dasar.png" id="8_rxdwn"]
 
 [sub_resource type="Theme" id="Theme_0pxy3"]
 
@@ -86,6 +86,7 @@ size_flags_vertical = 8
 texture_normal = ExtResource("4_8dtl6")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("1_rxdwn")
 
 [node name="btn_kembali" type="TextureButton" parent="popup_menang"]
 anchors_preset = -1
