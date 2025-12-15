@@ -297,6 +297,7 @@ notification_position = 1
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_py88s")
 autoplay = true
+parameters/looping = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("20_y4sbw")
