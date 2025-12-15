@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dm514eld844db" path="res://scenes/miniGames-ZonaTengah/popup_menang.gd" id="1_c8q4h"]
 [ext_resource type="Texture2D" uid="uid://fmqnqdg6fwpi" path="res://scenes/miniGames-ZonaDasar/popupending.png" id="2_t17qp"]
-[ext_resource type="Texture2D" path="res://scenes/miniGames-ZonaDasar/btn_selesai.png" id="3_mt6pu"]
+[ext_resource type="Texture2D" uid="uid://dwf7mbs5syjka" path="res://scenes/miniGames-ZonaDasar/btn_selesai.png" id="3_mt6pu"]
 [ext_resource type="Texture2D" uid="uid://b0tvhs3g4k81c" path="res://scenes/miniGames-ZonaDasar/medal.png" id="6_c8q4h"]
 [ext_resource type="FontFile" uid="uid://bogpjh6pane6b" path="res://scenes/miniGames/Bungee-Regular.ttf" id="7_ybsa1"]
-[ext_resource type="Texture2D" uid="uid://hoywrctuadld" path="res://scenes/miniGames-ZonaDasar/popup_dasar_2.png" id="8_c4l2m"]
+[ext_resource type="Texture2D" uid="uid://dkphy1ioxxskg" path="res://scenes/miniGames-ZonaDasar/popup_dasar_2.png" id="8_c4l2m"]
 
 [sub_resource type="Theme" id="Theme_0pxy3"]
 

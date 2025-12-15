@@ -6,7 +6,8 @@ signal popup_closed
 @onready var popup_container = $popup_menang
 @onready var panel = $Panel
 @onready var vbox_container = $popup_menang/VBoxContainer
-@onready var btn_selesai = $popup_menang/btn_selesai # Node tombol baru
+@onready var btn_kembali = $popup_menang/btn_kembali
+@onready var btn_lanjut = $popup_menang/btn_lanjut
 @onready var harta = $popup_menang/harta
 @onready var label_berhasil = $popup_menang/VBoxContainer/Label
 @onready var label_hadiah = $popup_menang/Label
@@ -15,18 +16,30 @@ signal popup_closed
 # Dictionary untuk gambar zona (sesuaikan dengan path gambar Anda)
 var zona_images = {
 	"zona_tengah": "res://scenes/miniGames/zona_tengah.png",
-	"zona_dasar": "res://scenes/miniGames-ZonaDasar/popup_dasar_2.png"
+	"zona_dasar": "res://scenes/miniGames-ZonaTengah/zona_dasar.png"
 }
 
 # Variabel untuk menyimpan zona yang dipilih
 var current_zona = "zona_dasar"  # Default zona
 
 func _ready():
-	# Koneksi tombol selesai
-	if btn_selesai:
-		btn_selesai.pressed.connect(_on_selesai_pressed)
+	# Debug print untuk memastikan node ada
+	print("=== POPUP MENANG DEBUG ===")
+	print("btn_kembali exists: ", btn_kembali != null)
+	print("btn_lanjut exists: ", btn_lanjut != null)
+	
+	# Koneksi tombol
+	if btn_kembali:
+		btn_kembali.pressed.connect(_on_kembali_pressed)
+		print("✅ btn_kembali connected")
 	else:
-		print("⚠️ Warning: Node 'btn_selesai' tidak ditemukan di path $popup_menang/btn_selesai")
+		print("❌ btn_kembali NOT FOUND!")
+	
+	if btn_lanjut:
+		btn_lanjut.pressed.connect(_on_lanjut_pressed)
+		print("✅ btn_lanjut connected")
+	else:
+		print("❌ btn_lanjut NOT FOUND!")
 	
 	# Set gambar zona sesuai dengan zona yang didapat
 	set_zona_image(current_zona)
@@ -190,6 +203,8 @@ func _animate_zona_appear():
 
 func hide_popup():
 	"""Sembunyikan popup dengan animasi slide dan fade"""
+	print("🔽 hide_popup() dipanggil")
+	
 	var tween = create_tween()
 	tween.set_parallel(true)
 	tween.set_ease(Tween.EASE_IN)
@@ -214,25 +229,65 @@ func hide_popup():
 	
 	# Tunggu animasi selesai
 	await tween.finished
+	print("✅ Animasi hide selesai")
 	emit_signal("popup_closed")
 	queue_free()
 
-func _on_selesai_pressed():
-	"""Handler tombol selesai (menggantikan lanjut/kembali)"""
-	print("✅ Selesai ditekan - Pindah ke Seaverse")
+func _on_kembali_pressed():
+	"""Handler tombol kembali - kembali ke zona tengah"""
+	print("🔙 =================================")
+	print("🔙 KEMBALI DITEKAN!")
+	print("🔙 Akan pindah ke: res://scenes/explorations/zona_tengah.tscn")
+	print("🔙 =================================")
 	
 	# Animasi tombol ditekan
-	_animate_button_press(btn_selesai)
+	_animate_button_press(btn_kembali)
 	
+	# Tunggu sebentar untuk animasi tombol
+	await get_tree().create_timer(0.2).timeout
+	
+	# Hide popup dulu
 	await hide_popup()
-	# Ganti scene ke seaverse_animated_bg.tscn
-	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+	
+	# Pindah scene
+	print("🔄 Memanggil change_scene_to_file...")
+	var error = get_tree().change_scene_to_file("res://scenes/explorations/zona_tengah.tscn")
+	if error != OK:
+		print("❌ ERROR ganti scene: ", error)
+	else:
+		print("✅ Scene change berhasil dipanggil")
+
+func _on_lanjut_pressed():
+	"""Handler tombol lanjut - ke zone menu"""
+	print("▶️ =================================")
+	print("▶️ LANJUT DITEKAN!")
+	print("▶️ Akan pindah ke: res://scenes/explorations/zone_menu.tscn")
+	print("▶️ =================================")
+	
+	# Animasi tombol ditekan
+	_animate_button_press(btn_lanjut)
+	
+	# Tunggu sebentar untuk animasi tombol
+	await get_tree().create_timer(0.2).timeout
+	
+	# Hide popup dulu
+	await hide_popup()
+	
+	# Pindah scene
+	print("🔄 Memanggil change_scene_to_file...")
+	var error = get_tree().change_scene_to_file("res://scenes/explorations/zone_menu.tscn")
+	if error != OK:
+		print("❌ ERROR ganti scene: ", error)
+	else:
+		print("✅ Scene change berhasil dipanggil")
 
 func _animate_button_press(button: Control):
 	"""Animasi feedback saat tombol ditekan"""
 	if not button:
+		print("⚠️ Button is null, skip animation")
 		return
 	
+	print("🎬 Animasi button press...")
 	var tween = create_tween()
 	tween.tween_property(button, "scale", Vector2(0.9, 0.9), 0.1)
 	tween.tween_property(button, "scale", Vector2(1.0, 1.0), 0.1)
