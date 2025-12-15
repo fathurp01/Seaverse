@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bfoi2dpaf6j6i"]
+[gd_scene load_steps=32 format=3 uid="uid://bfoi2dpaf6j6i"]
 
 [ext_resource type="Texture2D" uid="uid://jb0mkxudnhnq" path="res://assets/Zona-Tengah/bg_zona_tengah.png" id="1_06yii"]
 [ext_resource type="Script" uid="uid://dhhtouxrm3c6s" path="res://scenes/explorations/submarine_tengah.gd" id="2_1r1br"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://c4dd2jcf612a0" path="res://scenes/explorations/camera_2d.gd" id="13_g4tg0"]
 [ext_resource type="PackedScene" uid="uid://b3xl4cy3sii45" path="res://scenes/explorations/whirlpool_2.tscn" id="18_ru0tb"]
 [ext_resource type="AudioStream" uid="uid://dodpwh1gctlvq" path="res://assets/sounds/Exploration_Music_Pertengahan.mp3" id="19_b6c8d"]
+[ext_resource type="Script" uid="uid://iyxajykkharx" path="res://scenes/explorations/ui_tutorial.gd" id="20_c4xmk"]
 
 [sub_resource type="Gradient" id="Gradient_n8xjd"]
 colors = PackedColorArray(0, 0, 0, 1, 0.003921569, 0.06666667, 0.15294118, 1)
@@ -274,3 +275,42 @@ notification_position = 1
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_b6c8d")
 autoplay = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("20_c4xmk")
+
+[node name="BtnTutorial" type="Button" parent="UI"]
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 34.0
+text = "❓"
+
+[node name="TutorialPanel" type="Panel" parent="UI"]
+process_mode = 2
+offset_right = 437.0
+offset_bottom = 224.0
+
+[node name="Label" type="Label" parent="UI/TutorialPanel"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 3.0
+offset_right = 339.0
+offset_bottom = 182.0
+text = "🎮 Tutorial Bermain:
+← : Gerak kiri
+→ : Gerak kanan
+↑ : Naik
+↓ : Turun
+- Semakin dalam, kapal makin lambat
+- Dekati ikan untuk melihat info
+- Temukan 10 ikan untuk membuka pusaran air"
+
+[node name="BtnTutup" type="Button" parent="UI/TutorialPanel"]
+process_mode = 2
+layout_mode = 0
+offset_left = 397.0
+offset_top = 1.0
+offset_right = 437.0
+offset_bottom = 41.0
+text = "X"

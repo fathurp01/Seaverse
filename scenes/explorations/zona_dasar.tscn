@@ -1,6 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://bykgdjv7n5m4c"]
+[gd_scene load_steps=30 format=3 uid="uid://bykgdjv7n5m4c"]
 
-[ext_resource type="Texture2D" uid="uid://dmq4wqje8t3on" path="res://assets/Zona-Dasar/Bg_dua.png" id="2_vsg5l"]
+[ext_resource type="Texture2D" uid="uid://cm2jp15dnhplc" path="res://assets/Zona-Dasar/Bg_dua.png" id="2_vsg5l"]
 [ext_resource type="Texture2D" uid="uid://qe854mc1641r" path="res://assets/seaverse_icon.png" id="3_8sav5"]
 [ext_resource type="Script" uid="uid://bn0813afw7vfm" path="res://scenes/explorations/submarine_dasar.gd" id="4_yee8m"]
 [ext_resource type="Texture2D" uid="uid://b14ah7pkbj7ay" path="res://assets/Zona-Dasar/kapal.png" id="5_au1i2"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://budfbyvvdsoky" path="res://assets/Zona-Dasar/Giant Amphipod.png" id="15_vsg5l"]
 [ext_resource type="Texture2D" uid="uid://cll5aqnxxnwvw" path="res://assets/Zona-Dasar/Snailfish.png" id="16_16ldu"]
 [ext_resource type="PackedScene" uid="uid://ctw0rumo3pl5p" path="res://scenes/explorations/whirlpool_3.tscn" id="18_yr86c"]
+[ext_resource type="Script" uid="uid://iyxajykkharx" path="res://scenes/explorations/ui_tutorial.gd" id="19_arqsu"]
 [ext_resource type="AudioStream" uid="uid://ciw0qjqfi66gh" path="res://assets/sounds/Exploration_Music_Dasar.mp3" id="19_gytvp"]
 
 [sub_resource type="GDScript" id="GDScript_yee8m"]
@@ -319,3 +320,42 @@ notification_position = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_gytvp")
 autoplay = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("19_arqsu")
+
+[node name="BtnTutorial" type="Button" parent="UI"]
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 35.0
+offset_bottom = 34.0
+text = "❓"
+
+[node name="TutorialPanel" type="Panel" parent="UI"]
+process_mode = 2
+offset_right = 437.0
+offset_bottom = 224.0
+
+[node name="Label" type="Label" parent="UI/TutorialPanel"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 3.0
+offset_right = 339.0
+offset_bottom = 182.0
+text = "🎮 Tutorial Bermain:
+← : Gerak kiri
+→ : Gerak kanan
+↑ : Naik
+↓ : Turun
+- Semakin dalam, kapal makin lambat
+- Dekati ikan untuk melihat info
+- Temukan 10 ikan untuk membuka pusaran air"
+
+[node name="BtnTutup" type="Button" parent="UI/TutorialPanel"]
+process_mode = 2
+layout_mode = 0
+offset_left = 397.0
+offset_top = 1.0
+offset_right = 437.0
+offset_bottom = 41.0
+text = "X"
