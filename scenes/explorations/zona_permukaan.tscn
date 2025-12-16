@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://ch1d88oeaqw50" path="res://assets/sounds/Exploration_Music_Permukaan.mp3" id="18_py88s"]
 [ext_resource type="PackedScene" uid="uid://chjm748nnlkm2" path="res://scenes/explorations/whirlpool.tscn" id="19_py88s"]
 [ext_resource type="Script" uid="uid://iyxajykkharx" path="res://scenes/explorations/ui_tutorial.gd" id="20_y4sbw"]
+[ext_resource type="PackedScene" uid="uid://bwj5yx5aqjy4t" path="res://scenes/explorations/mobile_controls.tscn" id="21_mobile"]
 
 [sub_resource type="Gradient" id="Gradient_ybybm"]
 colors = PackedColorArray(0, 0, 0, 1, 0.06666667, 0.40784314, 0.5294118, 1)
@@ -298,6 +299,8 @@ notification_position = 1
 stream = ExtResource("18_py88s")
 autoplay = true
 parameters/looping = true
+
+[node name="MobileControls" parent="." groups=["mobile_controls"] instance=ExtResource("21_mobile")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("20_y4sbw")

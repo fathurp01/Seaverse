@@ -26,6 +26,10 @@ var acceleration = 500.0
 var deceleration = 300.0
 var current_velocity = Vector2.ZERO
 
+# Mobile controls
+var mobile_controls = null
+var is_mobile: bool = false
+
 func _ready():
 	add_to_group("player")
 	
@@ -34,11 +38,27 @@ func _ready():
 	
 	if bubbles:
 		bubbles.emitting = false
+	
+	# Wait for scene to be ready
+	await get_tree().process_frame
+	
+	# Detect mobile controls
+	mobile_controls = get_tree().get_first_node_in_group("mobile_controls")
+	if mobile_controls:
+		is_mobile = mobile_controls.is_mobile_mode()
+		print("Submarine Dasar - Mobile mode: ", is_mobile)
 
 func _physics_process(delta):
 	var input_vec = Vector2.ZERO
-	input_vec.x = Input.get_axis("ui_left", "ui_right")
-	input_vec.y = Input.get_axis("ui_up", "ui_down")
+	
+	# Get input berdasarkan platform
+	if is_mobile and mobile_controls:
+		# Mobile: gunakan virtual joystick
+		input_vec = mobile_controls.get_joystick_direction()
+	else:
+		# Desktop: gunakan keyboard
+		input_vec.x = Input.get_axis("ui_left", "ui_right")
+		input_vec.y = Input.get_axis("ui_up", "ui_down")
 	
 	calculate_pressure_effect()
 	apply_physics(input_vec, delta)

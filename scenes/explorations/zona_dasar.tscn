@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bykgdjv7n5m4c"]
+[gd_scene load_steps=31 format=3 uid="uid://bykgdjv7n5m4c"]
 
 [ext_resource type="Texture2D" uid="uid://cm2jp15dnhplc" path="res://assets/Zona-Dasar/Bg_dua.png" id="2_vsg5l"]
 [ext_resource type="Texture2D" uid="uid://qe854mc1641r" path="res://assets/seaverse_icon.png" id="3_8sav5"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://ctw0rumo3pl5p" path="res://scenes/explorations/whirlpool_3.tscn" id="18_yr86c"]
 [ext_resource type="Script" uid="uid://iyxajykkharx" path="res://scenes/explorations/ui_tutorial.gd" id="19_arqsu"]
 [ext_resource type="AudioStream" uid="uid://ciw0qjqfi66gh" path="res://assets/sounds/Exploration_Music_Dasar.mp3" id="19_gytvp"]
+[ext_resource type="PackedScene" uid="uid://bwj5yx5aqjy4t" path="res://scenes/explorations/mobile_controls.tscn" id="21_mobile"]
 
 [sub_resource type="GDScript" id="GDScript_yee8m"]
 script/source = "extends Camera2D
@@ -321,6 +322,8 @@ notification_position = 1
 stream = ExtResource("19_gytvp")
 autoplay = true
 parameters/looping = true
+
+[node name="MobileControls" parent="." groups=["mobile_controls"] instance=ExtResource("21_mobile")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("19_arqsu")

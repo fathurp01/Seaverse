@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Seaverse"
-run/main_scene="res://scenes/start_screen.tscn"
+run/main_scene="res://scenes/loading_screen.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,12 +19,22 @@ config/icon="res://icon.svg"
 
 MusicManager="*res://scripts/music_manager.gd"
 GlobalProgress="*res://global_progress.gd"
+PlatformDetector="*res://scripts/platform_detector.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+
+[application]
+
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="res://assets/seaverse_icon.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=true
+boot_splash/show_image=true
+boot_splash/minimum_display_time=1000
 
 [input]
 
@@ -38,3 +48,4 @@ ui_cancel={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

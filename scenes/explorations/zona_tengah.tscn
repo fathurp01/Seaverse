@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b3xl4cy3sii45" path="res://scenes/explorations/whirlpool_2.tscn" id="18_ru0tb"]
 [ext_resource type="AudioStream" uid="uid://dodpwh1gctlvq" path="res://assets/sounds/Exploration_Music_Pertengahan.mp3" id="19_b6c8d"]
 [ext_resource type="Script" uid="uid://iyxajykkharx" path="res://scenes/explorations/ui_tutorial.gd" id="20_c4xmk"]
+[ext_resource type="PackedScene" uid="uid://bwj5yx5aqjy4t" path="res://scenes/explorations/mobile_controls.tscn" id="21_mobile"]
 
 [sub_resource type="Gradient" id="Gradient_n8xjd"]
 colors = PackedColorArray(0, 0, 0, 1, 0.003921569, 0.06666667, 0.15294118, 1)
@@ -276,6 +277,8 @@ notification_position = 1
 stream = ExtResource("19_b6c8d")
 autoplay = true
 parameters/looping = true
+
+[node name="MobileControls" parent="." groups=["mobile_controls"] instance=ExtResource("21_mobile")]
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("20_c4xmk")
