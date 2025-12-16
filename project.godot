@@ -13,7 +13,11 @@ config_version=5
 config/name="Seaverse"
 run/main_scene="res://scenes/loading_screen.tscn"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/fullsize=false
+boot_splash/image="res://assets/seaverse_icon.png"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
@@ -26,15 +30,6 @@ PlatformDetector="*res://scripts/platform_detector.gd"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-
-[application]
-
-boot_splash/bg_color=Color(1, 1, 1, 1)
-boot_splash/image="res://assets/seaverse_icon.png"
-boot_splash/fullsize=false
-boot_splash/use_filter=true
-boot_splash/show_image=true
-boot_splash/minimum_display_time=1000
 
 [input]
 
