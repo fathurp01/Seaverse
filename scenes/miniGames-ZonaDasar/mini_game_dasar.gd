@@ -39,6 +39,10 @@ var soal = [
 @onready var hati2 = $hati2  # Sprite2D untuk hati kedua
 # ==========================================================
 
+# ========== TAMBAHAN UNTUK INDIKATOR SOAL ==========
+@onready var label_indikator_soal = $LabelIndikatorSoal  # Label untuk menampilkan progress soal
+# ==================================================
+
 var index_soal := 0
 var kata_jawaban := ""
 
@@ -88,6 +92,10 @@ func _ready():
 	# ===========================================
 	
 	muat_soal()
+	
+	# ========== UPDATE INDIKATOR PERTAMA KALI ==========
+	update_indikator_soal()
+	# ==================================================
 
 # ========== SETUP TAMPILAN BUTTON MUSIC ==========
 func setup_music_buttons():
@@ -152,6 +160,21 @@ func hilangkan_nyawa(nomor_kesalahan: int):
 		await tween.finished
 		hati_target.visible = false
 		print("❤️ Hati ke-", nomor_kesalahan, " hilang!")
+# ==========================================
+
+# ========== UPDATE INDIKATOR SOAL ==========
+func update_indikator_soal():
+	"""Update tampilan indikator soal (contoh: Soal 0/7)"""
+	if label_indikator_soal:
+		label_indikator_soal.text = str(jumlah_benar) + "/" + str(target_soal)
+		print("📊 Indikator soal diupdate: ", label_indikator_soal.text)
+		
+		# Animasi bounce saat update
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		tween.set_trans(Tween.TRANS_ELASTIC)
+		label_indikator_soal.scale = Vector2(0.8, 0.8)
+		tween.tween_property(label_indikator_soal, "scale", Vector2(1.0, 1.0), 0.5)
 # ==========================================
 
 # ========== HANDLER BUTTON MUTE ==========
@@ -378,6 +401,10 @@ func periksa_jawaban():
 	if hasil == kata_jawaban:
 		jumlah_benar += 1
 		print("BENAR! Soal ke-", jumlah_benar, " dari ", target_soal)
+		
+		# ========== UPDATE INDIKATOR SETELAH JAWABAN BENAR ==========
+		update_indikator_soal()
+		# ===========================================================
 		
 		if sfx_benar and not is_music_muted:
 			sfx_benar.play()
@@ -612,4 +639,9 @@ func reset_game():
 	# Muat ulang soal pertama
 	muat_soal()
 	print("✅ Soal pertama dimuat")
+	
+	# ========== UPDATE INDIKATOR SAAT RESET ==========
+	update_indikator_soal()
+	# ================================================
+	
 	print("========== RESET SELESAI! ==========\n")

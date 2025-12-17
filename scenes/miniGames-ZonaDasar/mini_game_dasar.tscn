@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://1wiku8otqgry"]
+[gd_scene load_steps=17 format=3 uid="uid://1wiku8otqgry"]
 
 [ext_resource type="Script" uid="uid://b3h0bnn00awnn" path="res://scenes/miniGames-ZonaDasar/mini_game_dasar.gd" id="1_pwr2y"]
 [ext_resource type="Texture2D" uid="uid://c8odr5ask4ubw" path="res://scenes/miniGames-ZonaDasar/bg_dasar.png" id="2_4ybjm"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://g1bj4lxjdt5n" path="res://scenes/miniGames/btn_music.png" id="11_cjgxl"]
 [ext_resource type="AudioStream" uid="uid://n0vkmh4yx4bd" path="res://scenes/miniGames/musiccc.mp3" id="12_kef5k"]
 [ext_resource type="Texture2D" uid="uid://1e0bb0sns40o" path="res://scenes/miniGames/hati1.png" id="13_4ybjm"]
+[ext_resource type="Texture2D" uid="uid://de7rvvd46nvqd" path="res://scenes/miniGames/indikator_soal.png" id="14_syefr"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lnvvh"]
 texture = ExtResource("3_syefr")
@@ -175,3 +176,23 @@ texture = ExtResource("13_4ybjm")
 position = Vector2(212, 63)
 scale = Vector2(0.284, 0.284)
 texture = ExtResource("13_4ybjm")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 127.0
+offset_right = 172.0
+offset_bottom = 268.0
+texture = ExtResource("14_syefr")
+expand_mode = 1
+
+[node name="LabelIndikatorSoal" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 169.0
+offset_right = 122.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0.8980392, 0.49803922, 0.63529414, 1)
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
