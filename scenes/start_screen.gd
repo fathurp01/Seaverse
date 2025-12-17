@@ -8,8 +8,18 @@ var is_animating: bool = false
 @onready var btn_mute = $seaverse_animated_bg/btn_mute
 @onready var btn_music = $seaverse_animated_bg/btn_music
 
+# Handler untuk window close
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		# Reset progress sebelum keluar
+		GlobalProgress.reset()
+		get_tree().quit()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Reset progress setiap kali game dimulai
+	GlobalProgress.reset()
+	
 	# Mulai memutar musik opening
 	MusicManager.play_opening_music()
 	
@@ -35,6 +45,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Tombol ESC untuk exit game di start screen
 	if Input.is_action_just_pressed("ui_cancel"):
+		# Reset progress sebelum keluar
+		GlobalProgress.reset()
 		get_tree().quit()
 
 

@@ -22,3 +22,15 @@ func load():
 		zona_permukaan_completed = data.get("zona_permukaan_completed", false)
 		zona_tengah_completed = data.get("zona_tengah_completed", false)
 		zona_dasar_completed = data.get("zona_dasar_completed", false)
+
+func reset():
+	"""Reset semua progress ke default (false)"""
+	zona_permukaan_completed = false
+	zona_tengah_completed = false
+	zona_dasar_completed = false
+	
+	# Hapus file save jika ada
+	if FileAccess.file_exists("user://progress.json"):
+		DirAccess.remove_absolute("user://progress.json")
+	
+	print("Progress game telah direset!")
