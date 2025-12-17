@@ -10,15 +10,15 @@ var depth := 1000
 var surface_y := 470
 
 # === SISTEM FISIKA ===
-var base_speed = 400.0
-var current_speed = 400.0
+var base_speed = 200.0
+var current_speed = 200.0
 var gravity_force = 150.0
 var buoyancy_force = 50.0
 var water_resistance = 0.95
 
 # Pressure system
-var pressure_start_depth = 1350
-var max_pressure_depth = 1400
+var pressure_start_depth = 1000
+var max_pressure_depth = 1100
 var min_speed_ratio = 0.3
 
 # Momentum system

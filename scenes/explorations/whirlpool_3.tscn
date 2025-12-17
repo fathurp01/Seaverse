@@ -46,6 +46,7 @@ _data = {
 
 [node name="whirlpool_3" type="Area2D"]
 script = ExtResource("1_8l430")
+notification_text = "WHIRLPOOL MUNCUL!"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.342, 0.342)

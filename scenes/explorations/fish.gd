@@ -63,7 +63,7 @@ func setup_labels():
 	
 	var fact_label = get_node_or_null("InfoPopup/Panel/VBoxContainer/FishFactLabel")
 	if fact_label:
-		fact_label.text = "⭐ " + fish_fact
+		fact_label.text = fish_fact
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):

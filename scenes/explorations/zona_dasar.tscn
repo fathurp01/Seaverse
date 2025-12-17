@@ -333,12 +333,12 @@ offset_left = 5.0
 offset_top = 3.0
 offset_right = 35.0
 offset_bottom = 34.0
-text = "❓"
+text = "?"
 
 [node name="TutorialPanel" type="Panel" parent="UI"]
 process_mode = 2
-offset_right = 437.0
-offset_bottom = 224.0
+offset_right = 455.0
+offset_bottom = 258.0
 
 [node name="Label" type="Label" parent="UI/TutorialPanel"]
 layout_mode = 0
@@ -346,11 +346,12 @@ offset_left = 49.0
 offset_top = 3.0
 offset_right = 339.0
 offset_bottom = 182.0
-text = "🎮 Tutorial Bermain:
-← : Gerak kiri
-→ : Gerak kanan
-↑ : Naik
-↓ : Turun
+text = "Tutorial Bermain :
+- Tekan Panah Kiri untuk bergerak ke kiri
+- Tekan Panah Kanan untuk bergerak ke kanan
+- Tekan Panah Atas untuk naik
+- Tekan Panah Bawah untuk turun
+Catatan Bermain :
 - Semakin dalam, kapal makin lambat
 - Dekati ikan untuk melihat info
 - Temukan 10 ikan untuk membuka pusaran air"
@@ -358,8 +359,8 @@ text = "🎮 Tutorial Bermain:
 [node name="BtnTutup" type="Button" parent="UI/TutorialPanel"]
 process_mode = 2
 layout_mode = 0
-offset_left = 397.0
+offset_left = 414.0
 offset_top = 1.0
-offset_right = 437.0
+offset_right = 454.0
 offset_bottom = 41.0
 text = "X"
