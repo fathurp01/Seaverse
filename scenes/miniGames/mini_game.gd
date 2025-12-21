@@ -12,7 +12,7 @@ var soal = [
 	{"img": "res://assets/Zona-Permukaan/kuda-laut.png", "jawaban": "KUDALAUT"},
 	{"img": "res://assets/Zona-Permukaan/lumba-lumba.png", "jawaban": "LUMBALUMBA"},
 	{"img": "res://assets/Zona-Permukaan/makarel.png", "jawaban": "MAKAREL"},
-	{"img": "res://assets/Zona-Permukaan/mantaray.png", "jawaban": "MANTARAY"},
+	{"img": "res://assets/Zona-Permukaan/mantaray.png", "jawaban": "PARIMANTA"},
 	{"img": "res://assets/Zona-Permukaan/nemo.png", "jawaban": "NEMO"}
 ]
 

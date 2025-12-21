@@ -151,7 +151,7 @@ popup_sound = ExtResource("4_tlol5")
 
 [node name="Fish5" parent="." instance=ExtResource("2_n8xjd")]
 position = Vector2(260, 2308)
-fish_name = "Kepiting Laut Dalam"
+fish_name = "Kepiting Merah"
 fish_description = "Kepiting ini hidup di tempat paling gelap dan dingin di dasar laut. Seperti kepiting lain, mereka punya cangkang keras dan capit, tapi mereka seringkali berwarna merah atau pucat."
 fish_fact = "Fakta seru tentang Kepiting Laut Dalam: Karena sangat sulit mencari makan di laut dalam, kepiting ini punya pertumbuhan yang sangat lambat, dan beberapa jenis bisa hidup sangat lama karena suhu dingin."
 fish_sprite = ExtResource("7_tlol5")

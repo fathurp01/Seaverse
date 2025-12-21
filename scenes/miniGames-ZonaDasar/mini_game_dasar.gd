@@ -5,12 +5,12 @@ extends Control
 # --------------------------------------------------------
 var soal = [
 	{"img": "res://assets/Zona-Dasar/Blob Fish.png", "jawaban": "IKANBLOB"},
-	{"img": "res://assets/Zona-Dasar/Deep Sea Crab.png", "jawaban": "KEPITINGLAUTDALAM"},
+	{"img": "res://assets/Zona-Dasar/kepiting-yeti.png", "jawaban": "KEPITINGYETI"},
 	{"img": "res://assets/Zona-Dasar/Dumbo Octopus.png", "jawaban": "GURITADUMBO"},
 	{"img": "res://assets/Zona-Dasar/Giant Amphipod.png", "jawaban": "AMFIPODARAKSASA"},
 	{"img": "res://assets/Zona-Dasar/Medusa Jellyfish.png", "jawaban": "UBURUBURMEDUSA"},
 	{"img": "res://assets/Zona-Dasar/Rattail Fish.png", "jawaban": "IKANGRENADIER"},
-	{"img": "res://assets/Zona-Dasar/Sixgil Shark.png", "jawaban": "HIUENAMINSANG"},
+	{"img": "res://assets/Zona-Dasar/Sixgil Shark.png", "jawaban": "HIUSAPI"},
 	{"img": "res://assets/Zona-Dasar/Snailfish.png", "jawaban": "IKANSIPUTHADAL"},
 	{"img": "res://assets/Zona-Dasar/Snipe Ell.png", "jawaban": "BELUTSNIPE"},
 	{"img": "res://assets/Zona-Dasar/Tripod Fish.png", "jawaban": "IKANTRIPOD"}

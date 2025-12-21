@@ -7,7 +7,7 @@ var soal = [
 	{"img": "res://assets/Zona-Tengah/blue-shark.png", "jawaban": "HIUBIRU"},
 	{"img": "res://assets/Zona-Tengah/eel.png", "jawaban": "BELUTPELAHAP"},
 	{"img": "res://assets/Zona-Tengah/isopod.png", "jawaban": "ISOPODA"},
-	{"img": "res://assets/Zona-Tengah/kepiting.png", "jawaban": "KEPITING"},
+	{"img": "res://assets/Zona-Tengah/kepiting.png", "jawaban": "KEPITINGMERAH"},
 	{"img": "res://assets/Zona-Tengah/lanternifish.png", "jawaban": "IKANLENTERA"},
 	{"img": "res://assets/Zona-Tengah/pelagic.png", "jawaban": "PELAGIK"},
 	{"img": "res://assets/Zona-Tengah/sabertooth.png", "jawaban": "IKANGIGIPEDANG"},
